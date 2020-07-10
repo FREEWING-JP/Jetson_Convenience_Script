@@ -1,0 +1,32 @@
+--- run.py	2020-07-02 20:44:28.191246781 -0400
++++ run_mod.py	2020-07-02 08:26:13.000000000 -0400
+@@ -2,6 +2,7 @@
+ import logging
+ import sys
+ import time
++import os
+ 
+ from tf_pose import common
+ import cv2
+@@ -55,6 +56,10 @@
+     try:
+         import matplotlib.pyplot as plt
+ 
++        basename = os.path.splitext(os.path.basename(args.image))[0]
++        plt.imsave(basename + "_org.png", cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
++        # plt.imsave(basename + "_orgr.png", image)
++
+         fig = plt.figure()
+         a = fig.add_subplot(2, 2, 1)
+         a.set_title('Result')
+@@ -85,6 +90,10 @@
+         # plt.imshow(CocoPose.get_bgimg(inp, target_size=(vectmap.shape[1], vectmap.shape[0])), alpha=0.5)
+         plt.imshow(tmp2_even, cmap=plt.cm.gray, alpha=0.5)
+         plt.colorbar()
++
++        fig.savefig(basename + "_graph.png")
++        # plt.savefig('output_graph.png')
++        # SSH terminal comment below "plt.show()"
+         plt.show()
+     except Exception as e:
+         logger.warning('matplitlib error, %s' % e)

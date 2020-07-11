@@ -17,6 +17,7 @@ if [ $tegra_cip_id = "33" ]; then
   PS1="\[\033[44m\]N\[\033[00m\] ${PS1}"
 fi
 
+echo '# Color Command Prompt' >> ~/.bashrc
 echo "PS1='$PS1'" >> ~/.bashrc
 
 # ===

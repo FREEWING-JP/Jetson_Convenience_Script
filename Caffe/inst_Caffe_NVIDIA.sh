@@ -122,7 +122,7 @@ fi
 
 # ===
 # OpenBlas
-sed -i 's/BLAS :=.*/BLAS := open/' Makefile.config
+sed -i 's/^BLAS :=.*/BLAS := open/' Makefile.config
 
 
 # ===

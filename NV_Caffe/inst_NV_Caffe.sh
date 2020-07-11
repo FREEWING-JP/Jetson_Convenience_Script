@@ -52,6 +52,8 @@ if [ $OPENCV_VERSION = 4 ]; then
   echo "Caffe OpenCV 4.x patch"
 
   # ===
+  # for Python 3
+  # AttributeError: module 'caffe' has no attribute '__version__'
   sudo apt-get -y install pkg-config
   sudo apt-get -y install python3-dev python3-numpy python3-pip
 

@@ -177,6 +177,7 @@ fi
 # Python Caffe distribute
 make pycaffe
 make distribute
+sudo ldconfig
 
 
 # export CAFFE_HOME=/home/user/caffe
@@ -195,9 +196,16 @@ export LD_LIBRARY_PATH=${CAFFE_HOME}/distribute/lib:$LD_LIBRARY_PATH
 
 # ===
 # add Caffe environment variable
-echo "export CAFFE_HOME=${CAFFE_HOME}" >> ~/.bashrc
-echo 'export PYTHONPATH=${CAFFE_HOME}/python:$PYTHONPATH' >> ~/.bashrc
-echo 'export LD_LIBRARY_PATH=${CAFFE_HOME}/distribute/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+grep "^export CAFFE_HOME=" ~/.bashrc
+if [ $? = 0 ]; then
+  # 2nd
+  sed -i "s/^export CAFFE_HOME=.*/export CAFFE_HOME=${CAFFE_HOME}/" ~/.bashrc
+else
+  # 1st
+  echo "export CAFFE_HOME=${CAFFE_HOME}" >> ~/.bashrc
+  echo 'export PYTHONPATH=${CAFFE_HOME}/python:$PYTHONPATH' >> ~/.bashrc
+  echo 'export LD_LIBRARY_PATH=${CAFFE_HOME}/distribute/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+fi
 
 
 # ===

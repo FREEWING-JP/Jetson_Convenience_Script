@@ -36,15 +36,20 @@ sudo apt update
 sudo apt install -y curl nano git htop mercurial
 
 # ===
+echo '---'
 echo "type 'source ~/.bashrc'"
 echo ''
 echo "source ~/.bashrc"
-echo ''
+echo 'or'
+echo "sudo reboot"
 
 # sudo visudo
+echo '---'
 echo "sudo visudo"
 echo ''
 echo "Defaults        env_reset, timestamp_timeout=-1"
+echo 'or'
+echo "echo 'Defaults        env_reset, timestamp_timeout=-1' | sudo EDITOR='tee -a' visudo"
 echo ''
 
 

@@ -48,6 +48,35 @@ if [[ ${OPENCV_VERSION} =~ ^([0-9]+)\..*$ ]]; then
 fi
 
 
+if [ $OPENCV_VERSION = 4 ]; then
+  echo "Caffe OpenCV 4.x patch"
+
+  # ===
+  # for Python 3
+  # AttributeError: module 'caffe' has no attribute '__version__'
+  sudo apt-get -y install pkg-config
+  sudo apt-get -y install python3-dev python3-numpy python3-pip
+
+  # ===
+  # Caffe dependencies
+  echo "Caffe dependencies"
+  sudo apt-get -y install libprotobuf-dev libleveldb-dev liblmdb-dev
+  sudo apt-get -y install libhdf5-serial-dev
+
+  # ModuleNotFoundError: No module named 'skimage'
+  sudo apt-get -y install python3-skimage
+
+  # ===
+  # Makefile
+  # PYTHON_LIBRARIES ?= boost_python python3.6
+  # jetson@linux:~ $ python3 -V
+  # Python 3.6.9
+  pkg-config --libs opencv4
+  dpkg -L libhdf5-dev
+
+fi
+
+
 # ===
 # ===
 # BVLC/caffe Git clone
@@ -127,7 +156,7 @@ fi
 
 # ===
 # OpenBlas
-sed -i 's/BLAS :=.*/BLAS := open/' Makefile.config
+sed -i 's/^BLAS :=.*/BLAS := open/' Makefile.config
 
 
 # ===

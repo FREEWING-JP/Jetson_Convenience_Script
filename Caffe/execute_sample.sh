@@ -8,9 +8,11 @@ IS_NVCAFFE=0
 # Setting the number of threads using environment variables
 # The priorities are OPENBLAS_NUM_THREADS > GOTO_NUM_THREADS > OMP_NUM_THREADS .
 # https://github.com/xianyi/OpenBLAS
-export OPENBLAS_NUM_THREADS=$(nproc)
-export GOTO_NUM_THREADS=${OPENBLAS_NUM_THREADS}
-export OMP_NUM_THREADS=${OPENBLAS_NUM_THREADS}
+if [ "$OPENBLAS_NUM_THREADS" = "" ]; then
+  export OPENBLAS_NUM_THREADS=$(nproc)
+  export GOTO_NUM_THREADS=${OPENBLAS_NUM_THREADS}
+  export OMP_NUM_THREADS=${OPENBLAS_NUM_THREADS}
+fi
 
 
 # ===

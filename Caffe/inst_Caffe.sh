@@ -172,7 +172,13 @@ sudo apt-get -y install libboost-regex-dev
 grep "^BLAS := open" Makefile.config
 if [ $? = 0 ]; then
   # OpenBLAS, BLAS := open
-  sudo apt-get -y install libopenblas-base libopenblas-dev
+  if [ "$BLAS_INCLUDE" = "" ]; then
+    echo $LD_LIBRARY_PATH | grep "OpenBLAS"
+    if [ $? -ne  0 ]; then
+      echo "install libopenblas-base libopenblas-dev"
+      sudo apt-get -y install libopenblas-base libopenblas-dev
+    fi
+  fi
 else
   # ATLAS, BLAS := atlas
   sudo apt-get install libatlas-base-dev

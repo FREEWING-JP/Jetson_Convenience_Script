@@ -39,6 +39,7 @@ Defaults        env_reset, timestamp_timeout=-1
 echo 'Defaults env_reset, timestamp_timeout=-1' | sudo EDITOR='tee -a' visudo
 ```
 
+---
 ### CMake 3.17.3
 https://github.com/Kitware/CMake  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia__jetson_build_newest_cmake/  
@@ -55,6 +56,14 @@ cd
 bash ./Jetson_Convenience_Script/libjpeg-turbo/inst_libjpeg-turbo_205.sh
 ```
 
+### OpenBLAS develop
+https://github.com/xianyi/OpenBLAS  
+```
+cd
+bash ./Jetson_Convenience_Script/OpenBLAS/inst_OpenBLAS.sh
+```
+
+---
 ### OpenCV 3.4.10
 https://github.com/opencv/opencv  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_build_opencv_3410/  
@@ -69,6 +78,7 @@ cd
 bash ./Jetson_Convenience_Script/OpenCV/inst_OpenCV349.sh
 ```
 
+---
 ### Caffe master
 https://github.com/BVLC/caffe  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_build_caffe_google_deep_dream/  
@@ -84,6 +94,7 @@ bash ./Jetson_Convenience_Script/Caffe/inst_Caffe.sh
 # https://github.com/Qengineering/caffe
 # Install OpenCV 4.1.2 and Caffe on Ubuntu 18.04 for Python 3
 # https://qengineering.eu/install-caffe-on-ubuntu-18.04-with-opencv-4.1.html
+# with OpenCV 4.x
 cd
 bash ./Jetson_Convenience_Script/Caffe/inst_Caffe_Qengineering.sh
 ```

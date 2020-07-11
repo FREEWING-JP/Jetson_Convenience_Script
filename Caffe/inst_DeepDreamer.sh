@@ -21,6 +21,7 @@ if [ "${CAFFE_HOME}" = "" ]; then
 fi
 
 
+# ===
 flag=0
 python -c "import caffe; print(caffe.__version__)"
 if [ $? = 0 ]; then
@@ -47,6 +48,12 @@ cd
 git clone https://github.com/kesara/deepdreamer --depth 1
 cd deepdreamer
 
+
+# ===
+cp $SCRIPT_DIR/execute_sample.sh
+chmod +x ./execute_sample.sh
+
+
 # bvlc_googlenet.caffemodel
 wget http://dl.caffe.berkeleyvision.org/bvlc_googlenet.caffemodel
 
@@ -62,7 +69,7 @@ tail deploy.prototxt
 
 
 # ===
-# Python2 only
+# Python2 patch
 if [ $flag -eq 1 ]; then
   # Python2 patch
   sed '196,198d' -i ./deepdreamer/deepdreamer.py
@@ -72,97 +79,34 @@ fi
 
 
 # ===
-# Setting the number of threads using environment variables
-# The priorities are OPENBLAS_NUM_THREADS > GOTO_NUM_THREADS > OMP_NUM_THREADS .
-# https://github.com/xianyi/OpenBLAS
-export OPENBLAS_NUM_THREADS=$(nproc)
-export GOTO_NUM_THREADS=${OPENBLAS_NUM_THREADS}
-export OMP_NUM_THREADS=${OPENBLAS_NUM_THREADS}
-
-
-# ===
 wget https://github.com/google/deepdream/raw/master/flowers.jpg
 wget https://github.com/google/deepdream/raw/master/sky1024px.jpg
 
 
 # ===
+PYTHON_COMMAND=python
+IS_NVCAFFE=0
+
+# ===
 if [ $flag -eq 1 ]; then
-  # Python2 only
-
-  python -c "import caffe; print(caffe.__version__)" | grep "^0.17.3"
-  if [ $? = 0 ]; then
-    # NVCaffe 0.17.3
-    echo "NVCaffe"
-
-    # GPU
-    # no need --gpuid
-    cp flowers.jpg nv_flowers.jpg
-    python deepdreamer.py --dreams 10 nv_flowers.jpg
-
-    # GPU
-    cp sky1024px.jpg nv_sky1024px.jpg
-    python deepdreamer.py --dreams 10 nv_sky1024px.jpg
-  else
-
-    echo "Caffe"
-
-    # CPU
-    python deepdreamer.py --dreams 10 flowers.jpg
-
-    # GPU
-    # optional arguments:
-    #   --gpuid GPUID         enable GPU with id GPUID (default: disabled)
-    cp flowers.jpg gpu_flowers.jpg
-    python deepdreamer.py --gpuid 0 --dreams 10 gpu_flowers.jpg
-
-    # CPU
-    python deepdreamer.py --dreams 10 sky1024px.jpg
-
-    # GPU
-    cp sky1024px.jpg gpu_sky1024px.jpg
-    python deepdreamer.py --gpuid 0 --dreams 10 gpu_sky1024px.jpg
-
-  fi
-
+  # Python2
 else
   # Python3
-
-  python3 -c "import caffe; print(caffe.__version__)" | grep "^0.17.3"
-  if [ $? = 0 ]; then
-    # NVCaffe 0.17.3
-    echo "NVCaffe OpenCV 4.x"
-
-    # GPU
-    # no need --gpuid
-    cp flowers.jpg nv_flowers.jpg
-    python3 deepdreamer.py --dreams 10 nv_flowers.jpg
-
-    # GPU
-    cp sky1024px.jpg nv_sky1024px.jpg
-    python3 deepdreamer.py --dreams 10 nv_sky1024px.jpg
-  else
-
-    echo "Qengineering Caffe OpenCV 4.x"
-
-    # CPU
-    python3 deepdreamer.py --dreams 10 flowers.jpg
-
-    # GPU
-    # optional arguments:
-    #   --gpuid GPUID         enable GPU with id GPUID (default: disabled)
-    cp flowers.jpg gpu_flowers.jpg
-    python3 deepdreamer.py --gpuid 0 --dreams 10 gpu_flowers.jpg
-
-    # CPU
-    python3 deepdreamer.py --dreams 10 sky1024px.jpg
-
-    # GPU
-    cp sky1024px.jpg gpu_sky1024px.jpg
-    python3 deepdreamer.py --gpuid 0 --dreams 10 gpu_sky1024px.jpg
-
-  fi
-
+  PYTHON_COMMAND=python3
 fi
 
-exit 0
+${PYTHON_COMMAND} -c "import caffe; print(caffe.__version__)" | grep "^0.17.3"
+if [ $? = 0 ]; then
+  # NVCaffe 0.17.3
+  echo "NVCaffe"
+  IS_NVCAFFE=1
+fi
+
+sed -i "s/^PYTHON_COMMAND=/PYTHON_COMMAND=${PYTHON_COMMAND}/" execute_sample.sh
+sed -i "s/^IS_NVCAFFE=/IS_NVCAFFE=${IS_NVCAFFE}/" execute_sample.sh
+
+
+# ===
+# execute sample
+bash ./execute_sample.sh
 

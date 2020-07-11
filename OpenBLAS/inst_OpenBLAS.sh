@@ -59,9 +59,9 @@ echo 'export OMP_NUM_THREADS=${OPENBLAS_NUM_THREADS}' >> ~/.bashrc
 
 source ~/.bashrc
 
-set | grep "BLAS_.*="
-set | grep "LD_LIBRARY_PATH="
-set | grep ".*_NUM_THREADS="
+grep " BLAS_.*=" ~/.bashrc
+grep "{BLAS_LIB}" ~/.bashrc
+grep " .*_NUM_THREADS=" ~/.bashrc
 
 # ===
 echo '---'

@@ -19,17 +19,64 @@ fi
 OPENCV_VERSION=`opencv_version`
 if [ $? != 0 ]; then
   echo "OpenCV not Found"
-  echo "Need OpenCV v3.x"
+  echo "Need OpenCV v3.x/v4.x"
   exit 0
 fi
 
 echo $OPENCV_VERSION
 if [[ ${OPENCV_VERSION} =~ ^([0-9]+)\..*$ ]]; then
   echo ${BASH_REMATCH[1]}
-  if [ ! "${BASH_REMATCH[1]}" = "3" ]; then
-    echo "Need OpenCV v3.x"
-    exit 0
-  fi
+  case "${BASH_REMATCH[1]}" in
+      "3")
+        echo "OpenCV v3.x"
+        OPENCV_VERSION=3
+        OpenCV_DIR=/usr/local/share/OpenCV
+        ;;
+      "4")
+        echo "OpenCV v4.x"
+        OPENCV_VERSION=4
+        OpenCV_DIR=/usr/local/lib/cmake/opencv4
+        ;;
+      *)
+        echo "Need OpenCV v3.x/v4.x"
+        exit 1
+        ;;
+  esac
+
+  ls -l ${OpenCV_DIR}
+
+fi
+
+
+if [ $OPENCV_VERSION = 4 ]; then
+  echo "Caffe OpenCV 4.x patch"
+
+  # ===
+  sudo apt-get -y install pkg-config
+  sudo apt-get -y install python3-dev python3-numpy python3-pip
+
+  # ===
+  # Caffe dependencies
+  echo "Caffe dependencies"
+  sudo apt-get -y install libprotobuf-dev libleveldb-dev liblmdb-dev
+  # sudo apt-get -y install libsnappy-dev libopencv-dev
+  sudo apt-get -y install libhdf5-serial-dev
+  # sudo apt-get -y install protobuf-compiler
+  # sudo apt-get -y install --no-install-recommends libboost-all-dev
+  # sudo apt-get -y install libatlas-base-dev libopenblas-dev
+  # ModuleNotFoundError: No module named 'skimage'
+  sudo apt-get -y install python3-skimage
+  # sudo pip3 install pydot
+  # sudo apt-get -y install graphviz
+
+  # ===
+  # Makefile
+  # PYTHON_LIBRARIES ?= boost_python python3.6
+  # jetson@linux:~ $ python3 -V
+  # Python 3.6.9
+  pkg-config --libs opencv4
+  dpkg -L libhdf5-dev
+
 fi
 
 
@@ -43,58 +90,77 @@ cd
 git clone https://github.com/NVIDIA/caffe nvcaffe --depth 1 -b caffe-0.17
 cd nvcaffe
 
-# Copy Makefile.config
-cp Makefile.config.example Makefile.config
-# Adjust Makefile.config (for example, if using Anaconda Python, or if cuDNN is desired)
+if [ $OPENCV_VERSION = 3 ]; then
+  echo "Caffe OpenCV 3.x patch"
 
-# Edit Makefile.config
-# nano Makefile.config
+  # Copy Makefile.config
+  cp Makefile.config.example Makefile.config
+  # Adjust Makefile.config (for example, if using Anaconda Python, or if cuDNN is desired)
 
-sed -i 's/^# USE_CUDNN/USE_CUDNN/' Makefile.config
-# sed -i 's/BLAS :=.*/BLAS := atlas/' Makefile.config
-sed -i 's/x86_64-linux-gnu/aarch64-linux-gnu/' Makefile.config
-sed -i 's/# OPENCV_VERSION/OPENCV_VERSION/' Makefile.config
-sed -i 's/# WITH_PYTHON_LAYER/WITH_PYTHON_LAYER/' Makefile.config
+  # Edit Makefile.config
+  # nano Makefile.config
 
-# ===
-# ===
-tegra_cip_id=$(cat /sys/module/tegra_fuse/parameters/tegra_chip_id)
-echo $tegra_cip_id
+  sed -i 's/^# USE_CUDNN/USE_CUDNN/' Makefile.config
+  # sed -i 's/BLAS :=.*/BLAS := atlas/' Makefile.config
+  sed -i 's/x86_64-linux-gnu/aarch64-linux-gnu/' Makefile.config
+  sed -i 's/# OPENCV_VERSION/OPENCV_VERSION/' Makefile.config
+  sed -i 's/# WITH_PYTHON_LAYER/WITH_PYTHON_LAYER/' Makefile.config
 
-# Jetson Xavier NX
-if [ $tegra_cip_id = "25" ]; then
-  # Jetson Xavier NX sm_72
-  # CUDA_ARCH := -gencode arch=compute_72,code=sm_72 \
-  #                -gencode arch=compute_72,code=compute_72
-  sed -i 's/arch=compute_50,code=sm_50/arch=compute_72,code=sm_72/' Makefile.config
-  sed -i 's/arch=compute_50,code=sm_50 \\/arch=compute_72,code=compute_72/' Makefile.config
-  sed -i '/arch=compute_50,code=sm_50 \\/d' Makefile.config
-  sed -i '/arch=compute_52,code=sm_52 \\/d' Makefile.config
-  sed -i '/arch=compute_60,code=sm_60 \\/d' Makefile.config
-  sed -i '/arch=compute_61,code=sm_61 \\/d' Makefile.config
-  sed -i '/arch=compute_70,code=sm_70 \\/d' Makefile.config
-  sed -i '/arch=compute_75,code=sm_75 \\/d' Makefile.config
-  sed -i '/arch=compute_75,code=compute_75/d' Makefile.config
+  # ===
+  # ===
+  tegra_cip_id=$(cat /sys/module/tegra_fuse/parameters/tegra_chip_id)
+  echo $tegra_cip_id
+
+  # Jetson Xavier NX
+  if [ $tegra_cip_id = "25" ]; then
+    # Jetson Xavier NX sm_72
+    # CUDA_ARCH := -gencode arch=compute_72,code=sm_72 \
+    #                -gencode arch=compute_72,code=compute_72
+    sed -i 's/arch=compute_50,code=sm_50/arch=compute_72,code=sm_72/' Makefile.config
+    sed -i 's/arch=compute_50,code=sm_50 \\/arch=compute_72,code=compute_72/' Makefile.config
+    sed -i '/arch=compute_50,code=sm_50 \\/d' Makefile.config
+    sed -i '/arch=compute_52,code=sm_52 \\/d' Makefile.config
+    sed -i '/arch=compute_60,code=sm_60 \\/d' Makefile.config
+    sed -i '/arch=compute_61,code=sm_61 \\/d' Makefile.config
+    sed -i '/arch=compute_70,code=sm_70 \\/d' Makefile.config
+    sed -i '/arch=compute_75,code=sm_75 \\/d' Makefile.config
+    sed -i '/arch=compute_75,code=compute_75/d' Makefile.config
+  fi
+
+  # Jetson Nano
+  if [ $tegra_cip_id = "33" ]; then
+    # Jetson Nano sm_53
+    sed -i 's/arch=compute_50,code=sm_50 \\/arch=compute_53,code=sm_53/' Makefile.config
+    # sed -i 's/-gencode arch=compute_20,code=sm_21 \\//' Makefile.config
+    # Makefile.config:41: *** recipe commences before first target.  Stop.
+    sed -i '/arch=compute_50,code=sm_50 \\/d' Makefile.config
+    sed -i '/arch=compute_52,code=sm_52 \\/d' Makefile.config
+    sed -i '/arch=compute_60,code=sm_60 \\/d' Makefile.config
+    sed -i '/arch=compute_61,code=sm_61 \\/d' Makefile.config
+    sed -i '/arch=compute_70,code=sm_70 \\/d' Makefile.config
+    sed -i '/arch=compute_75,code=sm_75 \\/d' Makefile.config
+    sed -i '/arch=compute_75,code=compute_75/d' Makefile.config
+  fi
+
 fi
 
-# Jetson Nano
-if [ $tegra_cip_id = "33" ]; then
-  # Jetson Nano sm_53
-  sed -i 's/arch=compute_50,code=sm_50 \\/arch=compute_53,code=sm_53/' Makefile.config
-  # sed -i 's/-gencode arch=compute_20,code=sm_21 \\//' Makefile.config
-  # Makefile.config:41: *** recipe commences before first target.  Stop.
-  sed -i '/arch=compute_50,code=sm_50 \\/d' Makefile.config
-  sed -i '/arch=compute_52,code=sm_52 \\/d' Makefile.config
-  sed -i '/arch=compute_60,code=sm_60 \\/d' Makefile.config
-  sed -i '/arch=compute_61,code=sm_61 \\/d' Makefile.config
-  sed -i '/arch=compute_70,code=sm_70 \\/d' Makefile.config
-  sed -i '/arch=compute_75,code=sm_75 \\/d' Makefile.config
-  sed -i '/arch=compute_75,code=compute_75/d' Makefile.config
+if [ $OPENCV_VERSION = 4 ]; then
+  echo "Caffe OpenCV 4.x patch"
+
+  # Copy Makefile.config
+  cp $SCRIPT_DIR/open_cv4_patch/Makefile.config.example Makefile.config
+
+  # Copy OpenCV v4.x patch
+  cp $SCRIPT_DIR/open_cv4_patch/Makefile .
+  cp $SCRIPT_DIR/open_cv4_patch/common.hpp ./include/caffe/
+  cp $SCRIPT_DIR/open_cv4_patch/common_cv4.hpp ./include/caffe/
+  cp $SCRIPT_DIR/open_cv4_patch/video_data_layer.cpp ./src/caffe/layers/
+
 fi
 
 # ===
 # OpenBlas
-sed -i 's/BLAS :=.*/BLAS := open/' Makefile.config
+sed -i 's/^BLAS :=.*/BLAS := open/' Makefile.config
 
 
 # ===
@@ -165,6 +231,7 @@ fi
 # Python Caffe distribute
 make pycaffe
 make distribute
+sudo ldconfig
 
 
 # export CAFFE_HOME=/home/user/nvcaffe
@@ -190,9 +257,9 @@ echo 'export LD_LIBRARY_PATH=${CAFFE_HOME}/distribute/lib:$LD_LIBRARY_PATH' >> ~
 
 # ===
 python -c "import caffe; print(caffe.__version__)"
-# 0.17.3
+# Err or 0.17.3
 python3 -c "import caffe; print(caffe.__version__)"
-# Err
+# Err or 0.17.3
 
 
 # ===

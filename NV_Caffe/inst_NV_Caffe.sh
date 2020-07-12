@@ -178,12 +178,26 @@ sudo apt-get -y install libboost-regex-dev
 grep "^BLAS := open" Makefile.config
 if [ $? = 0 ]; then
   # OpenBLAS, BLAS := open
+  libopenblas=0
   if [ "$BLAS_INCLUDE" = "" ]; then
     echo $LD_LIBRARY_PATH | grep "OpenBLAS"
     if [ $? -ne  0 ]; then
-      echo "install libopenblas-base libopenblas-dev"
-      sudo apt-get -y install libopenblas-base libopenblas-dev
+      libopenblas=1
     fi
+  fi
+  if [ $libopenblas -eq 1 ]; then
+    echo "install libopenblas-base libopenblas-dev"
+    sudo apt-get -y install libopenblas-base libopenblas-dev
+  else
+    echo "remove libopenblas-base libopenblas-dev"
+    sudo apt-get -y remove libopenblas-base libopenblas-dev
+
+    # BLAS_INCLUDE := /opt/OpenBLAS/include
+    # BLAS_LIB := /opt/OpenBLAS/lib
+    sed -i 's/^# BLAS_INCLUDE :=/BLAS_INCLUDE :=/' Makefile.config
+    sed -i 's/^BLAS_INCLUDE :=.*/BLAS_INCLUDE := \/opt\/OpenBLAS\/include/' Makefile.config
+    sed -i 's/^# BLAS_LIB :=/BLAS_LIB :=/' Makefile.config
+    sed -i 's/^BLAS_LIB :=.*/BLAS_LIB := \/opt\/OpenBLAS\/lib/' Makefile.config
   fi
 else
   # ATLAS, BLAS := atlas
@@ -261,9 +275,10 @@ export LD_LIBRARY_PATH=${CAFFE_HOME}/distribute/lib:$LD_LIBRARY_PATH
 grep "^export CAFFE_HOME=" ~/.bashrc
 if [ $? = 0 ]; then
   # 2nd
-  sed -i "s/^export CAFFE_HOME=.*/export CAFFE_HOME=${CAFFE_HOME}/" ~/.bashrc
+  sed -i "s@^export CAFFE_HOME=.*@export CAFFE_HOME=${CAFFE_HOME}@" ~/.bashrc
 else
   # 1st
+  echo '# Caffe' >> ~/.bashrc
   echo "export CAFFE_HOME=${CAFFE_HOME}" >> ~/.bashrc
   echo 'export PYTHONPATH=${CAFFE_HOME}/python:$PYTHONPATH' >> ~/.bashrc
   echo 'export LD_LIBRARY_PATH=${CAFFE_HOME}/distribute/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
@@ -294,9 +309,14 @@ mkdir include/caffe/proto
 mv src/caffe/proto/caffe.pb.h include/caffe/proto
 
 # ===
-echo "export CAFFE_HOME=${CAFFE_HOME}"
-echo 'export PYTHONPATH=${CAFFE_HOME}/python:$PYTHONPATH'
-echo 'export LD_LIBRARY_PATH=${CAFFE_HOME}/distribute/lib:$LD_LIBRARY_PATH'
+source ~/.bashrc
+
+grep " CAFFE_HOME=" ~/.bashrc
+grep " PYTHONPATH=" ~/.bashrc
+grep " LD_LIBRARY_PATH=.*CAFFE_HOME" ~/.bashrc
+
+# ===
+echo '---'
 echo "type 'source ~/.bashrc'"
 echo ''
 echo "source ~/.bashrc"

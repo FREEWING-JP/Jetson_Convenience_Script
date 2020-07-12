@@ -50,7 +50,7 @@ cd deepdreamer
 
 
 # ===
-cp $SCRIPT_DIR/execute_sample.sh
+cp $SCRIPT_DIR/execute_sample.sh .
 chmod +x ./execute_sample.sh
 
 
@@ -90,6 +90,7 @@ IS_NVCAFFE=0
 # ===
 if [ $flag -eq 1 ]; then
   # Python2
+  :
 else
   # Python3
   PYTHON_COMMAND=python3
@@ -102,8 +103,8 @@ if [ $? = 0 ]; then
   IS_NVCAFFE=1
 fi
 
-sed -i "s/^PYTHON_COMMAND=/PYTHON_COMMAND=${PYTHON_COMMAND}/" execute_sample.sh
-sed -i "s/^IS_NVCAFFE=/IS_NVCAFFE=${IS_NVCAFFE}/" execute_sample.sh
+sed -i "s/^PYTHON_COMMAND=.*/PYTHON_COMMAND=${PYTHON_COMMAND}/" execute_sample.sh
+sed -i "s/^IS_NVCAFFE=.*/IS_NVCAFFE=${IS_NVCAFFE}/" execute_sample.sh
 
 
 # ===

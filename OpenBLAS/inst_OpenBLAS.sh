@@ -15,6 +15,14 @@ fi
 
 
 # ===
+# /usr/bin/ld: warning: libopenblas.so.0, needed by /home/jetson/nvcaffe/build/lib/libcaffe-nv.so, not found (try using -rpath or -rpath-link)
+# /home/jetson/nvcaffe/build/lib/libcaffe-nv.so: undefined reference to `cblas_sgemv'
+# /home/jetson/nvcaffe/build/lib/libcaffe-nv.so: undefined reference to `cblas_sdot'
+sudo apt -y install liblapack-dev
+# Setting up liblapack-dev:arm64 (3.7.1-4ubuntu1) ...
+
+
+# ===
 # ===
 # OpenBLAS v0.3.10
 # OpenBLAS develop

@@ -155,7 +155,7 @@ sudo bash ./scripts/ubuntu/install_deps.sh
 
 
 # ===
-cp $SCRIPT_DIR/execute_sample.sh
+cp $SCRIPT_DIR/execute_sample.sh .
 chmod +x ./execute_sample.sh
 
 
@@ -310,7 +310,20 @@ if [ "${CAFFE_HOME}" = "" ]; then
     grep "^BLAS ?= open" ../3rdparty/caffe/Makefile
     if [ $? = 0 ]; then
       # OpenBLAS, BLAS := open
-      sudo apt-get -y install libopenblas-dev
+      libopenblas=0
+      if [ "$BLAS_INCLUDE" = "" ]; then
+        echo $LD_LIBRARY_PATH | grep "OpenBLAS"
+        if [ $? -ne  0 ]; then
+          libopenblas=1
+        fi
+      fi
+      if [ $libopenblas -eq 1 ]; then
+        echo "install libopenblas-dev"
+        sudo apt-get -y install libopenblas-dev
+      else
+        echo "remove libopenblas-base libopenblas-dev"
+        sudo apt-get -y remove libopenblas-base libopenblas-dev
+      fi
     else
       # ATLAS, BLAS := atlas
       sudo apt-get install libatlas-base-dev

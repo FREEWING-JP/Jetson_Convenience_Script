@@ -15,6 +15,11 @@ fi
 
 
 # ===
+echo "remove libopenblas-base libopenblas-dev"
+sudo apt-get -y remove libopenblas-base libopenblas-dev
+
+
+# ===
 # /usr/bin/ld: warning: libopenblas.so.0, needed by /home/jetson/nvcaffe/build/lib/libcaffe-nv.so, not found (try using -rpath or -rpath-link)
 # /home/jetson/nvcaffe/build/lib/libcaffe-nv.so: undefined reference to `cblas_sgemv'
 # /home/jetson/nvcaffe/build/lib/libcaffe-nv.so: undefined reference to `cblas_sdot'

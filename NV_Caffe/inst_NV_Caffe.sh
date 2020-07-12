@@ -30,20 +30,16 @@ if [[ ${OPENCV_VERSION} =~ ^([0-9]+)\..*$ ]]; then
       "3")
         echo "OpenCV v3.x"
         OPENCV_VERSION=3
-        OpenCV_DIR=/usr/local/share/OpenCV
         ;;
       "4")
         echo "OpenCV v4.x"
         OPENCV_VERSION=4
-        OpenCV_DIR=/usr/local/lib/cmake/opencv4
         ;;
       *)
         echo "Need OpenCV v3.x/v4.x"
         exit 1
         ;;
   esac
-
-  ls -l ${OpenCV_DIR}
 
 fi
 

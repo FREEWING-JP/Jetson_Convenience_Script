@@ -109,7 +109,10 @@ if [ "${CAFFE_HOME}" != "" ]; then
     echo ''
     echo "${ESC}[41mOpenPose probably doesn't work except for Caffe version 0.17.3${ESC}[m"
     echo ''
-    echo "Check failed: status == CUDNN_STATUS_SUCCESS (4 vs. 0)  CUDNN_STATUS_INTERNAL_ERROR, device 0"
+    # echo "Check failed: status == CUDNN_STATUS_SUCCESS (4 vs. 0)  CUDNN_STATUS_INTERNAL_ERROR, device 0"
+    echo 'google/protobuf/message_lite.cc:118 Can't parse message of type "caffe.NetParameter" because it is missing required fields: layer[0].clip_param.min, layer[0].clip_param.max'
+    echo 'upgrade_proto.cpp:97 Check failed: ReadProtoFromBinaryFile(param_file, param) Failed to parse NetParameter file: ./models/pose/body_25/pose_iter_584000.caffemodel'
+    echo ''
 
     read -p "Continue ? (y/N):" yn
     case "$yn" in [yY]*) ;; *) echo "Abort" ; exit 1 ;; esac

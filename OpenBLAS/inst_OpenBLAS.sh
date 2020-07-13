@@ -66,9 +66,13 @@ echo 'export BLAS_INCLUDE=/opt/OpenBLAS/include' >> ~/.bashrc
 echo 'export BLAS_LIB=/opt/OpenBLAS/lib' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=${BLAS_LIB}:$LD_LIBRARY_PATH' >> ~/.bashrc
 
-echo 'export OPENBLAS_NUM_THREADS=$(nproc)' >> ~/.bashrc
-echo 'export GOTO_NUM_THREADS=${OPENBLAS_NUM_THREADS}' >> ~/.bashrc
-echo 'export OMP_NUM_THREADS=${OPENBLAS_NUM_THREADS}' >> ~/.bashrc
+grep "^export OPENBLAS_NUM_THREADS" ~/.bashrc
+if [ $? -ne 0 ]; then
+  echo '# OpenBLAS' >> ~/.bashrc
+  echo 'export OPENBLAS_NUM_THREADS=$(nproc)' >> ~/.bashrc
+  echo 'export GOTO_NUM_THREADS=${OPENBLAS_NUM_THREADS}' >> ~/.bashrc
+  echo 'export OMP_NUM_THREADS=${OPENBLAS_NUM_THREADS}' >> ~/.bashrc
+fi
 
 source ~/.bashrc
 

@@ -28,6 +28,10 @@ chmod +x add_cuda_environment.sh
 bash ./add_cuda_environment.sh
 
 # ===
+chmod +x add_blas_environment.sh
+bash ./add_blas_environment.sh
+
+# ===
 chmod +x stop_apt_daily.sh
 bash ./stop_apt_daily.sh
 

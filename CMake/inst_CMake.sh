@@ -15,10 +15,26 @@ fi
 
 # ===
 # CMake version
-cmake --version | grep "cmake version 3.10"
-if [ $? -ne 0 ]; then
-  echo "Already Exists New version"
-  exit 0
+which cmake
+if [ $? -eq 0 ]; then
+  cmake --version | grep "cmake version 3.10"
+  if [ $? -ne 0 ]; then
+    echo "Already Exists New version"
+    exit 0
+  fi
+fi
+
+
+# ===
+# Install CMake
+INSTALL_DEB=0
+if [ -e ../../00_deb/cmake-3.17.3-Linux-aarch64.deb ]; then
+
+  echo "Found CMake .deb package file"
+  echo "Build CMake need lot of time"
+
+  read -p "Install from .deb package ? or Build CMake ? (i/b):" inst
+  case "$inst" in [iI]*) INSTALL_DEB=1 ;; [bB]*) ;; *) echo "Abort" ; exit 1 ;; esac
 fi
 
 
@@ -39,6 +55,7 @@ sudo apt-get -y install git
 # Build Newest cmake for Build OpenPose
 sudo apt -y remove cmake cmake-data
 
+
 # https supported cmake when Build OpenCV 4.1.0 https Error
 # cmake_download Protocol "https" not supported or disabled in libcurl
 # Download failed: 1;"Unsupported protocol"
@@ -46,6 +63,15 @@ sudo apt -y remove cmake cmake-data
 # sudo apt-get -y install libcurl-devel
 # https://packages.ubuntu.com/bionic/libcurl-dev
 sudo apt-get -y install libcurl4-openssl-dev
+
+
+# ===
+if [ $INSTALL_DEB -ne 0 ]; then
+  sudo dpkg -i ../../00_deb/cmake-3.17.3-Linux-aarch64.deb
+  cmake --version
+  exit 0
+fi
+
 
 cd
 git clone https://github.com/Kitware/CMake.git --depth 1 -b v3.17.3

@@ -10,5 +10,5 @@ fi
 
 sysbench --test=cpu --threads=1 run
 
-sysbench --test=cpu --threads=$(nprocs) run
+sysbench --test=cpu --threads=$(nproc) run
 

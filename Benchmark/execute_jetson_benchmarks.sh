@@ -1,9 +1,5 @@
 #!/bin/bash
 
-cd `dirname $0`
-pwd
-SCRIPT_DIR=$(pwd)
-echo $SCRIPT_DIR
 
 # ===
 # Benchmarks Targeted for Jetson Xavier NX (Using GPU+2DLA)
@@ -35,14 +31,5 @@ if [ $tegra_cip_id = "33" ]; then
                               --jetson_devkit nano \
                               --gpu_freq 921600000 --power_mode 0 --precision fp16
 
-fi
-
-
-# ===
-# ===
-cd $SCRIPT_DIR
-if [ -e ../bell.sh ]; then
-  chmod +x ../bell.sh
-  bash ../bell.sh
 fi
 

@@ -26,8 +26,12 @@ sudo apt-get -y install git
 cd
 git clone https://github.com/kdlucas/byte-unixbench --depth 1
 cd byte-unixbench
-cd UnixBench
-./Run
+
+cp $SCRIPT_DIR/execute_UnixBench.sh .
+
+# Running Benchmarks
+chmod +x execute_UnixBench.sh
+bash ./execute_UnixBench.sh
 
 
 # ===

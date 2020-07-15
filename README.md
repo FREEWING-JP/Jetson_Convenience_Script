@@ -4,6 +4,9 @@
 http://www.neko.ne.jp/~freewing/  
 
 ---
+## JetPack 4.4 production release L4T 32.4.3 Can't build Caffe  
+
+---
 ### for Jetson Nano / Jetson Xavier NX Developer Kit
 NVIDIA Jetson Nano Developer Kit  
 https://www.nvidia.com/ja-jp/autonomous-machines/embedded-systems/jetson-nano-developer-kit/  
@@ -223,4 +226,28 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_build_visual_stu
 ```
 cd
 bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1350.sh
+```
+
+---
+### Vino VNC Server
+https://gitlab.gnome.org/GNOME/vino/  
+  
+```
+cd
+bash ./Jetson_Convenience_Script/Vino_VNC/inst_Vino_VNC.sh
+```
+
+---
+### Benchmark
+```
+# UnixBench byte-unixbench
+# https://github.com/kdlucas/byte-unixbench
+cd
+bash ./Jetson_Convenience_Script/Benchmark/inst_UnixBench.sh
+```
+```
+# Benchmarks Targeted for Jetson Xavier NX (Using GPU+2DLA)
+# https://github.com/NVIDIA-AI-IOT/jetson_benchmarks
+cd
+bash ./Jetson_Convenience_Script/Benchmark/inst_jetson_benchmarks.sh
 ```

@@ -20,7 +20,7 @@ https://developer.nvidia.com/embedded/jetpack
   
 ---
 ### Jetson Nano / Jetson Xavier NX initialize
-http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia__jetson_xavier_nx_2020_initialize/  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_xavier_nx_2020_initialize/  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_2020_initialize/  
 ```
 # Auto detect Nano or Xavier
@@ -239,6 +239,7 @@ bash ./Jetson_Convenience_Script/Vino_VNC/inst_Vino_VNC.sh
 
 ---
 ### Benchmark
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_benchmark_full_load/  
 ```
 # UnixBench byte-unixbench
 # https://github.com/kdlucas/byte-unixbench

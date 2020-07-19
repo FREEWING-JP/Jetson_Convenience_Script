@@ -41,6 +41,13 @@ Defaults        env_reset, timestamp_timeout=-1
  or 
 echo 'Defaults env_reset, timestamp_timeout=-1' | sudo EDITOR='tee -a' visudo
 ```
+### Optional deb package
+```
+cd
+git clone https://github.com/FREEWING-JP/Jetson_Convenience_Script 00_deb -b 00_deb
+mv ./00_deb/00_deb/* ./00_deb/
+ls -l ./00_deb
+```
 
 ---
 ### CMake 3.17.3

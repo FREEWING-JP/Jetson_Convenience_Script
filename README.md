@@ -145,11 +145,18 @@ bash ./Jetson_Convenience_Script/OpenPose/inst_OpenPose.sh
 
 ### tf-pose-estimation master
 https://github.com/ildoonet/tf-pose-estimation  
+https://github.com/gsethi2409/tf-pose-estimation  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_jetpack_tf_pose_estimation_setup/  
 ```
 # with TensorFlow v1.x
 cd
 bash ./Jetson_Convenience_Script/tf-pose-estimation/inst_tf-pose-estimation.sh
+```
+```
+# with TensorFlow v2.x
+# https://github.com/gsethi2409/tf-pose-estimation
+cd
+bash ./Jetson_Convenience_Script/tf-pose-estimation/inst_tf-pose-estimation_tf_v2.sh
 ```
 
 ### StyleGAN

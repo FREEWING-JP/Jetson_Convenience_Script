@@ -15,7 +15,8 @@ fi
 
 # ===
 # ===
-# https://github.com/ildoonet/tf-pose-estimation
+# https://github.com/gsethi2409/tf-pose-estimation
+# tf-pose-estimation by Ildoo Kim modified to work with Tensorflow 2.0+
 
 # Pre-Install Jetson case
 sudo apt-get -y install libllvm-7-ocaml-dev libllvm7 llvm-7 llvm-7-dev llvm-7-doc llvm-7-examples llvm-7-runtime
@@ -41,9 +42,11 @@ cd tf-pose-estimation
 
 # pip3 install -r requirements.txt
 # ERROR: scikit-image 0.17.2 has requirement scipy>=1.0.1, but you'll have scipy 0.19.1 which is incompatible.'
-pip3 install scipy==1.0.1
+# tensorflow 2.2.0+nv20.8 requires scipy==1.4.1;
+pip3 install scipy==1.4.1
 
 # sed -i 's/llvmlite/llvmlite==0.31.0/g' requirements.txt
+# RuntimeError: Building llvmlite requires LLVM 10.0.x or 9.0.x, got '7.0.0'. Be sure to set LLVM_CONFIG to the right executable path.
 pip3 install llvmlite==0.31.0
 
 # sed -i 's/numba/numba==0.48.0/g' requirements.txt
@@ -90,18 +93,32 @@ echo $TF_POSE_DIR
 # https://github.com/ildoonet/tf-pose-estimation/pull/501
 # tf_pose/estimator.py
 sed -i '/use_calibration=True,/d' ./tf_pose/estimator.py
+sed -i -e '/try:/itf.compat.v1.disable_eager_execution()' ./tf_pose/estimator.py
 
-cp $SCRIPT_DIR/run_webcammod.py .
-cp $SCRIPT_DIR/run_mod.py .
+# cp $SCRIPT_DIR/run_webcammod.py .
+# cp $SCRIPT_DIR/run_mod.py .
 
 # cp run.py run_new.py
 # patch -u < diff_run_py.patch
 # patch -u run_new.py < $SCRIPT_DIR/diff_run_py.patch
 # patching file run_new.py
 
-python3 run_mod.py --model=mobilenet_thin --image=./images/p1.jpg
+
+python3 run.py --model=mobilenet_thin --image=./images/p1.jpg
 
 ls -l *.png
+
+
+# python3 run.py --model=mobilenet_thin --image=./images/p1.jpg
+# https://github.com/ildoonet/tf-pose-estimation/issues/276#issuecomment-677430244
+# tf.compat.v1.disable_eager_execution()
+#        self.tensor_image = self.graph.get_tensor_by_name('TfPoseEstimator/image:0')
+# KeyError: "The name 'TfPoseEstimator/image:0' refers to a Tensor which does not exist. The operation, 'TfPoseEstimator/image', does not exist in the graph."
+#        self.tensor_image = self.graph.get_tensor_by_name('TfPoseEstimator/split:0')
+# KeyError: "The name 'TfPoseEstimator/split:0' refers to a Tensor which does not exist. The operation, 'TfPoseEstimator/split', does not exist in the graph."
+
+
+# python3 run_webcam.py --model=mobilenet_thin --resize=432x368 --camera=0
 
 
 # ===

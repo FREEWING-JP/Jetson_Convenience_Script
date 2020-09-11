@@ -51,6 +51,22 @@ git clone https://github.com/FREEWING-JP/Jetson_Convenience_Script 00_deb -b 00_
 mv ./00_deb/00_deb/* ./00_deb/
 ls -l ./00_deb
 ```
+---
+### WiFi Setup
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_setup_wifi_connection_nmcli/  
+```
+SSID='WIFI-SSID'
+PASSWORD='PLAIN-PASSWORD'
+
+sudo nmcli device wifi connect $SSID password $PASSWORD
+
+sudo nmcli con add type wifi con-name $SSID ifname wlan0 ssid $SSID
+sudo nmcli con modify $SSID wifi-sec.key-mgmt wpa-psk
+sudo nmcli con modify $SSID wifi-sec.psk $PASSWORD
+sudo nmcli con up $SSID
+
+nmcli dev wifi list
+```
 
 ---
 ### CMake 3.17.3

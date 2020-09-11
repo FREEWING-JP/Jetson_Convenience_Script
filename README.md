@@ -18,6 +18,7 @@ https://www.nvidia.com/ja-jp/autonomous-machines/embedded-systems/jetson-xavier-
 ### NVIDIA JetPack
 JetPack 4.3 PR Production Release  
 JetPack 4.4 DP Developer Preview  
+JetPack 4.4 PR Production Release  
 https://developer.nvidia.com/embedded/jetpack  
   
 ---
@@ -88,6 +89,12 @@ bash ./Jetson_Convenience_Script/OpenCV/inst_OpenCV3410.sh
 ```
 cd
 bash ./Jetson_Convenience_Script/OpenCV/inst_OpenCV349.sh
+```
+
+### OpenCV 4.4.0 with cuDNN 8.0, GStreamer, V4L Video4Linux
+```
+cd
+bash ./Jetson_Convenience_Script/OpenCV/inst_OpenCV440.sh
 ```
 
 ---

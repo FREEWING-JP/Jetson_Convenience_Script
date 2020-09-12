@@ -42,27 +42,29 @@ fi
 # Build CMake
 
 # sudo apt-get update
-sudo apt-get update
+sudo apt update
 
 # Do not Install cmake
-sudo apt-get -y install git
+sudo apt -y install git
 
 # user@user-desktop:~$ cmake --version
 # cmake version 3.10.2
 # apt-get install cmake OpenPose Error
 # CMake Error: The following variables are used in this project, but they are set to NOTFOUND.
 
-# Build Newest cmake for Build OpenPose
-sudo apt -y remove cmake cmake-data
+# Build Newest CMake for Build OpenPose
+sudo apt -y purge cmake cmake-data
+sudo apt -y purge cmake*
+sudo apt -y autoremove
 
 
-# https supported cmake when Build OpenCV 4.1.0 https Error
+# https supported CMake when Build OpenCV 4.1.0 https Error
 # cmake_download Protocol "https" not supported or disabled in libcurl
 # Download failed: 1;"Unsupported protocol"
 # boostdesc_bgm.i: No such file or directory
 # sudo apt-get -y install libcurl-devel
 # https://packages.ubuntu.com/bionic/libcurl-dev
-sudo apt-get -y install libcurl4-openssl-dev
+sudo apt -y install libcurl4-openssl-dev
 
 
 # ===

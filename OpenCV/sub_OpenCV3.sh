@@ -18,11 +18,14 @@ echo "OpenCV $OPENCV_VERSION"
 
 
 # Check OpenCV version
+# 4.1.1 = JetPack 4.3/4.4
 opencv_version | grep "4.1.1"
 if [ $? = 0 ]; then
   # OpenCV 4.1.1
   # uninstall OpenCV
-  sudo apt -y remove libopencv libopencv-dev libopencv-python
+  sudo apt -y purge libopencv libopencv-dev libopencv-python
+  sudo sudo apt purge -y libopencv*
+  sudo apt -y autoremove
 fi
 
 
@@ -161,7 +164,7 @@ cmake \
   -D WITH_CUBLAS=ON \
   -D WITH_GSTREAMER=ON -D WITH_LIBV4L=ON \
   -D ENABLE_NEON=ON \
-  -D ENABLE_FAST_MATH=ON \
+  -D ENABLE_FAST_MATH=OFF \
   \
   -D BUILD_EXAMPLES=OFF \
   -D INSTALL_PYTHON_EXAMPLES=OFF \

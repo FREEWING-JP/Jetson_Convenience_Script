@@ -5,7 +5,7 @@ http://www.neko.ne.jp/~freewing/
 
 ---
 ## JetPack 4.4 production release L4T 32.4.3 Can't build Caffe and OpenPose  
-Caffe don't support cuDNN v8.0 .  
+Caffe doesn't support cuDNN v8.0 .  
 https://forums.developer.nvidia.com/t/jetpack-4-4-l4t-r32-4-3-production-release/140870/21  
 
 ---
@@ -203,6 +203,7 @@ bash ./Jetson_Convenience_Script/StyleGAN2/inst_StyleGAN2.sh
 
 ---
 ### NVIDIA Caffe v0.17.3
+#### JetPack 4.4 production release L4T 32.4.3 Can't build Caffe and OpenPose  
 https://github.com/nvidia/caffe  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_build_nvcaffe_google_deep_dream/  
 ```
@@ -274,8 +275,14 @@ https://github.com/Microsoft/vscode
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_build_visual_studio_code_oss/  
   
 ```
+# for Jetson Nano
 cd
 bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1350.sh
+```
+```
+# for Jetson Xavier
+cd
+bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1472.sh
 ```
 
 ---

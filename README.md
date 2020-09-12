@@ -82,6 +82,8 @@ bash ./Jetson_Convenience_Script/CMake/inst_CMake.sh
 https://github.com/libjpeg-turbo/libjpeg-turbo  
 http://lfsbookja.osdn.jp/BLFS/svn-ja/general/libjpeg.html  
 -D WITH_JPEG8=ON  This switch enables compatibility with libjpeg version 8 .  
+https://libjpeg-turbo.org/About/TurboJPEG  
+"libjpeg-turbo" != "TurboJPEG"  
 ```
 cd
 bash ./Jetson_Convenience_Script/libjpeg-turbo/inst_libjpeg-turbo_205.sh

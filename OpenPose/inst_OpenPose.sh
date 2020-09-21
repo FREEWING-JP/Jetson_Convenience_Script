@@ -110,7 +110,7 @@ if [ "${CAFFE_HOME}" != "" ]; then
     echo "${ESC}[41mOpenPose probably doesn't work except for Caffe version 0.17.3${ESC}[m"
     echo ''
     # echo "Check failed: status == CUDNN_STATUS_SUCCESS (4 vs. 0)  CUDNN_STATUS_INTERNAL_ERROR, device 0"
-    echo 'google/protobuf/message_lite.cc:118 Can't parse message of type "caffe.NetParameter" because it is missing required fields: layer[0].clip_param.min, layer[0].clip_param.max'
+    echo "google/protobuf/message_lite.cc:118 Can't parse message of type \"caffe.NetParameter\" because it is missing required fields: layer[0].clip_param.min, layer[0].clip_param.max"
     echo 'upgrade_proto.cpp:97 Check failed: ReadProtoFromBinaryFile(param_file, param) Failed to parse NetParameter file: ./models/pose/body_25/pose_iter_584000.caffemodel'
     echo ''
 
@@ -187,11 +187,10 @@ cd build
 # Call Stack (most recent call first):
 #   cmake/Cuda.cmake:291 (detect_cuDNN)
 #   CMakeLists.txt:422 (include)
-# L4T 32.4.2 = JetPack 4.4
-cat /etc/nv_tegra_release | grep "R32 (release), REVISION: 4.2"
-# R32 (release), REVISION: 4.2, GCID: 20074772, BOARD: t186ref, EABI: aarch64, DATE: Thu Apr  9 01:26:40 UTC 2020
+# L4T 32.4.2 = JetPack 4.4 DP
+# L4T 32.4.3 = JetPack 4.4 PR
+cat /etc/nv_tegra_release | grep "R32 (release), REVISION: 4\.[2|3]"
 if [ $? = 0 ]; then
-  # L4T 32.4.2 = JetPack 4.4
   echo "JetPack 4.4"
 
   # Change cudnn.h to cudnn_version.h
@@ -223,6 +222,21 @@ if [ $tegra_cip_id = "33" ]; then
   CUDA_ARCH_BIN=5.3
 fi
 
+
+# ===
+# JetPack 4.4 Production Release patch No cuDNN 8.0
+# Caffe doesn't currently support cuDNN 8.0 (JetPack 4.4 Product Release)
+USE_CUDNN=ON
+
+cat /etc/nv_tegra_release | grep "R32 (release), REVISION: 4.3"
+# R32 (release), REVISION: 4.3, GCID: 21589087, BOARD: t186ref, EABI: aarch64, DATE: Fri Jun 26 04:34:27 UTC 2020
+if [ $? = 0 ]; then
+  echo "JetPack 4.4 Production Release patch No cuDNN 8.0"
+  # sed -i 's/USE_CUDNN/NO_USE_CUDNN/' ../3rdparty/caffe/Makefile
+  # sed -i 's/option(USE_CUDNN "Build OpenPose with cuDNN library support." ON)/option(USE_CUDNN "Build OpenPose with cuDNN library support." OFF)/' ../CMakeLists.txt
+  USE_CUDNN=OFF
+fi
+
 # ===
 # -D CMAKE_BUILD_TYPE=Release
 # https://cmake.org/cmake/help/v3.17/variable/CMAKE_BUILD_TYPE.html
@@ -236,7 +250,9 @@ if [ "${CAFFE_HOME}" = "" ]; then
     -D DOWNLOAD_BODY_COCO_MODEL=${DOWNLOAD_BODY_COCO_MODEL} \
     -D DOWNLOAD_BODY_MPI_MODEL=${DOWNLOAD_BODY_MPI_MODEL} \
     \
-    -D CUDA_ARCH_BIN=$CUDA_ARCH_BIN
+    -D CUDA_ARCH_BIN=$CUDA_ARCH_BIN \
+    \
+    -D USE_CUDNN=${USE_CUDNN}
 
   if [ $? != 0 ]; then
     echo "=========="
@@ -276,7 +292,8 @@ fi
 if [ "${CAFFE_HOME}" = "" ]; then
   # ===
   # JetPack 4.4 DP Developer Preview patch
-  cat /etc/nv_tegra_release | grep "R32 (release), REVISION: 4.2"
+  # JetPack 4.4 PR Production Release patch
+  cat /etc/nv_tegra_release | grep "R32 (release), REVISION: 4\.[2|3]"
   # R32 (release), REVISION: 4.2, GCID: 20074772, BOARD: t186ref, EABI: aarch64, DATE: Thu Apr  9 01:26:40 UTC 2020
   if [ $? = 0 ]; then
     # L4T 32.4.2 = JetPack 4.4

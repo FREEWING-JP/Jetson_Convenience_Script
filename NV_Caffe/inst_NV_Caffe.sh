@@ -148,6 +148,17 @@ if [ $OPENCV_VERSION = 4 ]; then
   # Copy Makefile.config
   cp $SCRIPT_DIR/open_cv4_patch/Makefile.config.example Makefile.config
 
+  # NG L4T 32.4.2 = JetPack 4.4 Developer Preview NG
+  # OK L4T 32.4.3 = JetPack 4.4 Production Release OK
+  cat /etc/nv_tegra_release | grep "R32 (release), REVISION: 4.3"
+  # R32 (release), REVISION: 4.3, GCID: 21589087, BOARD: t186ref, EABI: aarch64, DATE: Fri Jun 26 04:34:27 UTC 2020
+  if [ $? = 0 ]; then
+    echo "JetPack 4.4 Production Release patch No cuDNN 8.0"
+    # JetPack 4.4 Production Release patch No cuDNN 8.0
+    # Caffe doesn't currently support cuDNN 8.0 (JetPack 4.4 Product Release)
+    sed -i 's/^USE_CUDNN/# USE_CUDNN/' Makefile.config
+  fi
+
   # Copy OpenCV v4.x patch
   cp $SCRIPT_DIR/open_cv4_patch/Makefile .
   cp $SCRIPT_DIR/open_cv4_patch/common.hpp ./include/caffe/

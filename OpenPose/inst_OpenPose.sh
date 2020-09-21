@@ -235,6 +235,11 @@ if [ $? = 0 ]; then
   # sed -i 's/USE_CUDNN/NO_USE_CUDNN/' ../3rdparty/caffe/Makefile
   # sed -i 's/option(USE_CUDNN "Build OpenPose with cuDNN library support." ON)/option(USE_CUDNN "Build OpenPose with cuDNN library support." OFF)/' ../CMakeLists.txt
   USE_CUDNN=OFF
+
+  if [ "${DL_FRAMEWORK}" != "NV_CAFFE" ]; then
+    echo "OpenPose with JetPack 4.4 Production Release need NV_CAFFE"
+    exit 1
+  fi
 fi
 
 # ===

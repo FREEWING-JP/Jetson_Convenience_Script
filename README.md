@@ -318,3 +318,12 @@ bash ./Jetson_Convenience_Script/Benchmark/inst_UnixBench.sh
 cd
 bash ./Jetson_Convenience_Script/Benchmark/inst_jetson_benchmarks.sh
 ```
+
+---
+### Jetson stats
+https://github.com/rbonghi/jetson_stats  
+```
+# Install
+sudo -H pip install -U jetson-stats
+sudo reboot
+```

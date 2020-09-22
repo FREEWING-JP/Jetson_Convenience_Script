@@ -154,6 +154,19 @@ cd
 # OpenPose v1.6.0 Apr 27, 2020
 git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose -b v1.6.0 --depth 1
 cd openpose
+
+# Collecting opencv-python
+# File "/tmp/pip-build-mvq5cn8w/opencv-python/setup.py", line 9, in <module>
+# import skbuild
+# ModuleNotFoundError: No module named 'skbuild'
+sudo pip3 install scikit-build
+
+# Cythonizing sources
+# File "/tmp/pip-build-uxjr2dn0/numpy/tools/cythonize.py", line 59, in process_pyx
+# from Cython.Compiler.Version import version as cython_version
+# ModuleNotFoundError: No module named 'Cython'
+sudo pip3 install --no-binary :all: --no-cache-dir Cython
+
 sudo bash ./scripts/ubuntu/install_deps.sh
 
 

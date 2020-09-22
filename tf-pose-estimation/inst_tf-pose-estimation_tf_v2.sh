@@ -105,6 +105,8 @@ cp $SCRIPT_DIR/run_webcam_mod.py .
 # patching file run_new.py
 
 
+# --model=cmu
+# --model=mobilenet_thin
 export MPLBACKEND="agg"
 python3 run.py --model=mobilenet_thin --image=./images/p1.jpg
 python3 run_mod.py --model=mobilenet_thin --image=./images/p1.jpg

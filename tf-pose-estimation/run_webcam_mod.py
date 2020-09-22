@@ -42,6 +42,7 @@ if __name__ == '__main__':
     logger.addHandler(ch)
   
     fps_time = 0
+    f = 0
 
     logger.debug('initialization %s : %s' % (args.model, get_graph_path(args.model)))
     w, h = model_wh(args.resize)
@@ -53,6 +54,8 @@ if __name__ == '__main__':
     cam = cv2.VideoCapture(args.camera)
     ret_val, image = cam.read()
     logger.info('cam image=%dx%d' % (image.shape[1], image.shape[0]))
+
+    import matplotlib.pyplot as plt
 
     while True:
         ret_val, image = cam.read()
@@ -71,7 +74,13 @@ if __name__ == '__main__':
                     "FPS: %f" % (1.0 / (time.time() - fps_time)),
                     (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
                     (0, 255, 0), 2)
-        cv2.imshow('tf-pose-estimation result', image)
+        # cv2.imshow('tf-pose-estimation result', image)
+        png_filename = 'example_webcam_'+ str(f).zfill(5) +'.png'
+        plt.imsave(png_filename, cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+        f = f + 1
+        if f > 1000:
+            break
+        # print('*', end='')
         fps_time = time.time()
         if cv2.waitKey(1) == 27:
             break

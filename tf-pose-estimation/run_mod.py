@@ -54,6 +54,10 @@ if __name__ == '__main__':
     image = TfPoseEstimator.draw_humans(image, humans, imgcopy=False)
 
     try:
+        # import matplotlib as mpl
+        # if os.environ.get('DISPLAY','') == '':
+        #     print('no display found. Using non-interactive Agg backend')
+        #     mpl.use('Agg')
         import matplotlib.pyplot as plt
 
         basename = os.path.splitext(os.path.basename(args.image))[0]
@@ -94,7 +98,7 @@ if __name__ == '__main__':
         fig.savefig(basename + "_graph.png")
         # plt.savefig('output_graph.png')
         # SSH terminal comment below "plt.show()"
-        plt.show()
+        # plt.show()
     except Exception as e:
         logger.warning('matplitlib error, %s' % e)
         cv2.imshow('result', image)

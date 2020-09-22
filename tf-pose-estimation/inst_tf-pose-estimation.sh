@@ -91,17 +91,26 @@ echo $TF_POSE_DIR
 # tf_pose/estimator.py
 sed -i '/use_calibration=True,/d' ./tf_pose/estimator.py
 
-cp $SCRIPT_DIR/run_webcammod.py .
 cp $SCRIPT_DIR/run_mod.py .
+cp $SCRIPT_DIR/run_video_mod.py .
+cp $SCRIPT_DIR/run_webcam_mod.py .
 
 # cp run.py run_new.py
 # patch -u < diff_run_py.patch
 # patch -u run_new.py < $SCRIPT_DIR/diff_run_py.patch
 # patching file run_new.py
 
+export MPLBACKEND="agg"
 python3 run_mod.py --model=mobilenet_thin --image=./images/p1.jpg
+python3 run_mod.py --model=mobilenet_thin --image=./images/p2.jpg
+python3 run_mod.py --model=mobilenet_thin --image=./images/p3.jpg
+unset MPLBACKEND
 
 ls -l *.png
+
+# python3 run_video_mod.py --model=mobilenet_thin --video=./videos/hoge.mp4 --resize=432x368
+
+# python3 run_webcam_mod.py --model=mobilenet_thin --resize=432x368 --camera=1
 
 
 # ===

@@ -127,6 +127,12 @@ bash ./Jetson_Convenience_Script/OpenCV/inst_OpenCV440.sh
 #### JetPack 4.4 production release L4T 32.4.3 Can't build Caffe and OpenPose with cuDNN 8.0  
 https://github.com/BVLC/caffe  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_build_caffe_google_deep_dream/  
+
+| JetPack | USE_CUDNN=1 | USE_CUDNN=0 |
+|:---:|:---:|:---:|
+|4.4 PR|NG|OK|
+|4.4 DP|OK|OK|
+|4.3 PR|OK|OK|
 ```
 # with OpenCV 3.x (JetPack 4.2)
 # with OpenCV 4.x (JetPack 4.3 or 4.4)
@@ -166,6 +172,12 @@ bash ./Jetson_Convenience_Script/Caffe/inst_DeepDreamer.sh
 https://github.com/CMU-Perceptual-Computing-Lab/openpose  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_2020_build_openpose/  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_xavier_nx_2020_build_openpose/  
+
+| JetPack | OpenPose builtin Caffe | external Caffe | external NVIDIA Caffe v0.17.3 |
+|:---:|:---:|:---:|:---:|
+|4.4 PR|NG(without cuDNN)|NG|OK(without cuDNN)|
+|4.4 DP|OK|NG|OK|
+|4.3 PR|OK|NG|OK|
 ```
 # Auto detect JetPack 4.3 or 4.4
 # Auto detect OpenCV 3.x/ 4.x for Build OpenPose's Caffe
@@ -218,6 +230,12 @@ bash ./Jetson_Convenience_Script/StyleGAN2/inst_StyleGAN2.sh
 #### JetPack 4.4 production release L4T 32.4.3 Can't build Caffe and OpenPose with cuDNN 8.0  
 https://github.com/nvidia/caffe  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_build_nvcaffe_google_deep_dream/  
+
+| JetPack | USE_CUDNN=1 | USE_CUDNN=0 |
+|:---:|:---:|:---:|
+|4.4 PR|NG|OK|
+|4.4 DP|OK|OK|
+|4.3 PR|OK|OK|
 ```
 # with OpenCV 3.x (JetPack 4.2)
 # with OpenCV 4.x (JetPack 4.3 or 4.4)

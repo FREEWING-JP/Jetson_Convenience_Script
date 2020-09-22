@@ -11,19 +11,19 @@ https://forums.developer.nvidia.com/t/jetpack-4-4-l4t-r32-4-3-production-release
 
 ---
 ### for Jetson Nano / Jetson Xavier NX Developer Kit
-NVIDIA Jetson Nano Developer Kit  
+- NVIDIA Jetson Nano Developer Kit  
 https://www.nvidia.com/ja-jp/autonomous-machines/embedded-systems/jetson-nano-developer-kit/  
-NVIDIA Jetson Xavier NX Developer Kit  
+- NVIDIA Jetson Xavier NX Developer Kit  
 https://www.nvidia.com/ja-jp/autonomous-machines/embedded-systems/jetson-xavier-nx/  
   
 ### NVIDIA JetPack
-JetPack 4.4 PR Production Release  
+- JetPack 4.4 PR Production Release  
 https://developer.nvidia.com/embedded/jetpack  
-JetPack 4.4 DP Developer Preview  
+- JetPack 4.4 DP Developer Preview  
 https://developer.nvidia.com/jetpack-sdk-44-dp-archive  
-JetPack 4.3 PR Production Release  
+- JetPack 4.3 PR Production Release  
 https://developer.nvidia.com/jetpack-43-archive  
-JetPack Archive  
+- JetPack Archive  
 https://developer.nvidia.com/embedded/jetpack-archive  
   
 ---

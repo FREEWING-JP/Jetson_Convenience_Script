@@ -17,10 +17,14 @@ NVIDIA Jetson Xavier NX Developer Kit
 https://www.nvidia.com/ja-jp/autonomous-machines/embedded-systems/jetson-xavier-nx/  
   
 ### NVIDIA JetPack
-JetPack 4.3 PR Production Release  
-JetPack 4.4 DP Developer Preview  
 JetPack 4.4 PR Production Release  
 https://developer.nvidia.com/embedded/jetpack  
+JetPack 4.4 DP Developer Preview  
+https://developer.nvidia.com/jetpack-sdk-44-dp-archive  
+JetPack 4.3 PR Production Release  
+https://developer.nvidia.com/jetpack-43-archive  
+JetPack Archive  
+https://developer.nvidia.com/embedded/jetpack-archive  
   
 ---
 ### Jetson Nano / Jetson Xavier NX initialize

@@ -175,7 +175,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_xavier_nx_2020_build_
 
 | JetPack | OpenPose builtin Caffe | external Caffe | external NVIDIA Caffe v0.17.3 |
 |:---:|:---:|:---:|:---:|
-|4.4 PR|OK(without cuDNN)|NG|OK(without cuDNN)|
+|4.4 PR|OK (without cuDNN)|NG (without cuDNN)|OK (without cuDNN)|
 |4.4 DP|OK|NG|OK|
 |4.3 PR|OK|NG|OK|
 ```

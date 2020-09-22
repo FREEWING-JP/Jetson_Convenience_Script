@@ -159,13 +159,17 @@ cd openpose
 # File "/tmp/pip-build-mvq5cn8w/opencv-python/setup.py", line 9, in <module>
 # import skbuild
 # ModuleNotFoundError: No module named 'skbuild'
-sudo pip3 install scikit-build
+# sudo pip3 install scikit-build
 
 # Cythonizing sources
 # File "/tmp/pip-build-uxjr2dn0/numpy/tools/cythonize.py", line 59, in process_pyx
 # from Cython.Compiler.Version import version as cython_version
 # ModuleNotFoundError: No module named 'Cython'
-sudo pip3 install --no-binary :all: --no-cache-dir Cython
+# sudo pip3 install --no-binary :all: --no-cache-dir Cython
+
+# Running setup.py bdist_wheel for opencv-python
+# Comment install scikit-build and Cython
+# because opencv-python VERY VERY LONG TIME to pip install
 
 sudo bash ./scripts/ubuntu/install_deps.sh
 

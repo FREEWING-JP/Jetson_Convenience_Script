@@ -35,11 +35,15 @@ bash ./sub_libx265.sh
 
 
 # ===
+pkg-config --list-all | grep x26
+
+
+# ===
 # FFmpeg GPU HW-Acceleration Support
 cd
 cd nvffmpeg
 # Download and install ffnvcodec:
-git clone https://git.videolan.org/git/ffmpeg/nv-codec-headers.git
+git clone https://git.videolan.org/git/ffmpeg/nv-codec-headers.git  --depth 1
 cd nv-codec-headers && sudo make install && cd -
 
 
@@ -67,7 +71,11 @@ cd ffmpeg
 
 # ./configure --enable-cuda-nvcc --enable-cuvid --enable-nvenc --enable-nonfree --enable-libnpp --extra-cflags=-I/usr/local/cuda/include --extra-ldflags=-L/usr/local/cuda/lib64
 # --enable-gpl --enable-shared --enable-libx264 --enable-libx265
-./configure --enable-cuda-nvcc --enable-cuvid --enable-nvenc --enable-nonfree --enable-libnpp --extra-cflags=-I/usr/local/cuda/include --extra-ldflags=-L/usr/local/cuda/lib64 --enable-gpl --enable-shared --enable-libx264 --enable-libx265
+# ./configure --enable-cuda-nvcc --enable-cuvid --enable-nvenc --enable-nonfree --enable-libnpp --extra-cflags=-I/usr/local/cuda/include --extra-ldflags=-L/usr/local/cuda/lib64 --enable-gpl --enable-shared --enable-libx264 --enable-libx265
+# 2020/09
+# ffmpeg --enable-libx265
+# ERROR: x265 not found using pkg-config
+./configure --enable-cuda-nvcc --enable-cuvid --enable-nvenc --enable-nonfree --enable-libnpp --extra-cflags=-I/usr/local/cuda/include --extra-ldflags=-L/usr/local/cuda/lib64 --enable-gpl --enable-shared --enable-libx264
 
 
 # time make -j4

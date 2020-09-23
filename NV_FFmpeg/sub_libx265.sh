@@ -27,10 +27,15 @@ sudo apt-get -y install mercurial build-essential yasm nasm
 # Release_3.4 2020‑05‑30
 # hg clone https://bitbucket.org/multicoreware/x265 -r 1 -b Release_3.4
 
-# Release_3.5
+# 2020/09
+# ffmpeg --enable-libx265
+# ERROR: x265 not found using pkg-config
+# Release_3.4 NG
+# Release_3.5 NG
 git clone https://bitbucket.org/multicoreware/x265_git.git x265 -b Release_3.5 --depth 1
 cd x265/build/linux
 ./make-Makefiles.bash
+
 
 # time make -j4
 time make -j$(nproc)

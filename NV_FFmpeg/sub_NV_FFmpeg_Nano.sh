@@ -35,6 +35,10 @@ bash ./sub_libx265.sh
 
 
 # ===
+pkg-config --list-all | grep x26
+
+
+# ===
 # https://github.com/jocover/jetson-ffmpeg
 # L4T Multimedia API for ffmpeg jetson-ffmpeg
 
@@ -67,7 +71,13 @@ cd ffmpeg
 wget https://github.com/jocover/jetson-ffmpeg/raw/master/ffmpeg_nvmpi.patch
 git apply ffmpeg_nvmpi.patch
 # ./configure --enable-nvmpi --enable-nonfree
-./configure --enable-nvmpi --enable-nonfree --enable-gpl --enable-shared --enable-libx264 --enable-libx265
+
+# ./configure --enable-nvmpi --enable-nonfree --enable-gpl --enable-shared --enable-libx264 --enable-libx265
+# 2020/09
+# ffmpeg --enable-libx265
+# ERROR: x265 not found using pkg-config
+./configure --enable-nvmpi --enable-nonfree --enable-gpl --enable-shared --enable-libx264
+
 
 # time make -j4
 time make -j$(nproc)

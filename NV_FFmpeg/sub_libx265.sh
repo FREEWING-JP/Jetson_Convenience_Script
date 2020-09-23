@@ -1,5 +1,15 @@
 #!/bin/sh
 
+# sudo apt install -y libx265-dev
+# Setting up libx265-dev:arm64 (2.6-3) ...
+
+pkg-config --list-all | grep x26
+# x264 - H.264 (MPEG4 AVC) encoder library
+# x265 - H.265/HEVC video encoder
+
+# ERROR: x265 not found using pkg-config
+exit
+
 cd `dirname $0`
 pwd
 SCRIPT_DIR=$(pwd)

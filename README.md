@@ -74,7 +74,7 @@ nmcli dev wifi list
 ```
 
 ---
-### CMake 3.17.3
+### CMake 3.17.5
 https://github.com/Kitware/CMake  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia__jetson_build_newest_cmake/  
 ```

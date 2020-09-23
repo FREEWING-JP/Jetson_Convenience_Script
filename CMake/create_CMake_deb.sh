@@ -32,5 +32,5 @@ sudo chmod 766 install_manifest.txt
 
 cpack -G DEB
 
-ls -l cmake-3.17.3-Linux-aarch64.deb
+ls -l cmake-*-Linux-aarch64.deb
 

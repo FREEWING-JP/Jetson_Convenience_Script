@@ -47,7 +47,7 @@ fi
 # ===
 # Install CMake
 INSTALL_DEB=0
-if [ -e ../../00_deb/OpenCV-4.4.0-aarch64-dev.deb ]; then
+if [ -e ../../00_deb/OpenCV-${OPENCV_VERSION}-aarch64-dev.deb ]; then
 
   echo "Found OpenCV .deb package file"
   echo "Build OpenCV need lot of time"
@@ -129,12 +129,12 @@ sudo apt install -y libv4l-dev libv4l2rds0 qv4l2 v4l-utils v4l2ucp
 
 # ===
 if [ $INSTALL_DEB -ne 0 ]; then
-  sudo dpkg -i ../../00_deb/OpenCV-4.4.0-aarch64-dev.deb
-  sudo dpkg -i ../../00_deb/OpenCV-4.4.0-aarch64-libs.deb
-  sudo dpkg -i ../../00_deb/OpenCV-4.4.0-aarch64-licenses.deb
-  sudo dpkg -i ../../00_deb/OpenCV-4.4.0-aarch64-main.deb
-  sudo dpkg -i ../../00_deb/OpenCV-4.4.0-aarch64-python.deb
-  sudo dpkg -i ../../00_deb/OpenCV-4.4.0-aarch64-scripts.deb
+  sudo dpkg -i ../../00_deb/OpenCV-${OPENCV_VERSION}-aarch64-dev.deb
+  sudo dpkg -i ../../00_deb/OpenCV-${OPENCV_VERSION}-aarch64-libs.deb
+  sudo dpkg -i ../../00_deb/OpenCV-${OPENCV_VERSION}-aarch64-licenses.deb
+  sudo dpkg -i ../../00_deb/OpenCV-${OPENCV_VERSION}-aarch64-main.deb
+  sudo dpkg -i ../../00_deb/OpenCV-${OPENCV_VERSION}-aarch64-python.deb
+  sudo dpkg -i ../../00_deb/OpenCV-${OPENCV_VERSION}-aarch64-scripts.deb
   opencv_version
   exit 0
 fi

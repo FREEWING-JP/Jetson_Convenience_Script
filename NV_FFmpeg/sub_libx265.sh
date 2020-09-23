@@ -25,7 +25,10 @@ sudo apt-get -y install mercurial build-essential yasm nasm
 # If you are compiling off the default branch after release of v2.6, you must have nasm (2.13 or newer) installed and added to your path
 
 # Release_3.4 2020‑05‑30
-hg clone https://bitbucket.org/multicoreware/x265 -r 1 -b Release_3.4
+# hg clone https://bitbucket.org/multicoreware/x265 -r 1 -b Release_3.4
+
+# Release_3.5
+git clone https://bitbucket.org/multicoreware/x265_git.git x265 -b Release_3.5 --depth 1
 cd x265/build/linux
 ./make-Makefiles.bash
 

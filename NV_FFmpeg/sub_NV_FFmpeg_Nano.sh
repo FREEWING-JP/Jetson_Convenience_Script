@@ -41,8 +41,8 @@ bash ./sub_libx265.sh
 # 1.build and install library
 cd
 cd nvffmpeg
-# Latest commit bda55bf Jun 5, 2020
-git clone https://github.com/jocover/jetson-ffmpeg.git --depth 1 -b stable
+# Latest commit 4ba259a Jun 22, 2020
+git clone https://github.com/jocover/jetson-ffmpeg.git --depth 1
 cd jetson-ffmpeg
 mkdir build
 cd build

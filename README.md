@@ -83,6 +83,9 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia__jetson_build_newest_cmake/
 # for Build OpenPose
 cd
 bash ./Jetson_Convenience_Script/CMake/inst_CMake.sh
+
+# Create .deb install package
+bash ./Jetson_Convenience_Script/CMake/create_CMake_deb.sh
 ```
 
 ### libjpeg-turbo 2.0.5 (libjpeg v8)
@@ -122,6 +125,9 @@ bash ./Jetson_Convenience_Script/OpenCV/inst_OpenCV349.sh
 ```
 cd
 bash ./Jetson_Convenience_Script/OpenCV/inst_OpenCV440.sh
+
+# Create .deb install package
+bash ./Jetson_Convenience_Script/OpenCV/create_OpenCV_deb.sh
 ```
 
 ---

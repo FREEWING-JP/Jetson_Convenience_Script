@@ -33,7 +33,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_2020_initialize/
 ```
 # Auto detect Nano or Xavier
 cd
-git clone https://github.com/FREEWING-JP/Jetson_Convenience_Script
+git clone https://github.com/FREEWING-JP/Jetson_Convenience_Script --depth 1
 cd
 bash ./Jetson_Convenience_Script/JetPack/1st_jetson_initialize.sh
 ```

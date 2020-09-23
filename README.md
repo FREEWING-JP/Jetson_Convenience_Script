@@ -265,6 +265,10 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_2020_build_ffmpe
 # Auto detect Nano or Xavier
 cd
 bash ./Jetson_Convenience_Script/NV_FFmpeg/inst_NV_FFmpeg.sh
+
+# 2020/09 disable x265
+# ffmpeg --enable-libx265
+# ERROR: x265 not found using pkg-config
 ```
 
 ---

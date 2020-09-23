@@ -69,6 +69,8 @@ sudo nmcli con add type wifi con-name $SSID ifname wlan0 ssid $SSID
 sudo nmcli con modify $SSID wifi-sec.key-mgmt wpa-psk
 sudo nmcli con modify $SSID wifi-sec.psk $PASSWORD
 sudo nmcli con up $SSID
+sleep 5
+sudo nmcli con up $SSID
 
 nmcli dev wifi list
 ```

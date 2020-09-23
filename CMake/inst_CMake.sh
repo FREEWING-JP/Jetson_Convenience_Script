@@ -5,6 +5,9 @@ pwd
 SCRIPT_DIR=$(pwd)
 echo $SCRIPT_DIR
 
+
+VER=3.17.5
+
 # ===
 # ===
 if [ -d ~/CMake ]; then
@@ -28,7 +31,9 @@ fi
 # ===
 # Install CMake
 INSTALL_DEB=0
-if [ -e ../../00_deb/cmake-3.17.3-Linux-aarch64.deb ]; then
+DEB_FILENAME=cmake-${VER}-Linux-aarch64.deb
+echo check ${DEB_FILENAME}
+if [ -e ../../00_deb/${DEB_FILENAME} ]; then
 
   echo "Found CMake .deb package file"
   echo "Build CMake need lot of time"
@@ -69,14 +74,14 @@ sudo apt -y install libcurl4-openssl-dev
 
 # ===
 if [ $INSTALL_DEB -ne 0 ]; then
-  sudo dpkg -i ../../00_deb/cmake-3.17.3-Linux-aarch64.deb
+  sudo dpkg -i ../../00_deb/${DEB_FILENAME}
   cmake --version
   exit 0
 fi
 
 
 cd
-git clone https://github.com/Kitware/CMake.git --depth 1 -b v3.17.3
+git clone https://github.com/Kitware/CMake.git --depth 1 -b v${VER}
 cd CMake
 
 # --system-curl https support cmake
@@ -86,7 +91,7 @@ cd CMake
 time make -j$(nproc)
 
 ./bin/cmake --version
-# cmake version 3.17.3
+# cmake version 3.17.x
 # CMake suite maintained and supported by Kitware (kitware.com/cmake).
 
 # Install CMake

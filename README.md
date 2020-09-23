@@ -183,7 +183,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_xavier_nx_2020_build_
 # Auto detect OpenCV 3.x/ 4.x for Build OpenPose's Caffe
 # external Caffe version should be 0.17.3 (ex. OpenPose internal/ NVIDIA Caffe)
 # Require CMake Version 3.12 or above
-# support JetPack 4.4 production release with NVIDIA Caffe v0.17.3
+# support JetPack 4.4 production release without cuDNN 8.0
 cd
 bash ./Jetson_Convenience_Script/OpenPose/inst_OpenPose.sh
 ```

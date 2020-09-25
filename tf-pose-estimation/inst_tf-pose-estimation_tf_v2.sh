@@ -83,6 +83,10 @@ bash download.sh
 cd ../../..
 
 
+# ModuleNotFoundError: No module named 'tf_slim'
+pip3 install tf_slim
+
+
 TF_POSE_DIR=$(pwd)
 echo $TF_POSE_DIR
 
@@ -108,27 +112,14 @@ cp $SCRIPT_DIR/run_webcam_mod.py .
 # --model=cmu
 # --model=mobilenet_thin
 export MPLBACKEND="agg"
-python3 run.py --model=mobilenet_thin --image=./images/p1.jpg
-python3 run_mod.py --model=mobilenet_thin --image=./images/p1.jpg
-python3 run_mod.py --model=mobilenet_thin --image=./images/p2.jpg
-python3 run_mod.py --model=mobilenet_thin --image=./images/p3.jpg
+python3 run_mod.py --model=mobilenet_thin --resize=432x368 --image=./images/p1.jpg
+python3 run_mod.py --model=mobilenet_thin --resize=432x368 --image=./images/p2.jpg
+python3 run_mod.py --model=mobilenet_thin --resize=432x368 --image=./images/p3.jpg
 unset MPLBACKEND
 
 ls -l *.png
 
-
-# python3 run.py --model=mobilenet_thin --image=./images/p1.jpg
-# https://github.com/ildoonet/tf-pose-estimation/issues/276#issuecomment-677430244
-# tf.compat.v1.disable_eager_execution()
-#        self.tensor_image = self.graph.get_tensor_by_name('TfPoseEstimator/image:0')
-# KeyError: "The name 'TfPoseEstimator/image:0' refers to a Tensor which does not exist. The operation, 'TfPoseEstimator/image', does not exist in the graph."
-#        self.tensor_image = self.graph.get_tensor_by_name('TfPoseEstimator/split:0')
-# KeyError: "The name 'TfPoseEstimator/split:0' refers to a Tensor which does not exist. The operation, 'TfPoseEstimator/split', does not exist in the graph."
-
-
-# python3 run_webcam.py --model=mobilenet_thin --resize=432x368 --camera=0
-
-# python3 run_video_mod.py --model=mobilenet_thin --video=./videos/hoge.mp4 --resize=432x368
+# python3 run_video_mod.py --model=mobilenet_thin --video=./videos/hoge.mp4 --resolution=432x368
 
 # python3 run_webcam_mod.py --model=mobilenet_thin --resize=432x368 --camera=1
 

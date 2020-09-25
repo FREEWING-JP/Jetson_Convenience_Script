@@ -111,7 +111,7 @@ unset MPLBACKEND
 
 ls -l *.png
 
-# python3 run_video_mod.py --model=mobilenet_thin --video=./videos/hoge.mp4 --resize=432x368
+# python3 run_video_mod.py --model=mobilenet_thin --video=./videos/hoge.mp4 --resolution=432x368
 
 # python3 run_webcam_mod.py --model=mobilenet_thin --resize=432x368 --camera=1
 

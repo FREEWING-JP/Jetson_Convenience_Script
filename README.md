@@ -27,6 +27,33 @@ https://developer.nvidia.com/jetpack-43-archive
 https://developer.nvidia.com/embedded/jetpack-archive  
   
 ---
+### Jetson Nano / Jetson Xavier NX HEADLESS MODE Setup
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_xavier_nx_developer_kit_headless_mode_setup/  
+```
+NVIDIA Jetson Nano、Jetson Xavier NX Developer Kit HEADLESS MODE Setup
+You can use a Jetson Xavier NX Developer Kit in headless mode, that is , without attaching a display .
+```
+![](https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/nvidia_jetson_xavier_nx_developer_kit_oobe_52.jpg "Jetson HEADLESS MODE Setup")
+---
+### WiFi Setup
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_setup_wifi_connection_nmcli/  
+```
+SSID='WIFI-SSID'
+PASSWORD='PLAIN-PASSWORD'
+
+sudo nmcli device wifi connect $SSID password $PASSWORD
+
+sudo nmcli con add type wifi con-name $SSID ifname wlan0 ssid $SSID
+sudo nmcli con modify $SSID wifi-sec.key-mgmt wpa-psk
+sudo nmcli con modify $SSID wifi-sec.psk $PASSWORD
+sudo nmcli con up $SSID
+sleep 5
+sudo nmcli con up $SSID
+
+nmcli dev wifi list
+```
+
+---
 ### Jetson Nano / Jetson Xavier NX initialize
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_xavier_nx_2020_initialize/  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_2020_initialize/  
@@ -56,25 +83,6 @@ git clone https://github.com/FREEWING-JP/Jetson_Convenience_Script 00_deb -b 00_
 mv ./00_deb/00_deb/* ./00_deb/
 ls -l ./00_deb
 ```
----
-### WiFi Setup
-http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_setup_wifi_connection_nmcli/  
-```
-SSID='WIFI-SSID'
-PASSWORD='PLAIN-PASSWORD'
-
-sudo nmcli device wifi connect $SSID password $PASSWORD
-
-sudo nmcli con add type wifi con-name $SSID ifname wlan0 ssid $SSID
-sudo nmcli con modify $SSID wifi-sec.key-mgmt wpa-psk
-sudo nmcli con modify $SSID wifi-sec.psk $PASSWORD
-sudo nmcli con up $SSID
-sleep 5
-sudo nmcli con up $SSID
-
-nmcli dev wifi list
-```
-
 ---
 ### CMake 3.17.5
 https://github.com/Kitware/CMake  
@@ -334,7 +342,7 @@ bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1472
 ---
 ### Vino VNC Server
 https://gitlab.gnome.org/GNOME/vino/  
-  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_enable_vino_vnc_server_headless_mode/  
 ```
 cd
 bash ./Jetson_Convenience_Script/Vino_VNC/inst_Vino_VNC.sh

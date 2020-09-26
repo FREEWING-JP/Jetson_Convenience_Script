@@ -107,16 +107,16 @@ bash ./Jetson_Convenience_Script/OpenBLAS/inst_OpenBLAS.sh
 ```
 
 ---
-### OpenCV 3.4.10
+### OpenCV 3.x
 https://github.com/opencv/opencv  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_build_opencv_3410/  
 ```
+# OpenCV 3.4.10
 cd
 bash ./Jetson_Convenience_Script/OpenCV/inst_OpenCV3410.sh
 ```
-
-### OpenCV 3.4.9
 ```
+# OpenCV 3.4.9
 cd
 bash ./Jetson_Convenience_Script/OpenCV/inst_OpenCV349.sh
 ```
@@ -272,42 +272,45 @@ bash ./Jetson_Convenience_Script/NV_FFmpeg/inst_NV_FFmpeg.sh
 ```
 
 ---
-### TensorFlow v1.15.2
+### TensorFlow
 https://github.com/tensorflow/tensorflow  
+https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html  
+https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform-release-notes/tf-jetson-rel.html  
+Official TensorFlow for Jetson Nano!  
+https://forums.developer.nvidia.com/t/official-tensorflow-for-jetson-nano/71770  
+Official TensorFlow for Jetson AGX XavierNX  
+https://forums.developer.nvidia.com/t/official-tensorflow-for-jetson-agx-xaviernx/141306  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_jetpack_tensorflow_setup/  
+
+### TensorFlow v1.x
 ```
+# TensorFlow v1.15.2
 # Auto detect JetPack 4.3 or 4.4
 cd
 bash ./Jetson_Convenience_Script/TensorFlow/inst_tf1.sh
 ```
-
-### TensorFlow v2.1.0
+### TensorFlow v2.x
 ```
+# TensorFlow v2.1.0
 # Auto detect JetPack 4.3 or 4.4
 cd
 bash ./Jetson_Convenience_Script/TensorFlow/inst_tf2.sh
 ```
 
-### Pytorch v1.4.0 / torchvision v0.5.0 / Python 3.6
-https://forums.developer.nvidia.com/t/pytorch-for-jetson-nano-version-1-5-0-now-available/72048
-  
+### Pytorch
+https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-6-0-now-available/72048  
 ```
+# Pytorch v1.4.0 / torchvision v0.5.0 / Python 3.6
 cd
 bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_4_Python3.sh
 ```
-
-### Pytorch v1.5.0 / torchvision v0.6.0 / Python 3.6
-https://forums.developer.nvidia.com/t/pytorch-for-jetson-nano-version-1-5-0-now-available/72048
-  
 ```
+# Pytorch v1.5.0 / torchvision v0.6.0 / Python 3.6
 cd
 bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_5_Python3.sh
 ```
-
-### Pytorch v1.6.0 / torchvision v0.7.0 / Python 3.6
-https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-6-0-now-available/72048
-  
 ```
+# Pytorch v1.6.0 / torchvision v0.7.0 / Python 3.6
 cd
 bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_6_Python3.sh
 ```

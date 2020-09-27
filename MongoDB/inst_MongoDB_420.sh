@@ -84,6 +84,9 @@ sudo apt install libcurl-dev
 #   libcurl4-gnutls-dev 7.58.0-2ubuntu3.10
 sudo apt install -y libcurl4-openssl-dev
 
+# Couldn't find OpenSSL crypto.h header and library
+sudo apt install -y libssl-dev
+
 
 cd
 # MongoDB r4.2.0 cc18a6c on 22 Oct 2019

@@ -81,6 +81,9 @@ sudo apt install libcurl-dev
 #   libcurl4-gnutls-dev 7.58.0-2ubuntu3.10
 sudo apt install -y libcurl4-openssl-dev
 
+# Couldn't find OpenSSL crypto.h header and library
+sudo apt install -y libssl-dev
+
 
 cd
 # MongoDB r3.4.14 cd0266e on 31 May 2018
@@ -132,13 +135,29 @@ time python3 buildscripts/scons.py $TARGET MONGO_VERSION=$MONGO_VERSION CFLAGS="
 
 
 ls -l mongo*
-
+# -rwxrwxr-x 1 jetson jetson 1001048184 Sep 26 06:30 mongo
+# -rwxrwxr-x 1 jetson jetson 2542214648 Sep 26 07:20 mongod
+# -rwxrwxr-x 1 jetson jetson 1661396304 Sep 26 07:07 mongos
 
 ./mongo --version
+MongoDB shell version v3.6.8
+# git version: 25e8528e420bd128cd0f944aba37afce3907276e
+# OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
+# allocator: tcmalloc
+# modules: none
+# build environment:
+#     distarch: aarch64
+#     target_arch: aarch64
 
 ./mongod --version
+# db version v3.6.8
+# git version: 25e8528e420bd128cd0f944aba37afce3907276e
+# OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
 
 ./mongos --version
+# mongos version v3.6.8
+# git version: 25e8528e420bd128cd0f944aba37afce3907276e
+# OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
 
 
 # ===

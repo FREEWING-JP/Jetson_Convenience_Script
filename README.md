@@ -56,7 +56,13 @@ sudo nmcli con up $SSID
 sleep 5
 sudo nmcli con up $SSID
 
+sudo nmcli dev wifi rescan
 nmcli dev wifi list
+```
+```
+sudo ifconfig wlan0 up
+ifconfig wlan0
+ifconfig -s wlan0
 ```
 
 ---

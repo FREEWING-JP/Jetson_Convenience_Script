@@ -341,11 +341,13 @@ https://github.com/Microsoft/vscode
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_build_visual_studio_code_oss/  
   
 ```
+# Visual Studio Code 1.35.0
 # for Jetson Nano
 cd
 bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1350.sh
 ```
 ```
+# Visual Studio Code 1.47.2
 # for Jetson Xavier
 cd
 bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1472.sh

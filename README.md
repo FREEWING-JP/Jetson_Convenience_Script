@@ -4,7 +4,7 @@
 http://www.neko.ne.jp/~freewing/  
 
 ---
-## JetPack 4.4 production release L4T 32.4.3 Can't build Caffe and OpenPose with cuDNN 8.0  
+## JetPack 4.4 production release L4T 32.4.3 Can't build Caffe and OpenPose with cuDNN 8.0
 Caffe doesn't support cuDNN v8.0 .  
 So require disable USE_CUDNN .  
 https://forums.developer.nvidia.com/t/jetpack-4-4-l4t-r32-4-3-production-release/140870/21  
@@ -33,7 +33,13 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_xavier_nx_developer_k
 NVIDIA Jetson Nano、Jetson Xavier NX Developer Kit HEADLESS MODE Setup
 You can use a Jetson Xavier NX Developer Kit in headless mode, that is , without attaching a display .
 ```
-![](https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/nvidia_jetson_xavier_nx_developer_kit_oobe_52.jpg "Jetson HEADLESS MODE Setup")
+```
+* Caution *
+Need to Disconnect Display Cable or Power off Display .
+If JETSON Detects the Display , It will not go into HEADLESS MODE Setup .
+```
+<img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/nvidia_jetson_xavier_nx_developer_kit_oobe_52.jpg" alt="Jetson HEADLESS MODE Setup" title="Jetson HEADLESS MODE Setup" width="320" height="240">  
+
 ---
 ### WiFi Setup
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_setup_wifi_connection_nmcli/  

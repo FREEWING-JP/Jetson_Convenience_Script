@@ -122,10 +122,10 @@ if [ $OPENCV_VERSION = 3 ]; then
   # Jetson Nano
   if [ $tegra_cip_id = "33" ]; then
     # Jetson Nano sm_53
-    sed -i 's/arch=compute_20,code=sm_20 \\/arch=compute_53,code=sm_53/' Makefile.config
+    sed -i 's/arch=compute_20,code=sm_20/arch=compute_53,code=sm_53/' Makefile.config
     # sed -i 's/-gencode arch=compute_20,code=sm_21 \\//' Makefile.config
     # Makefile.config:41: *** recipe commences before first target.  Stop.
-    sed -i '/arch=compute_20,code=sm_21 \\/d' Makefile.config
+    sed -i 's/arch=compute_20,code=sm_21 \\/arch=compute_53,code=compute_53/' Makefile.config
     sed -i '/arch=compute_30,code=sm_30 \\/d' Makefile.config
     sed -i '/arch=compute_35,code=sm_35 \\/d' Makefile.config
     sed -i '/arch=compute_50,code=sm_50 \\/d' Makefile.config

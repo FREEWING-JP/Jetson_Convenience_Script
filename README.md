@@ -93,6 +93,7 @@ echo 'Defaults env_reset, timestamp_timeout=-1' | sudo EDITOR='tee -a' visudo
 cd
 git clone https://github.com/FREEWING-JP/Jetson_Convenience_Script 00_deb -b 00_deb
 mv ./00_deb/00_deb/* ./00_deb/
+# */
 ls -l ./00_deb
 ```
 ---
@@ -333,6 +334,67 @@ bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_5_Python3.sh
 # Pytorch v1.6.0 / torchvision v0.7.0 / Python 3.6
 cd
 bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_6_Python3.sh
+```
+
+---
+### DATA BASE
+- Redis
+- Memcached
+- MongoDB
+### Redis 6.0.8
+https://redis.io/  
+```
+# Redis
+cd
+bash ./Jetson_Convenience_Script/Redis/inst_Redis.sh
+```
+
+### Memcached 1.6.7
+https://memcached.org/  
+https://github.com/memcached/memcached  
+```
+# Memcached
+cd
+bash ./Jetson_Convenience_Script/Memcached/inst_Memcached.sh
+```
+
+### MongoDB 3.x / 4.x
+https://www.mongodb.com/  
+https://github.com/mongodb/mongo  
+```
+# MongoDB 3.6.3-0ubuntu1.1 all
+apt search mongodb
+sudo apt install -y mongodb
+```
+```
+# MongoDB 3.4.14
+# https://github.com/mongodb/mongo/tree/r3.4.14
+cd
+bash ./Jetson_Convenience_Script/MongoDB/inst_MongoDB_3414.sh
+```
+```
+# MongoDB 3.6.8
+# https://github.com/mongodb/mongo/tree/r3.6.8
+cd
+bash ./Jetson_Convenience_Script/MongoDB/inst_MongoDB_368.sh
+```
+```
+# MongoDB 3.6.20
+# https://github.com/mongodb/mongo/tree/r3.6.20
+cd
+bash ./Jetson_Convenience_Script/MongoDB/inst_MongoDB_3620.sh
+```
+```
+# MongoDB 4.2.0
+# https://github.com/mongodb/mongo/tree/r4.2.0
+cd
+bash ./Jetson_Convenience_Script/MongoDB/inst_MongoDB_420.sh
+```
+```
+# MongoDB 4.4.1
+# https://github.com/mongodb/mongo/tree/r4.4.1
+cd
+bash ./Jetson_Convenience_Script/MongoDB/inst_MongoDB_441.sh
 ```
 
 ---

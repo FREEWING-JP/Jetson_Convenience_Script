@@ -12,12 +12,12 @@ if [ -d ~/mongo ]; then
 fi
 
 
-# MongoDB r4.4.1 ad91a93 2 Sep 2020
-# https://docs.mongodb.com/v4.4/installation/
-# https://github.com/mongodb/mongo/tree/r4.4.1
-# https://github.com/mongodb/mongo/blob/r4.4.1/docs/building.md
-MONGO_VERSION=4.4.1
-TARGET=install-core
+# MongoDB r4.2.9 0640211 on 19 Aug 2020
+# https://docs.mongodb.com/v4.2/installation/
+# https://github.com/mongodb/mongo/tree/r4.2.9
+# https://github.com/mongodb/mongo/blob/r4.2.9/docs/building.md
+MONGO_VERSION=4.2.9
+TARGET=core
 
 echo MongoDB r$MONGO_VERSION
 echo TARGET $TARGET
@@ -89,7 +89,7 @@ sudo apt install -y libssl-dev
 
 
 cd
-# MongoDB r4.4.1
+# MongoDB r4.2.9 0640211 on 19 Aug 2020
 git clone https://github.com/mongodb/mongo --depth 1 -b r$MONGO_VERSION
 cd mongo
 
@@ -101,7 +101,7 @@ python3 -m pip install -r etc/pip/compile-requirements.txt
 
 # scons: Reading SConscript files ...
 # ModuleNotFoundError: No module named 'psutil':
-# File "/home/jetson/mongo/SConstruct", line 46:
+# File "/home/jetson/mongo/SConstruct", line 37:
 # import psutil
 # psutil Cross-platform lib for process and system monitoring in Python.
 # https://pypi.org/project/psutil/
@@ -134,73 +134,47 @@ python3 -m pip install -r etc/pip/compile-requirements.txt
 # core (includes mongod, mongos, mongo)
 # all
 # TARGET=core
-# MONGO_VERSION=4.4.1
+# MONGO_VERSION=4.2.9
 # none --disable-warnings-as-errors
 time python3 buildscripts/scons.py $TARGET MONGO_VERSION=$MONGO_VERSION CFLAGS="-march=armv8-a+crc -mtune=generic"
 
-# Install file: "build/opt/mongo/mongod" as "build/install/bin/mongod"
-# Linking build/opt/mongo/mongos
-# Install file: "build/opt/mongo/mongos" as "build/install/bin/mongos"
-# scons: done building targets.
-
 # Jetson Xavier NX
-# real    213m15.334s
-# user    1056m52.828s
-# sys     41m33.304s
+# real    141m44.143s
+# user    728m38.132s
+# sys     31m21.932s
 
 
-ls -l ./build/opt/mongo/mongo*
-# -rwxrwxr-x 1 jetson jetson 1206316912 Sep 28 07:41 ./build/opt/mongo/mongo
-# -rwxrwxr-x 1 jetson jetson 3134961152 Sep 28 07:58 ./build/opt/mongo/mongod
-# -rwxrwxr-x 1 jetson jetson 2038326728 Sep 28 08:08 ./build/opt/mongo/mongos
+ls -l mongo*
+# -rwxrwxr-x 1 jetson jetson  913688728 Sep 27 02:51 mongo
+# -rwxrwxr-x 1 jetson jetson  334691528 Sep 26 09:26 mongobridge
+# -rwxrwxr-x 1 jetson jetson 2218145080 Sep 27 02:43 mongod
+# -rwxrwxr-x 1 jetson jetson 1149002424 Sep 27 02:51 mongos
 
-ls -l ./build/install/bin/mongo*
-# -rwxrwxr-x 1 jetson jetson 1206316912 Sep 28 07:41 ./build/install/bin/mongo
-# -rwxrwxr-x 1 jetson jetson 3134961152 Sep 28 07:58 ./build/install/bin/mongod
-# -rwxrwxr-x 1 jetson jetson 2038326728 Sep 28 08:08 ./build/install/bin/mongos
+./mongo --version
+# MongoDB shell version v4.2.9
+# git version: cc18a6c1b7c833879557ed110bc300b95e1e9292
+# OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
+# allocator: tcmalloc
+# modules: none
+# build environment:
+#     distarch: aarch64
+#     target_arch: aarch64
 
+# ./mongobridge --version
+# Error parsing command line: unrecognised option '--version'
+# try './mongobridge --help' for more information
+./mongobridge --help
+# Usage: mongobridge --port <port> --dest <dest> [ --seed <seed> ] [ --verbose <vvv> ] [ --help ]
 
-./build/opt/mongo/mongo --version
-MongoDB shell version v4.4.1
-# Build Info: {
-#     "version": "4.4.1",
-#     "gitVersion": "ad91a93a5a31e175f5cbf8c69561e788bbc55ce1",
-#     "openSSLVersion": "OpenSSL 1.1.1  11 Sep 2018",
-#     "modules": [],
-#     "allocator": "tcmalloc",
-#     "environment": {
-#         "distarch": "aarch64",
-#         "target_arch": "aarch64"
-#     }
-# }
+./mongod --version
+# db version v4.2.9
+# git version: cc18a6c1b7c833879557ed110bc300b95e1e9292
+# OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
 
-./build/opt/mongo/mongod --version
-# db version v4.4.1
-# Build Info: {
-#     "version": "4.4.1",
-#     "gitVersion": "ad91a93a5a31e175f5cbf8c69561e788bbc55ce1",
-#     "openSSLVersion": "OpenSSL 1.1.1  11 Sep 2018",
-#     "modules": [],
-#     "allocator": "tcmalloc",
-#     "environment": {
-#         "distarch": "aarch64",
-#         "target_arch": "aarch64"
-#     }
-# }
-
-./build/opt/mongo/mongos --version
-# mongos version v4.4.1
-# Build Info: {
-#     "version": "4.4.1",
-#     "gitVersion": "ad91a93a5a31e175f5cbf8c69561e788bbc55ce1",
-#     "openSSLVersion": "OpenSSL 1.1.1  11 Sep 2018",
-#     "modules": [],
-#     "allocator": "tcmalloc",
-#     "environment": {
-#         "distarch": "aarch64",
-#         "target_arch": "aarch64"
-#     }
-# }
+./mongos --version
+# mongos version v4.2.9
+# git version: cc18a6c1b7c833879557ed110bc300b95e1e9292
+# OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
 
 
 # ===

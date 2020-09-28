@@ -12,7 +12,7 @@ if [ -d ~/mongo ]; then
 fi
 
 
-# MongoDB r3.6.20 39c2008 on 11 Aug 2020
+# MongoDB r3.6.20 39c2008 on 11 Sep 2020
 # https://docs.mongodb.com/v3.6/installation/
 # https://github.com/mongodb/mongo/tree/r3.6.20
 # https://github.com/mongodb/mongo/blob/r3.6.20/docs/building.md
@@ -69,7 +69,7 @@ sudo apt install -y libcurl4-openssl-dev
 
 
 cd
-# MongoDB r3.6.20 39c2008 on 11 Aug 2020
+# MongoDB r3.6.20 39c2008 on 11 Sep 2020
 git clone https://github.com/mongodb/mongo --depth 1 -b r$MONGO_VERSION
 cd mongo
 

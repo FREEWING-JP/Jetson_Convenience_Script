@@ -47,7 +47,7 @@ scons -v
 sudo apt install -y libboost-filesystem-dev libboost-program-options-dev libboost-system-dev libboost-thread-dev
 
 # To run tests as well , you will need PyMongo
-sudo apt install -y python3-pymongo
+# sudo apt install -y python3-pymongo
 
 # Then build as usual with scons
 # scons all
@@ -137,6 +137,11 @@ python3 -m pip install -r etc/pip/compile-requirements.txt
 # MONGO_VERSION=4.2.0
 # none --disable-warnings-as-errors
 time python3 buildscripts/scons.py $TARGET MONGO_VERSION=$MONGO_VERSION CFLAGS="-march=armv8-a+crc -mtune=generic"
+
+# Jetson Xavier NX
+# real    141m44.143s
+# user    728m38.132s
+# sys     31m21.932s
 
 
 ls -l mongo*

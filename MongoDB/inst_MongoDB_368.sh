@@ -47,7 +47,7 @@ scons -v
 sudo apt install -y libboost-filesystem-dev libboost-program-options-dev libboost-system-dev libboost-thread-dev
 
 # To run tests as well , you will need PyMongo
-sudo apt install -y python3-pymongo
+# sudo apt install -y python3-pymongo
 
 # Then build as usual with scons
 # scons all
@@ -90,6 +90,15 @@ cd
 git clone https://github.com/mongodb/mongo --depth 1 -b r$MONGO_VERSION
 cd mongo
 
+# scons: Reading SConscript files ...
+# ModuleNotFoundError: No module named 'psutil':
+# File "/home/jetson/mongo/SConstruct", line 43:
+# import psutil
+python3 -m pip install -r etc/pip/compile-requirements.txt
+# Building wheels for collected packages: psutil, pymongo, PyYAML, Cheetah3, regex
+# Successfully built psutil pymongo PyYAML Cheetah3 regex
+# Installing collected packages: psutil, pymongo, PyYAML, urllib3, certifi, chardet, idna, requests, Cheetah3, regex
+# Successfully installed Cheetah3-3.2.5 PyYAML-5.3.1 certifi-2020.6.20 chardet-3.0.4 idna-2.10 psutil-5.7.2 pymongo-3.11.0 regex-2020.9.27 requests-2.24.0 urllib3-1.25.10
 
 # patch
 # error unused variable 'uuid'
@@ -140,7 +149,7 @@ ls -l mongo*
 # -rwxrwxr-x 1 jetson jetson 1661396304 Sep 26 07:07 mongos
 
 ./mongo --version
-MongoDB shell version v3.6.8
+# MongoDB shell version v3.6.8
 # git version: 25e8528e420bd128cd0f944aba37afce3907276e
 # OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
 # allocator: tcmalloc

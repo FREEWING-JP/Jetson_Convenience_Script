@@ -50,7 +50,7 @@ scons -v
 sudo apt install -y libboost-filesystem-dev libboost-program-options-dev libboost-system-dev libboost-thread-dev
 
 # To run tests as well , you will need PyMongo
-sudo apt install -y python-pymongo
+# sudo apt install -y python-pymongo
 
 # Then build as usual with scons
 # scons all

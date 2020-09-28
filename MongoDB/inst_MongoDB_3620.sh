@@ -127,11 +127,27 @@ python2.7 -m pip install -r buildscripts/requirements.txt
 # MONGO_VERSION=3.6.20
 time python2.7 buildscripts/scons.py $TARGET MONGO_VERSION=$MONGO_VERSION --disable-warnings-as-errors CFLAGS="-march=armv8-a+crc -mtune=generic"
 
+# Jetson Xavier NX
+# real    90m8.297s
+# user    472m58.076s
+# sys     20m28.044s
 
+# Jetson Nano
+# real    118m15.498s
+# user    428m11.560s
+# sys     23m35.528s
+
+
+# Jetson Xavier NX
 ls -l mongo*
-# -rwxrwxr-x 1 jetson jetson 376122128 Sep 27 09:50 mongo
-# -rwxrwxr-x 1 jetson jetson 981337960 Sep 27 10:23 mongod
-# -rwxrwxr-x 1 jetson jetson 500196072 Sep 27 09:44 mongos
+# -rwxrwxr-x 1 jetson jetson  535738736 Sep 28 09:46 mongo
+# -rwxrwxr-x 1 jetson jetson 1331398984 Sep 28 09:48 mongod
+# -rwxrwxr-x 1 jetson jetson  694476744 Sep 28 09:04 mongos
+
+# Jetson Nano
+# -rwxrwxr-x 1 jetson jetson  376122128 Sep 27 09:50 mongo
+# -rwxrwxr-x 1 jetson jetson  981337960 Sep 27 10:23 mongod
+# -rwxrwxr-x 1 jetson jetson  500196072 Sep 27 09:44 mongos
 
 
 ./mongo --version

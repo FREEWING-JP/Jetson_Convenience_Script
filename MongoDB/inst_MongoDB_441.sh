@@ -47,7 +47,7 @@ scons -v
 sudo apt install -y libboost-filesystem-dev libboost-program-options-dev libboost-system-dev libboost-thread-dev
 
 # To run tests as well , you will need PyMongo
-sudo apt install -y python3-pymongo
+# sudo apt install -y python3-pymongo
 
 # Then build as usual with scons
 # scons all
@@ -138,20 +138,69 @@ python3 -m pip install -r etc/pip/compile-requirements.txt
 # none --disable-warnings-as-errors
 time python3 buildscripts/scons.py $TARGET MONGO_VERSION=$MONGO_VERSION CFLAGS="-march=armv8-a+crc -mtune=generic"
 
+# Install file: "build/opt/mongo/mongod" as "build/install/bin/mongod"
+# Linking build/opt/mongo/mongos
+# Install file: "build/opt/mongo/mongos" as "build/install/bin/mongos"
+# scons: done building targets.
 
-ls -l mongo*
-# -rwxrwxr-x 1 jetson jetson  913688728 Sep 27 02:51 mongo
-# -rwxrwxr-x 1 jetson jetson  334691528 Sep 26 09:26 mongobridge
-# -rwxrwxr-x 1 jetson jetson 2218145080 Sep 27 02:43 mongod
-# -rwxrwxr-x 1 jetson jetson 1149002424 Sep 27 02:51 mongos
+# Jetson Xavier NX
+# real    213m15.334s
+# user    1056m52.828s
+# sys     41m33.304s
 
-./mongo --version
 
-./mongobridge --help
+ls -l ./build/opt/mongo/mongo*
+# -rwxrwxr-x 1 jetson jetson 1206316912 Sep 28 07:41 ./build/opt/mongo/mongo
+# -rwxrwxr-x 1 jetson jetson 3134961152 Sep 28 07:58 ./build/opt/mongo/mongod
+# -rwxrwxr-x 1 jetson jetson 2038326728 Sep 28 08:08 ./build/opt/mongo/mongos
 
-./mongod --version
+ls -l ./build/install/bin/mongo*
+# -rwxrwxr-x 1 jetson jetson 1206316912 Sep 28 07:41 ./build/install/bin/mongo
+# -rwxrwxr-x 1 jetson jetson 3134961152 Sep 28 07:58 ./build/install/bin/mongod
+# -rwxrwxr-x 1 jetson jetson 2038326728 Sep 28 08:08 ./build/install/bin/mongos
 
-./mongos --version
+
+./build/opt/mongo/mongo --version
+MongoDB shell version v4.4.1
+# Build Info: {
+#     "version": "4.4.1",
+#     "gitVersion": "ad91a93a5a31e175f5cbf8c69561e788bbc55ce1",
+#     "openSSLVersion": "OpenSSL 1.1.1  11 Sep 2018",
+#     "modules": [],
+#     "allocator": "tcmalloc",
+#     "environment": {
+#         "distarch": "aarch64",
+#         "target_arch": "aarch64"
+#     }
+# }
+
+./build/opt/mongo/mongod --version
+# db version v4.4.1
+# Build Info: {
+#     "version": "4.4.1",
+#     "gitVersion": "ad91a93a5a31e175f5cbf8c69561e788bbc55ce1",
+#     "openSSLVersion": "OpenSSL 1.1.1  11 Sep 2018",
+#     "modules": [],
+#     "allocator": "tcmalloc",
+#     "environment": {
+#         "distarch": "aarch64",
+#         "target_arch": "aarch64"
+#     }
+# }
+
+./build/opt/mongo/mongos --version
+# mongos version v4.4.1
+# Build Info: {
+#     "version": "4.4.1",
+#     "gitVersion": "ad91a93a5a31e175f5cbf8c69561e788bbc55ce1",
+#     "openSSLVersion": "OpenSSL 1.1.1  11 Sep 2018",
+#     "modules": [],
+#     "allocator": "tcmalloc",
+#     "environment": {
+#         "distarch": "aarch64",
+#         "target_arch": "aarch64"
+#     }
+# }
 
 
 # ===

@@ -361,6 +361,7 @@ bash ./Jetson_Convenience_Script/Memcached/inst_Memcached.sh
 ### MongoDB 3.x / 4.x
 https://www.mongodb.com/  
 https://github.com/mongodb/mongo  
+**32GB SD-Card is Not Enough to Build MongoDB**
 ```
 # MongoDB 3.6.3-0ubuntu1.1 all
 apt search mongodb
@@ -389,6 +390,12 @@ bash ./Jetson_Convenience_Script/MongoDB/inst_MongoDB_3620.sh
 # https://github.com/mongodb/mongo/tree/r4.2.0
 cd
 bash ./Jetson_Convenience_Script/MongoDB/inst_MongoDB_420.sh
+```
+```
+# MongoDB 4.2.9
+# https://github.com/mongodb/mongo/tree/r4.2.9
+cd
+bash ./Jetson_Convenience_Script/MongoDB/inst_MongoDB_429.sh
 ```
 ```
 # MongoDB 4.4.1

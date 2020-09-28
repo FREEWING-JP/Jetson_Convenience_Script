@@ -128,6 +128,15 @@ bash ./Jetson_Convenience_Script/OpenBLAS/inst_OpenBLAS.sh
 ```
 
 ---
+### Bazel 3.5.0
+https://bazel.build/  
+https://github.com/bazelbuild/bazel/tree/3.5.0  
+```
+cd
+bash ./Jetson_Convenience_Script/Bazel/inst_Bazel_350.sh
+```
+
+---
 ### OpenCV 3.x
 https://github.com/opencv/opencv  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_build_opencv_3410/  

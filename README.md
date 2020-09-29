@@ -412,6 +412,12 @@ bash ./Jetson_Convenience_Script/MongoDB/inst_MongoDB_429.sh
 cd
 bash ./Jetson_Convenience_Script/MongoDB/inst_MongoDB_441.sh
 ```
+```
+# MongoDB 4.7.0
+# https://github.com/mongodb/mongo/tree/r4.7.0
+cd
+bash ./Jetson_Convenience_Script/MongoDB/inst_MongoDB_470.sh
+```
 
 ---
 ### Visual Studio Code

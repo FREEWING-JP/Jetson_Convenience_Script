@@ -139,20 +139,19 @@ python3 -m pip install -r etc/pip/compile-requirements.txt
 time python3 buildscripts/scons.py $TARGET MONGO_VERSION=$MONGO_VERSION CFLAGS="-march=armv8-a+crc -mtune=generic"
 
 # Jetson Xavier NX
-# real    141m44.143s
-# user    728m38.132s
-# sys     31m21.932s
+# real    156m10.258s
+# user    786m48.632s
+# sys     32m32.372s
 
 
 ls -l mongo*
-# -rwxrwxr-x 1 jetson jetson  913688728 Sep 27 02:51 mongo
-# -rwxrwxr-x 1 jetson jetson  334691528 Sep 26 09:26 mongobridge
-# -rwxrwxr-x 1 jetson jetson 2218145080 Sep 27 02:43 mongod
-# -rwxrwxr-x 1 jetson jetson 1149002424 Sep 27 02:51 mongos
+# -rwxrwxr-x 1 jetson jetson  950650880 Sep 28 11:31 mongo
+# -rwxrwxr-x 1 jetson jetson 2353641848 Sep 28 12:31 mongod
+# -rwxrwxr-x 1 jetson jetson 1212677072 Sep 28 11:14 mongos
 
 ./mongo --version
 # MongoDB shell version v4.2.9
-# git version: cc18a6c1b7c833879557ed110bc300b95e1e9292
+# git version: 06402114114ffc5146fd4b55402c96f1dc9ec4b5
 # OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
 # allocator: tcmalloc
 # modules: none
@@ -160,20 +159,14 @@ ls -l mongo*
 #     distarch: aarch64
 #     target_arch: aarch64
 
-# ./mongobridge --version
-# Error parsing command line: unrecognised option '--version'
-# try './mongobridge --help' for more information
-./mongobridge --help
-# Usage: mongobridge --port <port> --dest <dest> [ --seed <seed> ] [ --verbose <vvv> ] [ --help ]
-
 ./mongod --version
 # db version v4.2.9
-# git version: cc18a6c1b7c833879557ed110bc300b95e1e9292
+# git version: 06402114114ffc5146fd4b55402c96f1dc9ec4b5
 # OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
 
 ./mongos --version
 # mongos version v4.2.9
-# git version: cc18a6c1b7c833879557ed110bc300b95e1e9292
+# git version: 06402114114ffc5146fd4b55402c96f1dc9ec4b5
 # OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
 
 

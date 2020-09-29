@@ -12,16 +12,21 @@ if [ -d ~/mongo ]; then
 fi
 
 
-# MongoDB r4.4.1 ad91a93 2 Sep 2020
-# https://docs.mongodb.com/v4.4/installation/
-# https://github.com/mongodb/mongo/tree/r4.4.1
-# https://github.com/mongodb/mongo/blob/r4.4.1/docs/building.md
-MONGO_VERSION=4.4.1
+# MongoDB r4.7.0 ac459ee 11 Sep 2020
+# https://docs.mongodb.com/
+# https://github.com/mongodb/mongo/tree/r4.7.0
+# https://github.com/mongodb/mongo/blob/r4.7.0/docs/building.md
+MONGO_VERSION=4.7.0
 TARGET=install-core
 
 echo MongoDB r$MONGO_VERSION
 echo TARGET $TARGET
 echo About 13 GB of free disk space for the core binaries (mongod, mongos, and mongo)
+
+df -h
+# Filesystem      Size  Used Avail Use% Mounted on
+# /dev/mmcblk0p1  117G   13G   99G  12% /
+
 
 python3 -V
 # Python 3.6.9
@@ -53,7 +58,7 @@ sudo apt install -y libboost-filesystem-dev libboost-program-options-dev libboos
 # scons all
 
 
-# GCC 8.0 or newer
+# GCC 8.2 or newer
 # Checking if C compiler is GCC 8.2 or newer...no
 # Checking if C++ compiler is GCC 8.2 or newer...no
 # ERROR: Refusing to build with compiler that does not meet requirements
@@ -89,7 +94,7 @@ sudo apt install -y libssl-dev
 
 
 cd
-# MongoDB r4.4.1
+# Git Clone MongoDB
 git clone https://github.com/mongodb/mongo --depth 1 -b r$MONGO_VERSION
 cd mongo
 
@@ -135,38 +140,39 @@ python3 -m pip install -r etc/pip/compile-requirements.txt
 # install-core (includes mongod, mongos, mongo)
 # install-all
 # TARGET=install-core
-# MONGO_VERSION=4.4.1
+# MONGO_VERSION=4.7.0
 # none --disable-warnings-as-errors
 time python3 buildscripts/scons.py $TARGET MONGO_VERSION=$MONGO_VERSION CFLAGS="-march=armv8-a+crc -mtune=generic"
 # DESTDIR=/opt/mongo
 
-# Install file: "build/opt/mongo/mongod" as "build/install/bin/mongod"
-# Linking build/opt/mongo/mongos
-# Install file: "build/opt/mongo/mongos" as "build/install/bin/mongos"
+# Linking build/opt/mongo/shell/mongo
+# Install file: "build/opt/mongo/shell/mongo" as "build/install/bin/mongo"
+# Install file: "build/opt/mongo/db/mongod" as "build/install/bin/mongod"
 # scons: done building targets.
 
+
 # Jetson Xavier NX
-# real    213m15.334s
-# user    1056m52.828s
-# sys     41m33.304s
+# real    266m43.414s
+# user    1270m19.600s
+# sys     49m5.932s
 
 
-ls -l ./build/opt/mongo/mongo*
-# -rwxrwxr-x 1 jetson jetson 1206316912 Sep 28 07:41 ./build/opt/mongo/mongo
-# -rwxrwxr-x 1 jetson jetson 3134961152 Sep 28 07:58 ./build/opt/mongo/mongod
-# -rwxrwxr-x 1 jetson jetson 2038326728 Sep 28 08:08 ./build/opt/mongo/mongos
-
-ls -l ./build/install/bin/mongo*
-# -rwxrwxr-x 1 jetson jetson 1206316912 Sep 28 07:41 ./build/install/bin/mongo
-# -rwxrwxr-x 1 jetson jetson 3134961152 Sep 28 07:58 ./build/install/bin/mongod
-# -rwxrwxr-x 1 jetson jetson 2038326728 Sep 28 08:08 ./build/install/bin/mongos
+df -h
+# Filesystem      Size  Used Avail Use% Mounted on
+# /dev/mmcblk0p1  117G   41G   71G  37% /
 
 
-./build/opt/mongo/mongo --version
-# MongoDB shell version v4.4.1
+ls -l build/opt/mongo/*/mongo
+# -rwxrwxr-x 1 jetson jetson 1317277888 Sep 29 00:58 build/opt/mongo/shell/mongo
+ls -l build/opt/mongo/*/mongo?
+# -rwxrwxr-x 1 jetson jetson 3720082904 Sep 29 01:04 build/opt/mongo/db/mongod
+# -rwxrwxr-x 1 jetson jetson 2303082712 Sep 28 23:17 build/opt/mongo/s/mongos
+
+./ build/opt/mongo/shell/mongo --version
+# MongoDB shell version v4.7.0
 # Build Info: {
-#     "version": "4.4.1",
-#     "gitVersion": "ad91a93a5a31e175f5cbf8c69561e788bbc55ce1",
+#     "version": "4.7.0",
+#     "gitVersion": "ac459eee58c320a8c3b6d60dff2093fe188c0066",
 #     "openSSLVersion": "OpenSSL 1.1.1  11 Sep 2018",
 #     "modules": [],
 #     "allocator": "tcmalloc",
@@ -176,11 +182,11 @@ ls -l ./build/install/bin/mongo*
 #     }
 # }
 
-./build/opt/mongo/mongod --version
-# db version v4.4.1
+./build/opt/mongo/db/mongod --version
+# db version v4.7.0
 # Build Info: {
-#     "version": "4.4.1",
-#     "gitVersion": "ad91a93a5a31e175f5cbf8c69561e788bbc55ce1",
+#     "version": "4.7.0",
+#     "gitVersion": "ac459eee58c320a8c3b6d60dff2093fe188c0066",
 #     "openSSLVersion": "OpenSSL 1.1.1  11 Sep 2018",
 #     "modules": [],
 #     "allocator": "tcmalloc",
@@ -190,11 +196,11 @@ ls -l ./build/install/bin/mongo*
 #     }
 # }
 
-./build/opt/mongo/mongos --version
-# mongos version v4.4.1
+./build/opt/mongo/s/mongos --version
+# mongos version v4.7.0
 # Build Info: {
-#     "version": "4.4.1",
-#     "gitVersion": "ad91a93a5a31e175f5cbf8c69561e788bbc55ce1",
+#     "version": "4.7.0",
+#     "gitVersion": "ac459eee58c320a8c3b6d60dff2093fe188c0066",
 #     "openSSLVersion": "OpenSSL 1.1.1  11 Sep 2018",
 #     "modules": [],
 #     "allocator": "tcmalloc",

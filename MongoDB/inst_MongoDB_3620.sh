@@ -151,7 +151,7 @@ ls -l mongo*
 
 
 ./mongo --version
-MongoDB shell version v3.6.20
+# MongoDB shell version v3.6.20
 # git version: 39c200878284912f19553901a6fea4b31531a899
 # allocator: tcmalloc
 # modules: none

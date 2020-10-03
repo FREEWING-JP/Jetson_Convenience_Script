@@ -35,9 +35,9 @@ bash ./add_blas_environment.sh
 chmod +x stop_apt_daily.sh
 bash ./stop_apt_daily.sh
 
-# Install cURL nano git htop Mercurial
+# Install cURL nano git htop Mercurial tree
 sudo apt update
-sudo apt install -y curl nano git htop mercurial
+sudo apt install -y curl nano git htop mercurial tree
 
 # ===
 echo '---'

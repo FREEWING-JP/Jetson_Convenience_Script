@@ -419,6 +419,30 @@ cd
 bash ./Jetson_Convenience_Script/MongoDB/inst_MongoDB_470.sh
 ```
 
+### MongoDB Tools 3.x / 4.x
+https://docs.mongodb.com/tools/  
+https://github.com/mongodb/mongo-tools  
+```
+# MongoDB Tools master
+cd
+bash ./Jetson_Convenience_Script/MongoDB/inst_MongoDB_Tools.sh
+```
+```
+# MongoDB Tools r3.6.20
+cd
+bash ./Jetson_Convenience_Script/MongoDB/inst_MongoDB_Tools.sh r3.6.20
+```
+```
+# MongoDB Tools r4.0.20
+cd
+bash ./Jetson_Convenience_Script/MongoDB/inst_MongoDB_Tools.sh r4.0.20
+```
+```
+# MongoDB Tools r4.2.10
+cd
+bash ./Jetson_Convenience_Script/MongoDB/inst_MongoDB_Tools.sh r4.2.10
+```
+
 ---
 ### Visual Studio Code
 https://github.com/Microsoft/vscode  

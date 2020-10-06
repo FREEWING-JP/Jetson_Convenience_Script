@@ -468,6 +468,9 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_enable_vino_vnc_serve
 ```
 cd
 bash ./Jetson_Convenience_Script/Vino_VNC/inst_Vino_VNC.sh
+
+# Password = password
+# gsettings set org.gnome.Vino vnc-password $(echo -n 'password'|base64)
 ```
 
 ---

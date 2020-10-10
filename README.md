@@ -228,7 +228,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_xavier_nx_2020_build_
 cd
 bash ./Jetson_Convenience_Script/OpenPose/inst_OpenPose.sh
 ```
-![OpenPose v1.6.0 Detecting human skeleton NVIDIA Jetson Xavier NX JetPack 4.4](https://img.youtube.com/vi/TyokrHR_S_8/mqdefault.jpg)
+<img src="https://img.youtube.com/vi/TyokrHR_S_8/maxresdefault.jpg" alt="OpenPose v1.6.0 Detecting human skeleton NVIDIA Jetson Xavier NX JetPack 4.4" title="OpenPose v1.6.0 Detecting human skeleton NVIDIA Jetson Xavier NX JetPack 4.4" width="320" height="180"> _ 
 [YouTube https://youtu.be/TyokrHR_S_8](https://youtu.be/TyokrHR_S_8)
 
 ### OpenPose Benchmark Jetson Xavier NX vs Jetson Nano Comparison

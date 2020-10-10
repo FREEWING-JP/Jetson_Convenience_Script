@@ -231,6 +231,32 @@ bash ./Jetson_Convenience_Script/OpenPose/inst_OpenPose.sh
 ![OpenPose v1.6.0 Detecting human skeleton NVIDIA Jetson Xavier NX JetPack 4.4](https://img.youtube.com/vi/TyokrHR_S_8/mqdefault.jpg)
 [YouTube https://youtu.be/TyokrHR_S_8](https://youtu.be/TyokrHR_S_8)
 
+### OpenPose Benchmark Jetson Xavier NX vs Jetson Nano Comparison
+JetPack 4.4 PR
+|net_resolution|Nano|Xavier NX|
+|:---:|:---:|:---:|
+|240x-1|126 sec|108 sec|
+|320x-1|206 sec|116 sec|
+|480x-1|456 sec|137 sec|
+|512x-1|Killed|154 sec|
+|640x-1|Killed|243 sec|
+|none|Killed|254 sec|
+
+```
+Movie Spec:
+Resolution: 1280x720 px
+Frame rate: 25 fps
+Duration: 14 sec
+Total frame: 350 frame
+
+Original Movie from Pixabay:
+https://pixabay.com/videos/id-1643/
+
+Command Line:
+./build/examples/openpose/openpose.bin --video 'India - 1643.mp4' --display 0 --model_folder ./models --write_video India_out.mp4 --net_resolution 240x-1
+#  --net_resolution xxxxx
+```
+
 ---
 ### tf-pose-estimation master
 https://github.com/ildoonet/tf-pose-estimation  

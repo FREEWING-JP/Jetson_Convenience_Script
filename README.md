@@ -38,7 +38,8 @@ You can use a Jetson Xavier NX Developer Kit in headless mode, that is , without
 Need to Disconnect Display Cable or Power off Display .
 If JETSON Detects the Display , It will not go into HEADLESS MODE Setup .
 ```
-<img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/nvidia_jetson_xavier_nx_developer_kit_oobe_52.jpg" alt="Jetson HEADLESS MODE Setup" title="Jetson HEADLESS MODE Setup" width="320" height="240">  
+<img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/nvidia_jetson_xavier_nx_developer_kit_oobe_52.jpg" alt="Jetson HEADLESS MODE Setup" title="Jetson HEADLESS MODE Setup" width="320" height="240"> _ <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/nvidia_jetson_xavier_nx_developer_kit_headless_mode_setup_4.png" alt="Jetson HEADLESS MODE Setup" title="Jetson HEADLESS MODE Setup" width="320" height="240">  
+<img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/nvidia_jetson_xavier_nx_developer_kit_headless_mode_setup_2.png" alt="Jetson HEADLESS MODE Setup" title="Jetson HEADLESS MODE Setup" width="320" height="240"> _ <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/nvidia_jetson_xavier_nx_developer_kit_headless_mode_setup_3.png" alt="Jetson HEADLESS MODE Setup" title="Jetson HEADLESS MODE Setup" width="320" height="240">  
 
 ---
 ### Jetson WiFi Setup via Terminal Command Line
@@ -479,6 +480,8 @@ bash ./Jetson_Convenience_Script/Vino_VNC/inst_Vino_VNC.sh
 # Password = password
 # gsettings set org.gnome.Vino vnc-password $(echo -n 'password'|base64)
 ```
+<img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/nvidia_jetson_enable_vino_vnc_server_headless_mode_2.png" alt="Jetson Vino VNC Server" title="Jetson Vino VNC Server" width="320" height="240"> _ <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/nvidia_jetson_enable_vino_vnc_server_headless_mode_9.png" alt="Jetson Vino VNC Server" title="Jetson Vino VNC Server" width="320" height="240">  
+<img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/nvidia_jetson_enable_vino_vnc_server_headless_mode_11.png" alt="Jetson Vino VNC Server" title="Jetson Vino VNC Server" width="320" height="240">  
 
 ---
 ### Benchmark

@@ -41,7 +41,7 @@ If JETSON Detects the Display , It will not go into HEADLESS MODE Setup .
 <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/nvidia_jetson_xavier_nx_developer_kit_oobe_52.jpg" alt="Jetson HEADLESS MODE Setup" title="Jetson HEADLESS MODE Setup" width="320" height="240">  
 
 ---
-### WiFi Setup
+### Jetson WiFi Setup via Terminal Command Line
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_setup_wifi_connection_nmcli/  
 ```
 SSID='WIFI-SSID'
@@ -204,7 +204,9 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_build_caffe_goog
 cd
 bash ./Jetson_Convenience_Script/Caffe/inst_DeepDreamer.sh
 ```
+<img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/DeepDreamer_gfl.jpg_8.jpg" alt="Jetson Caffe Deep Dreamer" title="Jetson Caffe Deep Dreamer" width="320" height="240"> _ <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/DeepDreamer_sky800x449px.jpg_6.jpg" alt="Jetson Caffe Deep Dreamer" title="Jetson Caffe Deep Dreamer" width="320" height="240">  
 
+---
 ### OpenPose v1.6.0
 #### JetPack 4.4 production release L4T 32.4.3 Can't build Caffe and OpenPose with cuDNN 8.0  
 https://github.com/CMU-Perceptual-Computing-Lab/openpose  
@@ -225,6 +227,8 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_xavier_nx_2020_build_
 cd
 bash ./Jetson_Convenience_Script/OpenPose/inst_OpenPose.sh
 ```
+![OpenPose v1.6.0 Detecting human skeleton NVIDIA Jetson Xavier NX JetPack 4.4](https://img.youtube.com/vi/TyokrHR_S_8/mqdefault.jpg)
+[YouTube https://youtu.be/TyokrHR_S_8](https://youtu.be/TyokrHR_S_8)
 
 ---
 ### tf-pose-estimation master
@@ -242,6 +246,7 @@ bash ./Jetson_Convenience_Script/tf-pose-estimation/inst_tf-pose-estimation.sh
 cd
 bash ./Jetson_Convenience_Script/tf-pose-estimation/inst_tf-pose-estimation_tf_v2.sh
 ```
+<img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/tf-pose-estimation_p3_org.png" alt="Jetson tf-pose-estimation" title="Jetson tf-pose-estimation" width="320" height="240"> _ <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/tf-pose-estimation_p3_graph.png" alt="Jetson tf-pose-estimation" title="Jetson tf-pose-estimation" width="320" height="240">  
 
 ---
 ### StyleGAN
@@ -253,6 +258,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_tensorflow_style
 cd
 bash ./Jetson_Convenience_Script/StyleGAN/inst_StyleGAN.sh
 ```
+<img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/StyleGAN_figure12-uncurated-cats_2b.jpg" alt="Jetson StyleGAN" title="Jetson StyleGAN" width="320" height="240">  
 
 ### StyleGAN2
 https://github.com/NVlabs/stylegan2  
@@ -262,6 +268,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_tensorflow_style
 cd
 bash ./Jetson_Convenience_Script/StyleGAN2/inst_StyleGAN2.sh
 ```
+<img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/StyleGAN2_grid_1.jpg" alt="Jetson StyleGAN2" title="Jetson StyleGAN2" width="320" height="240"> _ <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/StyleGAN2_nvidia_jetson_nano_tensorflow_stylegan2_4.jpg" alt="Jetson StyleGAN2" title="Jetson StyleGAN2" width="320" height="240">  
 
 ---
 ### NVIDIA Caffe v0.17.3

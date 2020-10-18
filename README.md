@@ -231,8 +231,8 @@ bash ./Jetson_Convenience_Script/OpenPose/inst_OpenPose.sh
 <img src="https://img.youtube.com/vi/TyokrHR_S_8/maxresdefault.jpg" alt="OpenPose v1.6.0 Detecting human skeleton NVIDIA Jetson Xavier NX JetPack 4.4" title="OpenPose v1.6.0 Detecting human skeleton NVIDIA Jetson Xavier NX JetPack 4.4" width="320" height="180"> _ 
 [YouTube https://youtu.be/TyokrHR_S_8](https://youtu.be/TyokrHR_S_8)
 
-### OpenPose Benchmark Jetson Xavier NX vs Jetson Nano Comparison
-JetPack 4.4 PR
+### OpenPose Benchmark Comparison Jetson Xavier NX vs Jetson Nano
+JetPack 4.4 PR  
 |net_resolution|Nano|Xavier NX|
 |:---:|:---:|:---:|
 |240x-1|126 sec|108 sec|

@@ -17,8 +17,10 @@ https://www.nvidia.com/ja-jp/autonomous-machines/embedded-systems/jetson-nano-de
 https://www.nvidia.com/ja-jp/autonomous-machines/embedded-systems/jetson-xavier-nx/  
   
 ### NVIDIA JetPack
-- JetPack 4.4 PR Production Release  
+- 2020/10 JetPack 4.4.1 PR Production Release  
 https://developer.nvidia.com/embedded/jetpack  
+- JetPack 4.4 PR Production Release  
+https://developer.nvidia.com/jetpack-sdk-44-archive  
 - JetPack 4.4 DP Developer Preview  
 https://developer.nvidia.com/jetpack-sdk-44-dp-archive  
 - JetPack 4.3 PR Production Release  

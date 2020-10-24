@@ -11,11 +11,13 @@ https://forums.developer.nvidia.com/t/jetpack-4-4-l4t-r32-4-3-production-release
 
 ---
 ### for Jetson Nano / Jetson Xavier NX Developer Kit
-- NVIDIA Jetson Nano Developer Kit  
+- NVIDIA Jetson Nano Developer Kit (4GB model)  
 https://www.nvidia.com/ja-jp/autonomous-machines/embedded-systems/jetson-nano-developer-kit/  
 - NVIDIA Jetson Xavier NX Developer Kit  
 https://www.nvidia.com/ja-jp/autonomous-machines/embedded-systems/jetson-xavier-nx/  
-  
+
+##### * not tested Jetson Nano 2GB Developer Kit  
+
 ### NVIDIA JetPack
 - 2020/10 JetPack 4.4.1 PR Production Release  
 https://developer.nvidia.com/embedded/jetpack  
@@ -171,6 +173,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_build_caffe_goog
 
 | JetPack | USE_CUDNN=1 | USE_CUDNN=0 |
 |:---:|:---:|:---:|
+|4.4.1 PR|NG|OK|
 |4.4 PR|NG|OK|
 |4.4 DP|OK|OK|
 |4.3 PR|OK|OK|
@@ -218,6 +221,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_xavier_nx_2020_build_
 
 | JetPack | OpenPose builtin Caffe | external Caffe | external NVIDIA Caffe v0.17.3 |
 |:---:|:---:|:---:|:---:|
+|4.4.1 PR|OK (without cuDNN)|NG (without cuDNN)|OK (without cuDNN)|
 |4.4 PR|OK (without cuDNN)|NG (without cuDNN)|OK (without cuDNN)|
 |4.4 DP|OK|NG|OK|
 |4.3 PR|OK|NG|OK|
@@ -307,6 +311,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_build_nvcaffe_go
 
 | JetPack | USE_CUDNN=1 | USE_CUDNN=0 |
 |:---:|:---:|:---:|
+|4.4.1 PR|NG|OK|
 |4.4 PR|NG|OK|
 |4.4 DP|OK|OK|
 |4.3 PR|OK|OK|
@@ -348,6 +353,13 @@ Official TensorFlow for Jetson AGX XavierNX
 https://forums.developer.nvidia.com/t/official-tensorflow-for-jetson-agx-xaviernx/141306  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_jetpack_tensorflow_setup/  
 
+##### TensorFlow Current Version
+```
+2020-10-24 00:51:44
+tensorflow-1.15.4+nv20.10-cp36-cp36m-linux_aarch64.whl 217MB
+tensorflow-2.3.1+nv20.10-cp36-cp36m-linux_aarch64.whl 264MB
+```
+
 ### TensorFlow v1.x
 ```
 # TensorFlow v1.15.2
@@ -365,6 +377,13 @@ bash ./Jetson_Convenience_Script/TensorFlow/inst_tf2.sh
 
 ### Pytorch
 https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-6-0-now-available/72048  
+
+| JetPack | Pytorch 1.4.0 | 1.5.0 | 1.6.0 |
+|:---:|:---:|:---:|:---:|
+|4.4.1 PR|NG|NG|OK|
+|4.4 PR|NG|NG|OK|
+|4.4 DP|OK|OK|OK|
+|4.3 PR|OK|OK|OK|
 ```
 # Pytorch v1.4.0 / torchvision v0.5.0 / Python 3.6
 cd

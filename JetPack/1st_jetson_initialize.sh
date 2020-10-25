@@ -11,14 +11,25 @@ echo $SCRIPT_DIR
 sudo echo .
 
 # ===
+echo # ===
+echo uname -a
 uname -a
 
+echo lsb_release -a
 lsb_release -a
+
+echo cat /etc/nv_tegra_release
+cat /etc/nv_tegra_release
+
+# ===
+chmod +x stop_apt_daily.sh
+bash ./stop_apt_daily.sh
 
 # ===
 chmod +x bash_init.sh
 bash ./bash_init.sh
 
+# ===
 # NVIDIA Jetson Nano FULL power mode
 chmod +x create_jetson_clocks.sh
 bash ./create_jetson_clocks.sh
@@ -30,10 +41,6 @@ bash ./add_cuda_environment.sh
 # ===
 chmod +x add_blas_environment.sh
 bash ./add_blas_environment.sh
-
-# ===
-chmod +x stop_apt_daily.sh
-bash ./stop_apt_daily.sh
 
 # Install cURL nano git htop Mercurial tree
 sudo apt update

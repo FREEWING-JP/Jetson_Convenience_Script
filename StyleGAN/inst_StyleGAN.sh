@@ -15,6 +15,26 @@ fi
 
 
 # ===
+# pip3
+which pip3
+if [ $? -eq 0 ]; then
+  sudo apt install python3-pip
+fi
+
+pip3 -V
+# pip 20.2.4 from /usr/local/lib/python3.6/dist-packages/pip (python 3.6)
+
+
+# ===
+# tensorflow
+pip3 freeze | grep tensorflow
+if [ $? -ne 0 ]; then
+  echo "no tensorflow"
+  exit 0
+fi
+
+
+# ===
 # TensorFlow version
 TF_VERSION=`python3 -c "import tensorflow; print (tensorflow.VERSION)"`
 if [ $? = 0 ]; then
@@ -33,6 +53,15 @@ if [[ ${TF_VERSION} =~ ^([0-9]+)\..*$ ]]; then
 fi
 
 
+# python3 PIL Pillow
+# ModuleNotFoundError: No module named 'PIL'
+# Pillow==8.0.1
+pip3 freeze | grep Pillow
+if [ $? -ne 0 ]; then
+  sudo pip3 install pillow
+fi
+
+
 # ===
 # ===
 # StyleGAN
@@ -40,8 +69,6 @@ cd
 git clone https://github.com/NVlabs/stylegan --depth 1
 cd stylegan
 
-# ModuleNotFoundError: No module named 'PIL'
-sudo pip3 install pillow
 
 # Using pre-trained networks
 python3 pretrained_example.py

@@ -518,6 +518,7 @@ bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1472
 
 ---
 ### Vino VNC Server
+https://developer.nvidia.com/embedded/learn/tutorials/vnc-setup  
 https://gitlab.gnome.org/GNOME/vino/  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_enable_vino_vnc_server_headless_mode/  
 ```

@@ -19,6 +19,9 @@ https://www.nvidia.com/ja-jp/autonomous-machines/embedded-systems/jetson-xavier-
 ##### * not tested Jetson Nano 2GB Developer Kit  
 
 ### NVIDIA JetPack
+
+JetPack 4.5, the next production release supporting all Jetson modules and developer kits will be released in Jan 2021.
+
 - 2020/10 JetPack 4.4.1 PR Production Release  
 https://developer.nvidia.com/embedded/jetpack  
 - JetPack 4.4 PR Production Release  

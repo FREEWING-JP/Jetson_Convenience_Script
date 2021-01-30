@@ -6,10 +6,7 @@ SCRIPT_DIR=$(pwd)
 echo $SCRIPT_DIR
 
 
-# VER=3.17.5
-
-# v3.19.4 2021/01/29
-VER=3.19.4
+VER=3.17.5
 
 # ===
 # ===
@@ -94,7 +91,7 @@ cd CMake
 time make -j$(nproc)
 
 ./bin/cmake --version
-# cmake version 3.19.4
+# cmake version 3.17.x
 # CMake suite maintained and supported by Kitware (kitware.com/cmake).
 
 # Install CMake

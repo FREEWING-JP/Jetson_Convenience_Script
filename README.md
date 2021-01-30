@@ -244,6 +244,17 @@ bash ./Jetson_Convenience_Script/Caffe/inst_DeepDreamer.sh
 <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/DeepDreamer_gfl.jpg_8.jpg" alt="Jetson Caffe Deep Dreamer" title="Jetson Caffe Deep Dreamer" width="320" height="240"> _ <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/DeepDreamer_sky800x449px.jpg_6.jpg" alt="Jetson Caffe Deep Dreamer" title="Jetson Caffe Deep Dreamer" width="320" height="240">  
 
 ---
+### OpenPose v1.7.0
+Support cuDNN 8.0 and OpenCV 4.x  
+```
+# Auto detect JetPack 4.3 or 4.4 or 4.5
+# Auto detect OpenCV 4.x for Build OpenPose's Caffe
+# Require CMake Version 3.12 or above
+# support JetPack 4.4 production release with cuDNN 8.0
+cd
+bash ./Jetson_Convenience_Script/OpenPose/inst_OpenPose.sh
+```
+
 ### OpenPose v1.6.0
 #### JetPack 4.4 production release L4T 32.4.3 Can't build Caffe and OpenPose with cuDNN 8.0  
 https://github.com/CMU-Perceptual-Computing-Lab/openpose  
@@ -264,7 +275,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_xavier_nx_2020_build_
 # Require CMake Version 3.12 or above
 # support JetPack 4.4 production release without cuDNN 8.0
 cd
-bash ./Jetson_Convenience_Script/OpenPose/inst_OpenPose.sh
+bash ./Jetson_Convenience_Script/OpenPose/inst_OpenPose_160.sh
 ```
 <img src="https://img.youtube.com/vi/TyokrHR_S_8/maxresdefault.jpg" alt="OpenPose v1.6.0 Detecting human skeleton NVIDIA Jetson Xavier NX JetPack 4.4" title="OpenPose v1.6.0 Detecting human skeleton NVIDIA Jetson Xavier NX JetPack 4.4" width="320" height="180"> _ 
 [YouTube https://youtu.be/TyokrHR_S_8](https://youtu.be/TyokrHR_S_8)
@@ -336,6 +347,16 @@ bash ./Jetson_Convenience_Script/StyleGAN2/inst_StyleGAN2.sh
 <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/StyleGAN2_grid_1.jpg" alt="Jetson StyleGAN2" title="Jetson StyleGAN2" width="320" height="240"> _ <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/StyleGAN2_nvidia_jetson_nano_tensorflow_stylegan2_4.jpg" alt="Jetson StyleGAN2" title="Jetson StyleGAN2" width="320" height="240">  
 
 ---
+### NVIDIA Caffe v0.17.4
+Support cuDNN 8.0 and OpenCV 4.x  
+```
+# with OpenCV 4.x (JetPack 4.3 or 4.4 or 4.5)
+# Auto detect OpenCV 4.x
+# support JetPack 4.4 production release enable cuDNN
+cd
+bash ./Jetson_Convenience_Script/NV_Caffe/inst_NV_Caffe.sh
+```
+
 ### NVIDIA Caffe v0.17.3
 #### JetPack 4.4 production release L4T 32.4.3 Can't build Caffe and OpenPose with cuDNN 8.0  
 https://github.com/nvidia/caffe  
@@ -354,7 +375,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_build_nvcaffe_go
 # Auto detect OpenCV 3.x/ 4.x with OpenCV 4.x patch
 # support JetPack 4.4 production release disable cuDNN
 cd
-bash ./Jetson_Convenience_Script/NV_Caffe/inst_NV_Caffe.sh
+bash ./Jetson_Convenience_Script/NV_Caffe/inst_NV_Caffe_0173.sh
 ```
 
 ### NVIDIA FFmpeg for Jetson Nano

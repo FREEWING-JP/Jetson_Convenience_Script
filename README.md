@@ -113,16 +113,23 @@ mv ./00_deb/00_deb/* ./00_deb/
 ls -l ./00_deb
 ```
 ---
-### CMake 3.17.5
+### CMake 3.19.4/ CMake 3.17.5
 https://github.com/Kitware/CMake  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_newest_cmake/  
 ```
+# CMake 3.19.4
 # for Build OpenPose
 cd
 bash ./Jetson_Convenience_Script/CMake/inst_CMake.sh
 
 # Create .deb install package
 bash ./Jetson_Convenience_Script/CMake/create_CMake_deb.sh
+```
+```
+# CMake 3.17.5
+# for Build OpenPose
+cd
+bash ./Jetson_Convenience_Script/CMake/inst_CMake_3175.sh
 ```
 
 ### libjpeg-turbo 2.0.5 (libjpeg v8)
@@ -144,10 +151,16 @@ bash ./Jetson_Convenience_Script/OpenBLAS/inst_OpenBLAS.sh
 ```
 
 ---
-### Bazel 3.5.0
+### Bazel 4.0.0/ Bazel 3.5.0
 https://bazel.build/  
 https://github.com/bazelbuild/bazel/tree/3.5.0  
 ```
+# Bazel 4.0.0
+cd
+bash ./Jetson_Convenience_Script/Bazel/inst_Bazel_350.sh
+```
+```
+# Bazel 3.5.0
 cd
 bash ./Jetson_Convenience_Script/Bazel/inst_Bazel_350.sh
 ```
@@ -167,13 +180,19 @@ cd
 bash ./Jetson_Convenience_Script/OpenCV/inst_OpenCV349.sh
 ```
 
+### OpenCV 4.5.1 with cuDNN 8.0, GStreamer, V4L Video4Linux
+```
+cd
+bash ./Jetson_Convenience_Script/OpenCV/inst_OpenCV451.sh
+
+# Create .deb install package
+bash ./Jetson_Convenience_Script/OpenCV/create_OpenCV_deb.sh
+```
+
 ### OpenCV 4.4.0 with cuDNN 8.0, GStreamer, V4L Video4Linux
 ```
 cd
 bash ./Jetson_Convenience_Script/OpenCV/inst_OpenCV440.sh
-
-# Create .deb install package
-bash ./Jetson_Convenience_Script/OpenCV/create_OpenCV_deb.sh
 ```
 
 ---

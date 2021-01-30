@@ -26,10 +26,10 @@ cat /etc/nv_tegra_release | grep "R32 (release), REVISION: 5\."
 if [ $? = 0 ]; then
   echo "JetPack 4.5"
 
-  PYTORCH_VERSION=v1.6.0
-  TORCHVISION_VERSION=v0.7.0
-  WHL_URL=https://nvidia.box.com/shared/static/9eptse6jyly1ggt9axbja2yrmj6pbarc.whl
-  WHL_NAME=torch-1.6.0-cp36-cp36m-linux_aarch64.whl
+  PYTORCH_VERSION=v1.7.0
+  TORCHVISION_VERSION=v0.8.1
+  WHL_URL=https://nvidia.box.com/shared/static/cs3xn3td6sfgtene6jdvsxlr366m2dhq.whl
+  WHL_NAME=torch-1.7.0-cp36-cp36m-linux_aarch64.whl
 
   chmod +x sub_PyTorch.sh
   bash ./sub_PyTorch.sh $PYTORCH_VERSION $TORCHVISION_VERSION $WHL_URL $WHL_NAME
@@ -43,7 +43,6 @@ if [ $? = 0 ]; then
   exit 0
 fi
 
-# NG L4T 32.4.2 = JetPack 4.4 Developer Preview NG
 # OK L4T 32.4.3 = JetPack 4.4 Production Release OK
 # OK L4T 32.4.4 = JetPack 4.4.1 Production Release OK
 cat /etc/nv_tegra_release | grep "R32 (release), REVISION: 4\.[3|4]"
@@ -51,10 +50,10 @@ cat /etc/nv_tegra_release | grep "R32 (release), REVISION: 4\.[3|4]"
 if [ $? = 0 ]; then
   echo "JetPack 4.4"
 
-  PYTORCH_VERSION=v1.6.0
-  TORCHVISION_VERSION=v0.7.0
-  WHL_URL=https://nvidia.box.com/shared/static/9eptse6jyly1ggt9axbja2yrmj6pbarc.whl
-  WHL_NAME=torch-1.6.0-cp36-cp36m-linux_aarch64.whl
+  PYTORCH_VERSION=v1.7.0
+  TORCHVISION_VERSION=v0.8.1
+  WHL_URL=https://nvidia.box.com/shared/static/cs3xn3td6sfgtene6jdvsxlr366m2dhq.whl
+  WHL_NAME=torch-1.7.0-cp36-cp36m-linux_aarch64.whl
 
   chmod +x sub_PyTorch.sh
   bash ./sub_PyTorch.sh $PYTORCH_VERSION $TORCHVISION_VERSION $WHL_URL $WHL_NAME

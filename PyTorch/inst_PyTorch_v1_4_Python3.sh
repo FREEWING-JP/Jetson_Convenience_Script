@@ -22,7 +22,7 @@ fi
 
 
 # L4T 32.4.2 = JetPack 4.4
-cat /etc/nv_tegra_release | grep "R32 (release), REVISION: 4."
+cat /etc/nv_tegra_release | grep "R32 (release), REVISION: 4\."
 # R32 (release), REVISION: 4.2, GCID: 20074772, BOARD: t186ref, EABI: aarch64, DATE: Thu Apr  9 01:26:40 UTC 2020
 if [ $? = 0 ]; then
   # L4T 32.4.2 = JetPack 4.4
@@ -46,7 +46,7 @@ if [ $? = 0 ]; then
 fi
 
 # L4T 32.3.1 = JetPack 4.3
-cat /etc/nv_tegra_release | grep "R32 (release), REVISION: 3.1"
+cat /etc/nv_tegra_release | grep "R32 (release), REVISION: 3\.1"
 if [ $? = 0 ]; then
   # L4T 32.3.1 = JetPack 4.3
   echo "JetPack 4.3"

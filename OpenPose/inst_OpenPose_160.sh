@@ -151,8 +151,8 @@ fi
 # ===
 # build OpenPose
 cd
-# OpenPose v1.7.0 17 Nov 2020
-git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose -b v1.7.0 --depth 1
+# OpenPose v1.6.0 Apr 27, 2020
+git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose -b v1.6.0 --depth 1
 cd openpose
 
 # Collecting opencv-python
@@ -195,10 +195,70 @@ fi
 mkdir build
 cd build
 
+# ===
+# JetPack 4.4 DP Developer Preview patch
+# -- CUDA detected: 10.2
+# -- Found cuDNN: ver. ??? found (include: /usr/include, library: /usr/lib/aarch64-linux-gnu/libcudnn.so)
+# CMake Error at cmake/Cuda.cmake:263 (message):
+#   cuDNN version >3 is required.
+# Call Stack (most recent call first):
+#   cmake/Cuda.cmake:291 (detect_cuDNN)
+#   CMakeLists.txt:422 (include)
+# L4T 32.4.2 = JetPack 4.4 DP
+# L4T 32.4.3 = JetPack 4.4 PR
+cat /etc/nv_tegra_release | grep "R32 (release), REVISION: [4\.[2|3|4]|5\.]"
+if [ $? = 0 ]; then
+  echo "JetPack 4.4 or later"
+
+  # Change cudnn.h to cudnn_version.h
+  sed -i -e "s/cudnn.h/cudnn_version.h/g" ../cmake/Cuda.cmake
+  sed -i -e "s/cudnn.h/cudnn_version.h/g" ../cmake/Modules/FindCuDNN.cmake
+fi
+
 
 # ===
+# NVIDIA CUDA GPUs Compute Capability
+# https://developer.nvidia.com/cuda-gpus
+# Compute Capability Jetson Nano = 5.3
+# -D CUDA_ARCH_BIN="5.3"
+# Compute Capability Jetson Xavier = 7.2
+# -D CUDA_ARCH_BIN="7.2"
+
+tegra_cip_id=$(cat /sys/module/tegra_fuse/parameters/tegra_chip_id)
+echo $tegra_cip_id
+
+CUDA_ARCH_BIN=5.3
+
+# Jetson Xavier NX
+if [ $tegra_cip_id = "25" ]; then
+  CUDA_ARCH_BIN=7.2
+fi
+
+# Jetson Nano
+if [ $tegra_cip_id = "33" ]; then
+  CUDA_ARCH_BIN=5.3
+fi
+
+
+# ===
+# JetPack 4.4 Production Release patch No cuDNN 8.0
+# Caffe doesn't currently support cuDNN 8.0 (JetPack 4.4 Product Release)
 USE_CUDNN=ON
 
+# OK L4T 32.4.4 = JetPack 4.4.1 Production Release OK
+cat /etc/nv_tegra_release | grep "R32 (release), REVISION: [4\.[3|4]|5\.]"
+# R32 (release), REVISION: 4.3, GCID: 21589087, BOARD: t186ref, EABI: aarch64, DATE: Fri Jun 26 04:34:27 UTC 2020
+if [ $? = 0 ]; then
+  echo "JetPack 4.4 Production Release patch No cuDNN 8.0"
+  # sed -i 's/USE_CUDNN/NO_USE_CUDNN/' ../3rdparty/caffe/Makefile
+  # sed -i 's/option(USE_CUDNN "Build OpenPose with cuDNN library support." ON)/option(USE_CUDNN "Build OpenPose with cuDNN library support." OFF)/' ../CMakeLists.txt
+  USE_CUDNN=OFF
+
+  # if [ "${DL_FRAMEWORK}" != "NV_CAFFE" ]; then
+  #   echo "OpenPose with JetPack 4.4 Production Release need NV_CAFFE"
+  #   exit 1
+  # fi
+fi
 
 # ===
 # -D CMAKE_BUILD_TYPE=Release
@@ -212,6 +272,8 @@ if [ "${CAFFE_HOME}" = "" ]; then
     \
     -D DOWNLOAD_BODY_COCO_MODEL=${DOWNLOAD_BODY_COCO_MODEL} \
     -D DOWNLOAD_BODY_MPI_MODEL=${DOWNLOAD_BODY_MPI_MODEL} \
+    \
+    -D CUDA_ARCH_BIN=$CUDA_ARCH_BIN \
     \
     -D USE_CUDNN=${USE_CUDNN}
 
@@ -267,6 +329,53 @@ if [ "${CAFFE_HOME}" = "" ]; then
   fi
 fi
 
+# master (HEAD detached at c95002fb)
+# https://github.com/CMU-Perceptual-Computing-Lab/caffe/commits/master
+if [ "${CAFFE_HOME}" = "" ]; then
+  if [ $OPENCV_VERSION = 4 ]; then
+    echo "OpenPose Caffe OpenCV 4.x patch"
+
+    # Build Caffe Python version
+    if [ ${BUILD_CAFFE_PYTHON_VERSION} -eq 2 ]; then
+      cp $SCRIPT_DIR/open_cv4_patch/Makefile_py2 ../3rdparty/caffe/Makefile
+    else
+      cp $SCRIPT_DIR/open_cv4_patch/Makefile_py3 ../3rdparty/caffe/Makefile
+    fi
+
+    cp $SCRIPT_DIR/open_cv4_patch/common.hpp ../3rdparty/caffe/include/caffe/
+    cp $SCRIPT_DIR/open_cv4_patch/common_cv4.hpp ../3rdparty/caffe/include/caffe/
+
+    # ===
+    # OpenBlas
+    sed -i 's/^BLAS ?= atlas/BLAS ?= open/' ../3rdparty/caffe/Makefile
+
+    # ===
+    # BLAS
+    grep "^BLAS ?= open" ../3rdparty/caffe/Makefile
+    if [ $? = 0 ]; then
+      # OpenBLAS, BLAS := open
+      libopenblas=0
+      if [ "$BLAS_INCLUDE" = "" ]; then
+        echo $LD_LIBRARY_PATH | grep "OpenBLAS"
+        if [ $? -ne  0 ]; then
+          libopenblas=1
+        fi
+      fi
+      if [ $libopenblas -eq 1 ]; then
+        echo "install libopenblas-dev"
+        sudo apt-get -y install libopenblas-dev
+      else
+        echo "remove libopenblas-base libopenblas-dev"
+        sudo apt-get -y remove libopenblas-base libopenblas-dev
+      fi
+    else
+      # ATLAS, BLAS := atlas
+      sudo apt-get install libatlas-base-dev
+    fi
+
+  fi
+fi
+
 
 # ===
 echo "========== time make -j$(nproc)"
@@ -278,12 +387,6 @@ if [ $? != 0 ]; then
   echo "=========="
   exit 1
 fi
-
-# Jetson Xavier NX
-# time make -j6
-# real    16m57.283s
-# user    78m14.032s
-# sys     4m14.352s
 
 
 # ===
@@ -325,13 +428,4 @@ fi
 # cd openpose
 cd $TF_DIR
 bash ./execute_sample.sh
-
-# Jetson Xavier NX
-# Picture --net_resolution -1x240 Killed
-# Picture --net_resolution -1x160 Killed
-# Picture --net_resolution 320x-1 Killed
-# Picture --net_resolution 240x-1 Killed
-
-# Video
-# --video Total time: 55.880033 seconds.
 

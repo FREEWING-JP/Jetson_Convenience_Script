@@ -19,7 +19,7 @@ fi
 OPENCV_VERSION=`opencv_version`
 if [ $? != 0 ]; then
   echo "OpenCV not Found"
-  echo "Need OpenCV v3.x/v4.x"
+  echo "Need OpenCV v4.x"
   exit 0
 fi
 
@@ -27,16 +27,12 @@ echo $OPENCV_VERSION
 if [[ ${OPENCV_VERSION} =~ ^([0-9]+)\..*$ ]]; then
   echo ${BASH_REMATCH[1]}
   case "${BASH_REMATCH[1]}" in
-      "3")
-        echo "OpenCV v3.x"
-        OPENCV_VERSION=3
-        ;;
       "4")
         echo "OpenCV v4.x"
         OPENCV_VERSION=4
         ;;
       *)
-        echo "Need OpenCV v3.x/v4.x"
+        echo "Need OpenCV v4.x"
         exit 1
         ;;
   esac
@@ -83,95 +79,10 @@ fi
 # NVIDIA/caffe Git clone
 cd
 # clone NVCaffe
-# // NVCaffe May 1, 2019 v0.17.3 fd6cf7a
-# NVCaffe Oct 29, 2019 caffe-0.17 17e347e
-git clone https://github.com/NVIDIA/caffe nvcaffe --depth 1 -b caffe-0.17
+# NVCaffe Jan 9, 2021 caffe-0.17.4 21fae69
+# Bug fix release: cuDNN v8, CUDA 11.1, Ubuntu 20.04 etc.
+git clone https://github.com/NVIDIA/caffe nvcaffe --depth 1 -b v0.17.4
 cd nvcaffe
-
-if [ $OPENCV_VERSION = 3 ]; then
-  echo "Caffe OpenCV 3.x patch"
-
-  # Copy Makefile.config
-  cp Makefile.config.example Makefile.config
-  # Adjust Makefile.config (for example, if using Anaconda Python, or if cuDNN is desired)
-
-  # Edit Makefile.config
-  # nano Makefile.config
-
-  sed -i 's/^# USE_CUDNN/USE_CUDNN/' Makefile.config
-  # sed -i 's/BLAS :=.*/BLAS := atlas/' Makefile.config
-  sed -i 's/x86_64-linux-gnu/aarch64-linux-gnu/' Makefile.config
-  sed -i 's/# OPENCV_VERSION/OPENCV_VERSION/' Makefile.config
-  sed -i 's/# WITH_PYTHON_LAYER/WITH_PYTHON_LAYER/' Makefile.config
-
-  # ===
-  # ===
-  tegra_cip_id=$(cat /sys/module/tegra_fuse/parameters/tegra_chip_id)
-  echo $tegra_cip_id
-
-  # Jetson Xavier NX
-  if [ $tegra_cip_id = "25" ]; then
-    # Jetson Xavier NX sm_72
-    # CUDA_ARCH := -gencode arch=compute_72,code=sm_72 \
-    #                -gencode arch=compute_72,code=compute_72
-    sed -i 's/arch=compute_50,code=sm_50/arch=compute_72,code=sm_72/' Makefile.config
-    sed -i 's/arch=compute_50,code=sm_50 \\/arch=compute_72,code=compute_72/' Makefile.config
-    sed -i '/arch=compute_50,code=sm_50 \\/d' Makefile.config
-    sed -i '/arch=compute_52,code=sm_52 \\/d' Makefile.config
-    sed -i '/arch=compute_60,code=sm_60 \\/d' Makefile.config
-    sed -i '/arch=compute_61,code=sm_61 \\/d' Makefile.config
-    sed -i '/arch=compute_70,code=sm_70 \\/d' Makefile.config
-    sed -i '/arch=compute_75,code=sm_75 \\/d' Makefile.config
-    sed -i '/arch=compute_75,code=compute_75/d' Makefile.config
-  fi
-
-  # Jetson Nano
-  if [ $tegra_cip_id = "33" ]; then
-    # Jetson Nano sm_53
-    sed -i 's/arch=compute_50,code=sm_50/arch=compute_53,code=sm_53/' Makefile.config
-    # sed -i 's/-gencode arch=compute_20,code=sm_21 \\//' Makefile.config
-    # Makefile.config:41: *** recipe commences before first target.  Stop.
-    sed -i 's/arch=compute_50,code=sm_50 \\/arch=compute_53,code=compute_53/' Makefile.config
-    sed -i '/arch=compute_52,code=sm_52 \\/d' Makefile.config
-    sed -i '/arch=compute_60,code=sm_60 \\/d' Makefile.config
-    sed -i '/arch=compute_61,code=sm_61 \\/d' Makefile.config
-    sed -i '/arch=compute_70,code=sm_70 \\/d' Makefile.config
-    sed -i '/arch=compute_75,code=sm_75 \\/d' Makefile.config
-    sed -i '/arch=compute_75,code=compute_75/d' Makefile.config
-  fi
-
-fi
-
-if [ $OPENCV_VERSION = 4 ]; then
-  echo "Caffe OpenCV 4.x patch"
-
-  # Copy Makefile.config
-  cp $SCRIPT_DIR/open_cv4_patch/Makefile.config.example Makefile.config
-
-  # NG L4T 32.4.2 = JetPack 4.4 Developer Preview NG
-  # OK L4T 32.4.3 = JetPack 4.4 Production Release OK
-  # OK L4T 32.4.4 = JetPack 4.4.1 Production Release OK
-  # OK L4T 32.5 = JetPack 4.5 Production Release OK
-  cat /etc/nv_tegra_release | grep "R32 (release), REVISION: [4\.[3|4]|5\.]"
-  # R32 (release), REVISION: 4.3, GCID: 21589087, BOARD: t186ref, EABI: aarch64, DATE: Fri Jun 26 04:34:27 UTC 2020
-  if [ $? = 0 ]; then
-    echo "JetPack 4.4/4.5 patch No cuDNN 8.0"
-    # JetPack 4.4 Production Release or later patch No cuDNN 8.0
-    # Caffe doesn't currently support cuDNN 8.0 (JetPack 4.4 Product Release or later)
-    sed -i 's/^USE_CUDNN/# USE_CUDNN/' Makefile.config
-  fi
-
-  # Copy OpenCV v4.x patch
-  cp $SCRIPT_DIR/open_cv4_patch/Makefile .
-  cp $SCRIPT_DIR/open_cv4_patch/common.hpp ./include/caffe/
-  cp $SCRIPT_DIR/open_cv4_patch/common_cv4.hpp ./include/caffe/
-  cp $SCRIPT_DIR/open_cv4_patch/video_data_layer.cpp ./src/caffe/layers/
-
-fi
-
-# ===
-# OpenBlas
-sed -i 's/^BLAS :=.*/BLAS := open/' Makefile.config
 
 
 # ===
@@ -181,6 +92,28 @@ sudo apt-get -y install protobuf-compiler libprotoc-dev libboost-dev libgflags-d
 
 # libboost-regex-dev
 sudo apt-get -y install libboost-regex-dev
+
+
+# ===
+# Copy Makefile.config
+cp Makefile.config.example Makefile.config
+
+
+# ===
+# cuDNN
+sed -i 's/^# USE_CUDNN/USE_CUDNN/' Makefile.config
+
+
+# ===
+# OpenCV 4.x
+sed -i 's/^# USE_OPENCV := .*/USE_OPENCV := 1/' Makefile.config
+sed -i 's/^# OPENCV_VERSION := .*/OPENCV_VERSION := 4/' Makefile.config
+
+
+# ===
+# OpenBlas
+sed -i 's/^BLAS :=.*/BLAS := open/' Makefile.config
+
 
 # ===
 # BLAS
@@ -215,6 +148,53 @@ fi
 
 
 # ===
+# CUDA_ARCH
+tegra_cip_id=$(cat /sys/module/tegra_fuse/parameters/tegra_chip_id)
+echo $tegra_cip_id
+
+# Jetson Xavier NX
+if [ $tegra_cip_id = "25" ]; then
+  # Jetson Xavier NX sm_72
+  # CUDA_ARCH := -gencode arch=compute_72,code=sm_72 \
+  #                -gencode arch=compute_72,code=compute_72
+  sed -i 's/arch=compute_50,code=sm_50/arch=compute_72,code=sm_72/' Makefile.config
+  sed -i 's/arch=compute_52,code=sm_52 \\/arch=compute_72,code=compute_72/' Makefile.config
+  sed -i '/arch=compute_60,code=sm_60 \\/d' Makefile.config
+  sed -i '/arch=compute_61,code=sm_61 \\/d' Makefile.config
+  sed -i '/arch=compute_70,code=sm_70 \\/d' Makefile.config
+  sed -i '/arch=compute_75,code=sm_75 \\/d' Makefile.config
+  sed -i '/arch=compute_75,code=compute_75/d' Makefile.config
+fi
+
+# Jetson Nano
+if [ $tegra_cip_id = "33" ]; then
+  # Jetson Nano sm_53
+  sed -i 's/arch=compute_50,code=sm_50/arch=compute_53,code=sm_53/' Makefile.config
+  sed -i 's/arch=compute_50,code=sm_52 \\/arch=compute_53,code=compute_53/' Makefile.config
+  sed -i '/arch=compute_60,code=sm_60 \\/d' Makefile.config
+  sed -i '/arch=compute_61,code=sm_61 \\/d' Makefile.config
+  sed -i '/arch=compute_70,code=sm_70 \\/d' Makefile.config
+  sed -i '/arch=compute_75,code=sm_75 \\/d' Makefile.config
+  sed -i '/arch=compute_75,code=compute_75/d' Makefile.config
+fi
+
+# ===
+# Python 3.6.9
+# Uncomment to use Python 3 (default is Python 2)
+# PYTHON_LIBRARIES := boost_python36 python3.6
+# PYTHON_INCLUDE := /usr/include/python3.6 \
+#                  /usr/lib/python3.6/dist-packages/numpy/core/include
+sed -i 's/boost_python38/boost_python36/' Makefile.config
+sed -i 's/python3\.8/python3\.6/' Makefile.config
+sed -i 's/# WITH_PYTHON_LAYER := .*/WITH_PYTHON_LAYER := 1/' Makefile.config
+
+
+# ===
+# LIBRARY_DIRS
+sed -i 's/x86_64-linux-gnu/aarch64-linux-gnu/' Makefile.config
+
+
+# ===
 # src/caffe/util/io.cpp:17:10: fatal error: turbojpeg.h: No such file or directory
 # OK libturbojpeg
 # sudo apt-get -y install libturbojpeg libturbojpeg-dev
@@ -231,13 +211,13 @@ bash ./make_Caffe.sh
 
 
 # ./.build_release/tools/caffe -version
-# caffe version 0.17.3
+# caffe version 0.17.4
 
 # ===
 # python -c "import caffe; print(caffe.__version__)"
-# Err or 0.17.3
+# Err or 0.17.4
 # python3 -c "import caffe; print(caffe.__version__)"
-# Err or 0.17.3
+# Err or 0.17.4
 
 
 # ===

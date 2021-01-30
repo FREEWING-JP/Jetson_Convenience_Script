@@ -4,10 +4,12 @@
 http://www.neko.ne.jp/~freewing/  
 
 ---
-## JetPack 4.4 production release L4T 32.4.3 Can't build Caffe and OpenPose with cuDNN 8.0
+## JetPack 4.4 production release L4T 32.4.3 Can't build Caffe and OpenPose 1.6.0 with cuDNN 8.0
 Caffe doesn't support cuDNN v8.0 .  
 So require disable USE_CUDNN .  
 https://forums.developer.nvidia.com/t/jetpack-4-4-l4t-r32-4-3-production-release/140870/21  
+
+* OpenPose 1.7.0 support cuDNN 8.0
 
 ---
 ### for Jetson Nano / Jetson Xavier NX Developer Kit

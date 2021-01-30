@@ -575,6 +575,12 @@ bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1350
 cd
 bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1472.sh
 ```
+```
+# Visual Studio Code 1.52.1
+# for Jetson Xavier
+cd
+bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1472.sh
+```
 
 ---
 ### Vino VNC Server

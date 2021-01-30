@@ -20,10 +20,18 @@ https://www.nvidia.com/ja-jp/autonomous-machines/embedded-systems/jetson-xavier-
 
 ### NVIDIA JetPack
 
-JetPack 4.5, the next production release supporting all Jetson modules and developer kits will be released in Jan 2021.
+| JetPack | L4T Ver. |/etc/nv_tegra_release|Jetson_Convenience_Script Support|
+|:---:|:---:|:---:|:---:|
+|4.5 PR|L4T 32.5|R32 (release), REVISION: 5.0| Current OK |
+|4.4.1 PR|L4T 32.4.4|R32 (release), REVISION: 4.4|[Archived tag:JetPack_4.4.1](https://github.com/FREEWING-JP/Jetson_Convenience_Script/tree/JetPack_4.4.1)|
+|4.4 PR|L4T 32.4.3|R32 (release), REVISION: 4.3|[Archived tag:JetPack_4.4.1](https://github.com/FREEWING-JP/Jetson_Convenience_Script/tree/JetPack_4.4.1)|
+|4.4 DP|L4T 32.4.2|R32 (release), REVISION: 4.2|[Archived tag:JetPack_4.4.1](https://github.com/FREEWING-JP/Jetson_Convenience_Script/tree/JetPack_4.4.1)|
+|4.3 PR|L4T 32.3.1|xxx| [Archived tag:JetPack_4.4.1](https://github.com/FREEWING-JP/Jetson_Convenience_Script/tree/JetPack_4.4.1)|
 
-- 2020/10 JetPack 4.4.1 PR Production Release  
+- 2021/01 JetPack 4.5 PR Production Release  
 https://developer.nvidia.com/embedded/jetpack  
+- 2020/10 JetPack 4.4.1 PR Production Release  
+https://developer.nvidia.com/jetpack-sdk-441-archive  
 - JetPack 4.4 PR Production Release  
 https://developer.nvidia.com/jetpack-sdk-44-archive  
 - JetPack 4.4 DP Developer Preview  
@@ -107,7 +115,7 @@ ls -l ./00_deb
 ---
 ### CMake 3.17.5
 https://github.com/Kitware/CMake  
-http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia__jetson_build_newest_cmake/  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_newest_cmake/  
 ```
 # for Build OpenPose
 cd
@@ -176,6 +184,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_build_caffe_goog
 
 | JetPack | USE_CUDNN=1 | USE_CUDNN=0 |
 |:---:|:---:|:---:|
+|4.5 or later|NG|OK|
 |4.4.1 PR|NG|OK|
 |4.4 PR|NG|OK|
 |4.4 DP|OK|OK|
@@ -224,6 +233,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_xavier_nx_2020_build_
 
 | JetPack | OpenPose builtin Caffe | external Caffe | external NVIDIA Caffe v0.17.3 |
 |:---:|:---:|:---:|:---:|
+|4.5 or later|OK (without cuDNN)|NG (without cuDNN)|OK (without cuDNN)|
 |4.4.1 PR|OK (without cuDNN)|NG (without cuDNN)|OK (without cuDNN)|
 |4.4 PR|OK (without cuDNN)|NG (without cuDNN)|OK (without cuDNN)|
 |4.4 DP|OK|NG|OK|
@@ -314,6 +324,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_build_nvcaffe_go
 
 | JetPack | USE_CUDNN=1 | USE_CUDNN=0 |
 |:---:|:---:|:---:|
+|4.5 or later|NG|OK|
 |4.4.1 PR|NG|OK|
 |4.4 PR|NG|OK|
 |4.4 DP|OK|OK|
@@ -381,12 +392,13 @@ bash ./Jetson_Convenience_Script/TensorFlow/inst_tf2.sh
 ### Pytorch
 https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-6-0-now-available/72048  
 
-| JetPack | Pytorch 1.4.0 | 1.5.0 | 1.6.0 |
-|:---:|:---:|:---:|:---:|
-|4.4.1 PR|NG|NG|OK|
-|4.4 PR|NG|NG|OK|
-|4.4 DP|OK|OK|OK|
-|4.3 PR|OK|OK|OK|
+| JetPack | Pytorch 1.4.0 | 1.5.0 | 1.6.0 | 1.7.0 |
+|:---:|:---:|:---:|:---:|:---:|
+|4.5 or later|--|--|--|OK|
+|4.4.1 PR|NG|NG|OK|--|
+|4.4 PR|NG|NG|OK|--|
+|4.4 DP|OK|OK|OK|--|
+|4.3 PR|OK|OK|OK|--|
 ```
 # Pytorch v1.4.0 / torchvision v0.5.0 / Python 3.6
 cd
@@ -401,6 +413,11 @@ bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_5_Python3.sh
 # Pytorch v1.6.0 / torchvision v0.7.0 / Python 3.6
 cd
 bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_6_Python3.sh
+```
+```
+# Pytorch v1.7.0 / torchvision v0.8.1 / Python 3.6
+cd
+bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_7_Python3.sh
 ```
 
 ---

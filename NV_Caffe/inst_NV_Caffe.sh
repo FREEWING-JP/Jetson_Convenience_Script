@@ -41,7 +41,7 @@ fi
 
 
 if [ $OPENCV_VERSION = 4 ]; then
-  echo "Caffe OpenCV 4.x patch"
+  echo "Caffe OpenCV 4.x"
 
   # ===
   # for Python 3
@@ -181,11 +181,19 @@ fi
 # ===
 # Python 3.6.9
 # Uncomment to use Python 3 (default is Python 2)
-# PYTHON_LIBRARIES := boost_python36 python3.6
+# PYTHON_LIBRARIES := boost_python3 python3.6m
 # PYTHON_INCLUDE := /usr/include/python3.6 \
 #                  /usr/lib/python3.6/dist-packages/numpy/core/include
-sed -i 's/boost_python38/boost_python36/' Makefile.config
+# PYTHON_LIB := /usr/lib/aarch64-linux-gnu
+#
+# cannot find -lboost_python38
+# cannot find -lpython3.8
+# find /usr/lib -iname 'libboost_python3*.so*'
+# find /usr/lib -iname 'libpython3*.so*'
+sed -i 's/boost_python38/boost_python3/' Makefile.config
 sed -i 's/python3\.8/python3\.6/' Makefile.config
+sed -i 's/boost_python3 python3\.6/boost_python3 python3\.6m/' Makefile.config
+sed -i 's@PYTHON_LIB := /usr/lib@PYTHON_LIB := /usr/lib/aarch64-linux-gnu@' Makefile.config
 sed -i 's/# WITH_PYTHON_LAYER := .*/WITH_PYTHON_LAYER := 1/' Makefile.config
 
 

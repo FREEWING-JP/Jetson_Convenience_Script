@@ -20,20 +20,14 @@ fi
 cmake --version
 
 # Check cmake version
-cmake --version | grep "version 3.10"
+cmake --version | grep "version 3\.1[0-1]"
 if [ $? = 0 ]; then
   echo "Error CMake version too old"
   exit 0
 fi
 
-# cmake version 3.14.0
-cmake --version | grep "version 3.14"
-if [ $? = 0 ]; then
-  echo "CMake version OK"
-fi
-
-# cmake version 3.17.3
-cmake --version | grep "version 3.17"
+# cmake version 3.12 - 3.19 or 3.20 later
+cmake --version | grep -E "version 3\.(1[2-9]|2[0-9])"
 if [ $? = 0 ]; then
   echo "CMake version OK"
 fi
@@ -73,21 +67,8 @@ if [[ ${OPENCV_VERSION} =~ ^([0-9]+)\..*$ ]]; then
 fi
 
 
-BUILD_CAFFE_PYTHON_VERSION=3
 DOWNLOAD_BODY_COCO_MODEL=OFF
 DOWNLOAD_BODY_MPI_MODEL=OFF
-
-# ===
-echo $CAFFE_HOME
-if [ "${CAFFE_HOME}" = "" ]; then
-  echo "No CAFFE_HOME env."
-  echo "Build OpenPose Caffe"
-
-  read -p "Build OpenPose Caffe's Python version ? (2/3/N):" ver
-  case "$ver" in 2) BUILD_CAFFE_PYTHON_VERSION=2 ;; 3) ;; *) echo "Abort" ; exit 1 ;; esac
-
-fi
-
 
 # ===
 read -p "Download COCO and MPI model ? (y/N):" yn
@@ -102,12 +83,12 @@ if [ "${CAFFE_HOME}" != "" ]; then
     CAFFE_VERSION=`python3 -c "import caffe; print(caffe.__version__)"`
   fi
 
-  # Check NV_Caffe 0.17.3
-  echo $CAFFE_VERSION | grep "0.17.3"
+  # Check NV_Caffe 0.17.3 or later
+  echo $CAFFE_VERSION | grep "0\.17\.[3-9]"
   if [ $? -ne 0 ]; then
     ESC=$(printf '\033')
     echo ''
-    echo "${ESC}[41mOpenPose probably doesn't work except for Caffe version 0.17.3${ESC}[m"
+    echo "${ESC}[41mOpenPose probably doesn't work except for Caffe version 0.17.3/0.17.4${ESC}[m"
     echo ''
     # echo "Check failed: status == CUDNN_STATUS_SUCCESS (4 vs. 0)  CUDNN_STATUS_INTERNAL_ERROR, device 0"
     echo "google/protobuf/message_lite.cc:118 Can't parse message of type \"caffe.NetParameter\" because it is missing required fields: layer[0].clip_param.min, layer[0].clip_param.max"
@@ -156,10 +137,12 @@ git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose -b v1.7.0 --d
 cd openpose
 
 # Collecting opencv-python
-# File "/tmp/pip-build-mvq5cn8w/opencv-python/setup.py", line 9, in <module>
+# File "/tmp/pip-build-vosno9nt/opencv-python/setup.py", line 10, in <module>
 # import skbuild
 # ModuleNotFoundError: No module named 'skbuild'
+# Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-vosno9nt/opencv-python/
 # sudo pip3 install scikit-build
+# sudo apt-get -y install python3-skimage
 
 # Cythonizing sources
 # File "/tmp/pip-build-uxjr2dn0/numpy/tools/cythonize.py", line 59, in process_pyx
@@ -247,24 +230,6 @@ if [ "${CAFFE_HOME}" != "" ]; then
     exit 1
   fi
 
-fi
-
-
-if [ "${CAFFE_HOME}" = "" ]; then
-  # ===
-  # JetPack 4.4 DP Developer Preview patch
-  # JetPack 4.4 PR Production Release patch
-  # JetPack 4.4.1 PR Production Release patch
-  cat /etc/nv_tegra_release | grep "R32 (release), REVISION: [4\.[2|3|4]|5\.]"
-  # R32 (release), REVISION: 4.2, GCID: 20074772, BOARD: t186ref, EABI: aarch64, DATE: Thu Apr  9 01:26:40 UTC 2020
-  if [ $? = 0 ]; then
-    # L4T 32.4.2 = JetPack 4.4
-    echo "JetPack 4.4"
-
-    # Caffe Configuration
-    # Change cudnn.h to cudnn_version.h
-    sed -i -e "s/cudnn.h/cudnn_version.h/g" ../3rdparty/caffe/cmake/Cuda.cmake
-  fi
 fi
 
 

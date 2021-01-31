@@ -20,20 +20,14 @@ fi
 cmake --version
 
 # Check cmake version
-cmake --version | grep "version 3.10"
+cmake --version | grep "version 3\.1[0-1]"
 if [ $? = 0 ]; then
   echo "Error CMake version too old"
   exit 0
 fi
 
-# cmake version 3.14.0
-cmake --version | grep "version 3.14"
-if [ $? = 0 ]; then
-  echo "CMake version OK"
-fi
-
-# cmake version 3.17.3
-cmake --version | grep "version 3.17"
+# cmake version 3.12 - 3.19 or 3.20 later
+cmake --version | grep -E "version 3\.(1[2-9]|2[0-9])"
 if [ $? = 0 ]; then
   echo "CMake version OK"
 fi
@@ -206,7 +200,7 @@ cd build
 #   CMakeLists.txt:422 (include)
 # L4T 32.4.2 = JetPack 4.4 DP
 # L4T 32.4.3 = JetPack 4.4 PR
-cat /etc/nv_tegra_release | grep "R32 (release), REVISION: [4\.[2|3|4]|5\.]"
+cat /etc/nv_tegra_release | grep -E "R32 (release), REVISION: (4\.[2-4]|5\.)"
 if [ $? = 0 ]; then
   echo "JetPack 4.4 or later"
 
@@ -246,7 +240,7 @@ fi
 USE_CUDNN=ON
 
 # OK L4T 32.4.4 = JetPack 4.4.1 Production Release OK
-cat /etc/nv_tegra_release | grep "R32 (release), REVISION: [4\.[3|4]|5\.]"
+cat /etc/nv_tegra_release | grep -E "R32 (release), REVISION: (4\.[34]|5\.)"
 # R32 (release), REVISION: 4.3, GCID: 21589087, BOARD: t186ref, EABI: aarch64, DATE: Fri Jun 26 04:34:27 UTC 2020
 if [ $? = 0 ]; then
   echo "JetPack 4.4 Production Release patch No cuDNN 8.0"
@@ -317,7 +311,7 @@ if [ "${CAFFE_HOME}" = "" ]; then
   # JetPack 4.4 DP Developer Preview patch
   # JetPack 4.4 PR Production Release patch
   # JetPack 4.4.1 PR Production Release patch
-  cat /etc/nv_tegra_release | grep "R32 (release), REVISION: [4\.[2|3|4]|5\.]"
+  cat /etc/nv_tegra_release | grep -E "R32 (release), REVISION: (4\.[2-4]|5\.)"
   # R32 (release), REVISION: 4.2, GCID: 20074772, BOARD: t186ref, EABI: aarch64, DATE: Thu Apr  9 01:26:40 UTC 2020
   if [ $? = 0 ]; then
     # L4T 32.4.2 = JetPack 4.4

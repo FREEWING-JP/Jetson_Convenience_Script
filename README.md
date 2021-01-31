@@ -289,6 +289,10 @@ bash ./Jetson_Convenience_Script/Caffe/inst_DeepDreamer.sh
 ---
 ### OpenPose v1.7.0
 Support cuDNN 8.0 and OpenCV 4.x  
+
+| JetPack | OpenPose builtin Caffe | external Caffe | external NVIDIA Caffe v0.17.4 |
+|:---:|:---:|:---:|:---:|
+|4.5|OK (with cuDNN)|No support|OK (with cuDNN)|
 ```
 # Auto detect JetPack 4.3 or 4.4 or 4.5
 # Auto detect OpenCV 4.x for Build OpenPose's Caffe

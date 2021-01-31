@@ -84,6 +84,47 @@ ifconfig -s wlan0
 ```
 
 ---
+### Jetson Nano / Jetson Xavier NX more Memory !!
+disable X Window System X11 GUI  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_disable_gui_more_memory/  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_2020_initialize/  
+
+|Xavier NX|used|free|
+|:---:|:---:|:---:|
+|Before|used 516M|free 6.2G|
+|After|used 291M|free 7.0G|
+```
+# Before used 516M, free 6.2G
+free -h
+#               total        used        free      shared  buff/cache   available
+# Mem:           7.6G        516M        6.2G         29M        874M        6.9G
+# Swap:          3.8G          0B        3.8G
+
+systemctl get-default
+# graphical.target
+
+# disable X Window System X11 GUI
+sudo systemctl set-default multi-user.target
+
+# Reboot
+sudo reboot
+
+# After used 291M, free 7.0G
+free -h
+#               total        used        free      shared  buff/cache   available
+# Mem:           7.6G        291M        7.0G         19M        321M        7.1G
+# Swap:          3.8G          0B        3.8G
+
+# Enable X Window System X11 GUI
+sudo systemctl set-default graphical.target
+sudo reboot
+```
+```
+# Temporarily disable X Window System X11 GUI
+sudo systemctl isolate multi-user
+```
+
+---
 ### Jetson Nano / Jetson Xavier NX initialize
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_xavier_nx_2020_initialize/  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_2020_initialize/  

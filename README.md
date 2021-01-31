@@ -626,7 +626,7 @@ bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1472
 # Visual Studio Code 1.52.1
 # for Jetson Xavier
 # cd
-# bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1472.sh
+# bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1521.sh
 Download .deb package
 https://code.visualstudio.com/#alt-downloads
 ```

@@ -396,6 +396,11 @@ bash ./Jetson_Convenience_Script/StyleGAN2/inst_StyleGAN2.sh
 ---
 ### NVIDIA Caffe v0.17.4
 Support cuDNN 8.0 and OpenCV 4.x  
+
+| JetPack | USE_CUDNN=1 | USE_CUDNN=0 |
+|:---:|:---:|:---:|
+|4.5 or later|OK|OK|
+
 ```
 # with OpenCV 4.x (JetPack 4.3 or 4.4 or 4.5)
 # Auto detect OpenCV 4.x
@@ -482,8 +487,8 @@ https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-6-0-now-avail
 | JetPack | Pytorch 1.4.0 | 1.5.0 | 1.6.0 | 1.7.0 |
 |:---:|:---:|:---:|:---:|:---:|
 |4.5 or later|--|--|OK|OK|
-|4.4.1 PR|NG|NG|OK|OK|
-|4.4 PR|NG|NG|OK|OK|
+|4.4.1 PR|--|--|OK|OK|
+|4.4 PR|--|--|OK|OK|
 |4.4 DP|OK|OK|OK|--|
 |4.3 PR|OK|OK|OK|--|
 ```

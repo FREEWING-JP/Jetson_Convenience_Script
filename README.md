@@ -328,7 +328,7 @@ bash ./Jetson_Convenience_Script/OpenPose/inst_OpenPose_160.sh
 [YouTube https://youtu.be/TyokrHR_S_8](https://youtu.be/TyokrHR_S_8)
 
 ### OpenPose Benchmark Comparison Jetson Xavier NX vs Jetson Nano
-JetPack 4.4 PR  
+JetPack 4.4 PR + OpenPose v1.6.0 USE_CUDNN=0  
 |net_resolution|Nano|Xavier NX|
 |:---:|:---:|:---:|
 |240x-1|126 sec|108 sec|
@@ -481,9 +481,9 @@ https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-6-0-now-avail
 
 | JetPack | Pytorch 1.4.0 | 1.5.0 | 1.6.0 | 1.7.0 |
 |:---:|:---:|:---:|:---:|:---:|
-|4.5 or later|--|--|--|OK|
-|4.4.1 PR|NG|NG|OK|--|
-|4.4 PR|NG|NG|OK|--|
+|4.5 or later|--|--|OK|OK|
+|4.4.1 PR|NG|NG|OK|OK|
+|4.4 PR|NG|NG|OK|OK|
 |4.4 DP|OK|OK|OK|--|
 |4.3 PR|OK|OK|OK|--|
 ```

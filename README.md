@@ -396,6 +396,32 @@ bash ./Jetson_Convenience_Script/StyleGAN2/inst_StyleGAN2.sh
 <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/StyleGAN2_grid_1.jpg" alt="Jetson StyleGAN2" title="Jetson StyleGAN2" width="320" height="240"> _ <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/StyleGAN2_nvidia_jetson_nano_tensorflow_stylegan2_4.jpg" alt="Jetson StyleGAN2" title="Jetson StyleGAN2" width="320" height="240">  
 
 ---
+### trt_pose
+https://github.com/NVIDIA-AI-IOT/trt_pose  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_trt_pose/  
+```
+# Require Pytorch
+cd
+bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_7_Python3.sh
+
+# trt_pose
+cd
+bash ./Jetson_Convenience_Script/trt_pose/inst_trt_pose.sh
+```
+
+---
+### trt_pose_hand
+https://github.com/NVIDIA-AI-IOT/trt_pose_hand  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_trt_pose_hand/  
+```
+# Require Pytorch
+# Require trt_pose
+# trt_pose_hand
+cd
+bash ./Jetson_Convenience_Script/trt_pose_hand/inst_trt_pose_hand.sh
+```
+
+---
 ### NVIDIA Caffe v0.17.4
 Support cuDNN 8.0 and OpenCV 4.x  
 

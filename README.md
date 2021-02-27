@@ -127,6 +127,73 @@ sudo systemctl isolate multi-user
 ```
 
 ---
+### Jetson Xavier NX M.2 NVMe SSD
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_xavier_nx_install_m2_nvme_ssd/  
+```
+# Format SSD Device to GPT Linux filesystem
+cd
+bash ./Jetson_Convenience_Script/Xavier_NX_M2_NVMe_SSD/format_m2_nvme_ssd.sh
+
+# Mount SSD Device Add UUID to fstab
+bash ./Jetson_Convenience_Script/Xavier_NX_M2_NVMe_SSD/mount_fstab_m2_nvme_ssd.sh
+
+sudo reboot
+
+df -h
+# /dev/nvme0n1p1  469G   73M  445G   1% /jetson_ssd
+```
+
+### Jetson Xavier NX Booting from M.2 NVMe SSD
+Jetson Xavier NX - Run from SSD  
+https://www.jetsonhacks.com/2020/05/29/jetson-xavier-nx-run-from-ssd/  
+```
+# Format SSD Device to GPT Linux filesystem
+cd
+bash ./Jetson_Convenience_Script/Xavier_NX_M2_NVMe_SSD/format_m2_nvme_ssd.sh
+
+# Jetson Xavier NX Booting from M.2 NVMe SSD
+bash ./Jetson_Convenience_Script/Xavier_NX_M2_NVMe_SSD/boot_from_m2_nvme_ssd.sh
+
+sudo reboot
+
+# Boot from M.2 NVMe SSD
+mount | grep nvme
+# Mount NVMe to / root
+# /dev/nvme0n1p1 on /
+```
+```
+# Disable NVMe Boot
+# (Change to Boot from SD-Card)
+sudo wipefs /dev/nvme0n1
+sudo wipefs --all --force /dev/nvme0n1
+sudo reboot
+```
+
+### Disk Speed Benchmark M.2 NVMe SSD vs SD-Card
+
+| Device | Seq. Read |
+|:---:|:---:|
+|M.2 NVMe SSD|1576.45 MB/sec|
+|SD-Card|85.49 MB/sec|
+```
+# Speed Benchmark M.2 NVMe SSD vs SD-Card
+sudo apt install -y hdparm
+
+sudo hdparm -t /dev/nvme0n1
+# /dev/nvme0n1:
+#  Timing buffered disk reads: 4730 MB in  3.00 seconds = 1576.45 MB/sec
+
+sudo hdparm -t /dev/mmcblk0
+# /dev/mmcblk0:
+#  Timing buffered disk reads: 258 MB in  3.02 seconds =  85.49 MB/sec
+```
+#### Dump Disk Sector
+#### Wipe Bulk Erase Disk Sector
+#### Wipe Erase Disk Partition
+more Information to  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_xavier_nx_install_m2_nvme_ssd/  
+
+---
 ### Jetson Nano / Jetson Xavier NX initialize
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_xavier_nx_2020_initialize/  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_2020_initialize/  

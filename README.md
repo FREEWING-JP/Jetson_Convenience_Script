@@ -803,3 +803,20 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_sample_applicati
 cd
 bash ./Jetson_Convenience_Script/Jetson_Hello_AI_World/inst_Jetson_Hello_AI_World.sh
 ```
+
+---
+### Ubuntu Desktop GNOME Screensaver
+```
+# Disable Ubuntu Desktop GNOME Screensaver
+gsettings set org.gnome.desktop.lockdown disable-lock-screen true
+gsettings set org.gnome.desktop.screensaver lock-enabled false
+gsettings set org.gnome.desktop.screensaver ubuntu-lock-on-suspend false
+gsettings set org.gnome.desktop.screensaver idle-activation-enabled false
+
+# Enable Ubuntu Desktop GNOME Screensaver (Unit: sec)
+gsettings set org.gnome.desktop.lockdown disable-lock-screen false
+gsettings set org.gnome.desktop.session idle-delay 0
+gsettings set org.gnome.desktop.session idle-delay $((15*60)) && \
+gsettings set org.gnome.desktop.screensaver lock-delay 5 && \
+gsettings set org.gnome.desktop.screensaver lock-enabled true
+```

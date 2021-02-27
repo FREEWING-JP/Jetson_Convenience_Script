@@ -608,6 +608,25 @@ bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_7_Python3.sh
 ```
 
 ---
+### NVIDIA DeepStream SDK
+https://developer.nvidia.com/deepstream-sdk  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_trt_pose_hand/  
+```
+# NVIDIA DeepStream SDK
+cd
+bash ./Jetson_Convenience_Script/deepstream/inst_deepstream.sh
+```
+
+### DeepStream Human Pose Estimation
+https://github.com/NVIDIA-AI-IOT/deepstream_pose_estimation  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_trt_pose_hand/  
+```
+# DeepStream Human Pose Estimation
+cd
+bash ./Jetson_Convenience_Script/deepstream/inst_deepstream_pose_estimation.sh
+```
+
+---
 ### DATA BASE
 - Redis
 - Memcached

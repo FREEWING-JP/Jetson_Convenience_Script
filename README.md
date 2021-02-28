@@ -95,6 +95,11 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_2020_initialize/
 |:---:|:---:|:---:|
 |Before|used 516M|free 6.2G|
 |After|used 291M|free 7.0G|
+
+|Nano|used|free|
+|:---:|:---:|:---:|
+|Before|used 459M|free 2.7G|
+|After|used 229M|free 3.3G|
 ```
 # Before used 516M, free 6.2G
 free -h

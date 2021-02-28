@@ -754,10 +754,20 @@ https://github.com/Microsoft/vscode
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_build_visual_studio_code_oss/  
   
 ```
-# Visual Studio Code 1.35.0
-# for Jetson Nano
+# Visual Studio Code 1.53.2
+# for Jetson Xavier
 cd
-bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1350.sh
+bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1532.sh
+
+# for Jetson Nano
+# Download .deb package
+# https://code.visualstudio.com/#alt-downloads
+```
+```
+# Visual Studio Code 1.52.1
+# for Jetson Xavier
+cd
+bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1521.sh
 ```
 ```
 # Visual Studio Code 1.47.2
@@ -766,14 +776,10 @@ cd
 bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1472.sh
 ```
 ```
-# Visual Studio Code 1.52.1
-# for Jetson Xavier
-cd
-bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1521.sh
-
+# Visual Studio Code 1.35.0
 # for Jetson Nano
-# Download .deb package
-# https://code.visualstudio.com/#alt-downloads
+cd
+bash ./Jetson_Convenience_Script/Visual_Studio_Code/inst_Visual_Studio_Code_1350.sh
 ```
 
 ---

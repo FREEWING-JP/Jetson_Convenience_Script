@@ -24,9 +24,14 @@ if [ $tegra_cip_id = "33" ]; then
 fi
 
 bash -c "echo sudo nvpmodel -m $mode >> tmp.sh"
+bash -c "echo sudo nvpmodel -q >> tmp.sh"
 
 bash -c "echo sleep 1 >> tmp.sh"
 bash -c "echo sudo jetson_clocks >> tmp.sh"
+
+bash -c "echo sudo jetson_clocks --fan >> tmp.sh"
+bash -c "echo sudo jetson_clocks --show >> tmp.sh"
+
 chmod +x tmp.sh
 
 mv tmp.sh ~/.jetson_clocks_max.sh

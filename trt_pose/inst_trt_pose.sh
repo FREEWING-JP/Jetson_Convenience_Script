@@ -14,6 +14,16 @@ fi
 
 
 # ===
+# ===
+# Jupyter version
+jupyter --version
+if [ $? -ne 0 ]; then
+  echo "no Jupyter Notebook or JupyterLab"
+  exit 0
+fi
+
+
+# ===
 # pip3
 # which pip3
 # if [ $? -eq 0 ]; then
@@ -198,69 +208,6 @@ mv ${FILE_NAME} ./tasks/human_pose/
 
 # ====
 # Jupyter Notebook
-# https://jupyter.org/
-sudo apt-get install -y libbz2-dev libsqlite3-dev libffi-dev
-
-
-# ====
-# notebook 6.2.0 Released: Jan 14, 2021
-# https://pypi.org/project/notebook/
-# Jupyter Notebook
-sudo -H pip3 install notebook
-
-
-# ====
-# JupyterLab
-# sudo -H pip3 install jupyterlab
-# jupyter-lab
-
-
-# jupyter --version
-# jupyter core     : 4.7.1
-# jupyter-notebook : 6.2.0
-# qtconsole        : not installed
-# ipython          : 7.16.1
-# ipykernel        : 5.4.3
-# jupyter client   : 6.1.11
-# jjupyter lab      : not installed
-# nbconvert        : 6.0.7
-# ipywidgets       : 7.6.3
-# nbformat         : 5.1.2
-# traitlets        : 4.3.3
-
-
-# ====
-# sudo apt remove --purge nodejs npm
-# curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-# sudo apt-get update && sudo apt-get install -y yarn
-# sudo apt-get install -y nodejs
-# node -v
-# v12.20.1
-# npm -v
-# 6.14.10
-
-
-# ====
-# Enable Jupyter Widgets UI Library ipywidgets
-# ipywidgets: Interactive HTML Widgets
-# https://github.com/jupyter-widgets/ipywidgets
-# ImportError: IProgress not found. Please update jupyter and ipywidgets.
-#  See https://ipywidgets.readthedocs.io/en/stable/user_install.html
-sudo pip3 install ipywidgets
-# Successfully installed ipywidgets-7.6.3 jupyterlab-widgets-1.0.0 widgetsnbextension-3.5.1
-
-
-# can be skipped for notebook version 5.3 and above
-# sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
-# jupyter nbextension enable --py widgetsnbextension
-jupyter nbextension enable --py widgetsnbextension
-# Enabling notebook extension jupyter-js-widgets/extension... - Validating: OK
-
-# Install the front-end extension to JupyterLab
-# ValueError: Please install Node.js and npm before continuing installation.
-#  You may be able to install Node.js from your package manager, from conda,
-#   or directly from the Node.js website (https://nodejs.org).
-# sudo jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
 
 # ====
@@ -305,4 +252,10 @@ sed -i 's/# camera = CSICamera/camera = CSICamera/' live_demo.ipynb
 
 
 # ====
-jupyter notebook --ip=* --no-browser
+which jupyter-lab
+if [ $? -eq 0 ]; then
+  jupyter-lab --ip=* --no-browser
+else
+  jupyter notebook --ip=* --no-browser
+fi
+

@@ -14,6 +14,16 @@ fi
 
 
 # ===
+# ===
+# Jupyter version
+jupyter --version
+if [ $? -ne 0 ]; then
+  echo "no Jupyter Notebook or JupyterLab"
+  exit 0
+fi
+
+
+# ===
 # pip3
 # which pip3
 # if [ $? -eq 0 ]; then
@@ -137,6 +147,7 @@ fi
 # from numpy.testing import rundocs
 
 
+# ====
 # Model
 # hand_pose_resnet18_att_244_244.pth
 # https://drive.google.com/open?id=1NCVo0FiooWccDzY7hCc5MAKaoUpts3mo
@@ -150,33 +161,9 @@ mv ${FILE_NAME} ./model/
 
 # ====
 # Jupyter Notebook
-# https://jupyter.org/
-sudo apt-get install -y libbz2-dev libsqlite3-dev libffi-dev
 
 
 # ====
-# notebook 6.2.0 Released: Jan 14, 2021
-# https://pypi.org/project/notebook/
-# Jupyter Notebook
-sudo -H pip3 install notebook
-
-# ====
-# Enable Jupyter Widgets UI Library ipywidgets
-# ipywidgets: Interactive HTML Widgets
-# https://github.com/jupyter-widgets/ipywidgets
-# ImportError: IProgress not found. Please update jupyter and ipywidgets.
-#  See https://ipywidgets.readthedocs.io/en/stable/user_install.html
-sudo pip3 install ipywidgets
-# Successfully installed ipywidgets-7.6.3 jupyterlab-widgets-1.0.0 widgetsnbextension-3.5.1
-
-
-# can be skipped for notebook version 5.3 and above
-# sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
-# jupyter nbextension enable --py widgetsnbextension
-jupyter nbextension enable --py widgetsnbextension
-# Enabling notebook extension jupyter-js-widgets/extension... - Validating: OK
-
-
 cd
 cd trt_pose_hand
 ls -l
@@ -198,5 +185,11 @@ sed -i 's/#camera = CSICamera/camera = CSICamera/' live_hand_pose.ipynb
 # Notebook live_hand_pose.ipynb is not trusted
 jupyter trust live_hand_pose.ipynb
 
+# ====
+which jupyter-lab
+if [ $? -eq 0 ]; then
+  jupyter-lab --ip=* --no-browser
+else
+  jupyter notebook --ip=* --no-browser
+fi
 
-jupyter notebook --ip=* --no-browser

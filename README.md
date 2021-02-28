@@ -619,7 +619,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_trt_pose_hand/
 ```
 # NVIDIA DeepStream SDK
 cd
-bash ./Jetson_Convenience_Script/deepstream/inst_deepstream.sh
+bash ./Jetson_Convenience_Script/DeepStream/inst_deepstream.sh
 ```
 
 ### DeepStream Human Pose Estimation
@@ -628,7 +628,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_trt_pose_hand/
 ```
 # DeepStream Human Pose Estimation
 cd
-bash ./Jetson_Convenience_Script/deepstream/inst_deepstream_pose_estimation.sh
+bash ./Jetson_Convenience_Script/DeepStream/inst_deepstream_pose_estimation.sh
 ```
 
 ---

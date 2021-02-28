@@ -476,6 +476,9 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_trt_pose/
 cd
 bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_7_Python3.sh
 
+# Require JupyterLab or Jupyter Notebook
+bash ./Jetson_Convenience_Script/Jupyter/inst_Jupyter_Notebook.sh
+
 # trt_pose
 cd
 bash ./Jetson_Convenience_Script/trt_pose/inst_trt_pose.sh
@@ -487,6 +490,7 @@ https://github.com/NVIDIA-AI-IOT/trt_pose_hand
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_trt_pose_hand/  
 ```
 # Require Pytorch
+# Require JupyterLab or Jupyter Notebook
 # Require trt_pose
 # trt_pose_hand
 cd
@@ -629,6 +633,21 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_trt_pose_hand/
 # DeepStream Human Pose Estimation
 cd
 bash ./Jetson_Convenience_Script/DeepStream/inst_deepstream_pose_estimation.sh
+```
+
+---
+### JupyterLab or Jupyter Notebook
+https://jupyter.org/  
+```
+# JupyterLab (New) include Jupyter Notebook
+# jupyter lab      : 3.0.9
+cd
+bash ./Jetson_Convenience_Script/Jupyter/inst_JupyterLab.sh
+
+# Jupyter Notebook (classic)
+# jupyter-notebook : 6.2.0
+cd
+bash ./Jetson_Convenience_Script/Jupyter/inst_Jupyter_Notebook.sh
 ```
 
 ---

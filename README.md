@@ -633,6 +633,7 @@ cd
 bash ./Jetson_Convenience_Script/DeepStream/inst_deepstream_50.sh
 source .bashrc
 ```
+<img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/DeepStream_sample.png" alt="NVIDIA DeepStream SDK Sample" title="NVIDIA DeepStream SDK Sample" width="320" height="240">  
 
 ### DeepStream Human Pose Estimation
 https://github.com/NVIDIA-AI-IOT/deepstream_pose_estimation  

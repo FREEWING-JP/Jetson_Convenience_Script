@@ -621,9 +621,15 @@ bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_7_Python3.sh
 https://developer.nvidia.com/deepstream-sdk  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_trt_pose_hand/  
 ```
-# NVIDIA DeepStream SDK
+# NVIDIA DeepStream 5.1 SDK
 cd
-bash ./Jetson_Convenience_Script/DeepStream/inst_deepstream.sh
+bash ./Jetson_Convenience_Script/DeepStream/inst_deepstream_51.sh
+source .bashrc
+
+# NVIDIA DeepStream 5.0 SDK
+cd
+bash ./Jetson_Convenience_Script/DeepStream/inst_deepstream_50.sh
+source .bashrc
 ```
 
 ### DeepStream Human Pose Estimation

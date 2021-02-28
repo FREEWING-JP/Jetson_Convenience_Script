@@ -5,9 +5,25 @@ pwd
 SCRIPT_DIR=$(pwd)
 echo $SCRIPT_DIR
 
+DEEPSTREAM_VER=5.1
+echo $DEEPSTREAM_VER
+
+DEEPSTREAM_DIR=/opt/nvidia/deepstream/deepstream-$DEEPSTREAM_VER
+echo $DEEPSTREAM_DIR
+
+
+# ===
+ls -l /opt/nvidia/deepstream
+if [ $? -eq 0 ]; then
+  echo "Already Exists NVIDIA DeepStream SDK"
+  exit 0
+fi
+
+
 # ===
 # ===
 # NVIDIA DeepStream SDK
+# https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_Quickstart.html#jetson-setup
 
 # Install Dependencies
 sudo apt install -y \
@@ -34,8 +50,8 @@ make -j$(nproc)
 sudo make install
 
 # Copy the generated libraries to the deepstream directory:
-sudo mkdir -p /opt/nvidia/deepstream/deepstream-5.0/lib
-sudo cp /usr/local/lib/librdkafka* /opt/nvidia/deepstream/deepstream-5.0/lib
+sudo mkdir -p $DEEPSTREAM_DIR/lib
+sudo cp /usr/local/lib/librdkafka* $DEEPSTREAM_DIR/lib
 
 
 # Install NVIDIA V4L2 GStreamer plugin
@@ -53,19 +69,36 @@ cat /etc/apt/sources.list.d/nvidia-l4t-apt-source.list
 sudo apt install -y --reinstall nvidia-l4t-gstreamer
 
 
+# Method 3: Using the DeepStream Debian package
 # Install the DeepStream SDK
-# sudo apt-get install ./deepstream-5.0_5.0.1-1_arm64.deb
+# sudo apt-get install ./deepstream-5.1_5.1.0-1_arm64.deb
+
 # Method 4: Using the apt-server
 # sudo nano /etc/apt/sources.list.d/nvidia-l4t-apt-source.list
 # deb https://repo.download.nvidia.com/jetson/common r32.5 main
 
 # sudo apt update
-sudo apt install -y deepstream-5.0
-# deepstream-5.0 (5.0.1-1)
-# NOTE: sources and samples folders will be found in /opt/nvidia/deepstream/deepstream-5.0
+sudo apt install -y deepstream-$DEEPSTREAM_VER
+# deepstream-5.1 (5.1.0-1)
+# NOTE: sources and samples folders will be found in /opt/nvidia/deepstream/deepstream-5.1
 
-echo "DEEPSTREAM_DIR=/opt/nvidia/deepstream/deepstream-5.0"
-DEEPSTREAM_DIR=/opt/nvidia/deepstream/deepstream-5.0
-echo $DEEPSTREAM_DIR
+DEEPSTREAM_DIR=/opt/nvidia/deepstream/deepstream
+echo "DEEPSTREAM_DIR=$DEEPSTREAM_DIR"
+
+echo '# NVIDIA DeepStream SDK' >> ~/.bashrc
+echo "export DEEPSTREAM_DIR=$DEEPSTREAM_DIR" >> ~/.bashrc
 
 ls -l $DEEPSTREAM_DIR/sources/apps/sample_apps
+
+# ===
+echo '---'
+echo "type 'source ~/.bashrc'"
+echo ''
+echo "source ~/.bashrc"
+
+
+echo "DeepStream General topics"
+echo "https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_FAQ.html"
+echo "What types of input streams does DeepStream 5.1 support ?"
+echo "It supports H.264, H.265, JPEG, and MJPEG streams."
+

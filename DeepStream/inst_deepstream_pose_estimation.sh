@@ -9,8 +9,16 @@ echo $SCRIPT_DIR
 # ===
 # DeepStream Human Pose Estimation
 
-DEEPSTREAM_DIR=/opt/nvidia/deepstream/deepstream-5.0
 echo $DEEPSTREAM_DIR
+if [ "$DEEPSTREAM_DIR" = "" ]; then
+  DEEPSTREAM_DIR=/opt/nvidia/deepstream/deepstream
+  ls -l $DEEPSTREAM_DIR
+  if [ $? -ne  0 ]; then
+    echo "no NVIDIA DeepStream SDK"
+    exit 0
+  fi
+fi
+
 
 ls -l $DEEPSTREAM_DIR/sources/apps/sample_apps
 cd $DEEPSTREAM_DIR/sources/apps/sample_apps
@@ -28,7 +36,23 @@ pkg-config --cflags gstreamer-1.0
 # No package 'json-glib-1.0' found
 sudo apt-get install libjson-glib-dev
 
+
+# NVIDIA DeepStream SDK 5.1 patch
+# post_process.cpp:12:10: fatal error: gstnvdsmeta.h: No such file or directory
+#  #include "gstnvdsmeta.h"
+ls -l $DEEPSTREAM_DIR-5.1
+if [ $? -eq 0 ]; then
+  echo "NVIDIA DeepStream SDK 5.1 patch"
+  sed -i 's/^NVDS_VERSION:=5.0/NVDS_VERSION:=5.1/' Makefile
+fi
+
 make -j$(nproc)
+
+which ./deepstream-pose-estimation-app
+if [ $? -ne 0 ]; then
+  echo "Build Error deepstream-pose-estimation-app"
+  exit 0
+fi
 
 ./deepstream-pose-estimation-app
 # Usage: ./deepstream-pose-estimation-app <filename> <output-path>

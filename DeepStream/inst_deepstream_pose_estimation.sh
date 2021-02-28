@@ -46,6 +46,17 @@ if [ $? -eq 0 ]; then
   sed -i 's/^NVDS_VERSION:=5.0/NVDS_VERSION:=5.1/' Makefile
 fi
 
+
+# Jetson Nano patch
+# deepstream_pose_estimation_config.txt
+# Change workspace-size=3000 to 2000
+tegra_cip_id=$(cat /sys/module/tegra_fuse/parameters/tegra_chip_id)
+echo $tegra_cip_id
+# Jetson Nano
+if [ $tegra_cip_id = "33" ]; then
+  sed -i 's/^workspace-size=3000/workspace-size=2000/' deepstream_pose_estimation_config.txt
+fi
+
 make -j$(nproc)
 
 which ./deepstream-pose-estimation-app

@@ -638,10 +638,21 @@ source .bashrc
 ### DeepStream Human Pose Estimation
 https://github.com/NVIDIA-AI-IOT/deepstream_pose_estimation  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_trt_pose_hand/  
+
+|Jetson Model|deepstream_pose_estimation_config.txt|Work|
+|:---:|:---:|:---:|
+|Xavier NX|workspace-size=3000|OK|
+|Nano|workspace-size=3000|Killed|
+|Nano|workspace-size=2000|OK|
 ```
 # DeepStream Human Pose Estimation
 cd
 bash ./Jetson_Convenience_Script/DeepStream/inst_deepstream_pose_estimation.sh
+
+# Jetson Nano patch
+# deepstream_pose_estimation_config.txt
+# Change workspace-size=3000 to 2000
+sed -i 's/^workspace-size=3000/workspace-size=2000/' deepstream_pose_estimation_config.txt
 ```
 <img src="https://img.youtube.com/vi/GN1HvM__4gY/maxresdefault.jpg" alt="NVIDIA Jetson Xavier NX DeepStream Human Pose Estimation Sample" title="NVIDIA Jetson Xavier NX DeepStream Human Pose Estimation Sample" width="320" height="180"> _ 
 [YouTube https://youtu.be/GN1HvM__4gY](https://youtu.be/GN1HvM__4gY)

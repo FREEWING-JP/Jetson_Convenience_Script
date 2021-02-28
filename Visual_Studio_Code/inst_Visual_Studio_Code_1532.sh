@@ -6,7 +6,7 @@ SCRIPT_DIR=$(pwd)
 echo $SCRIPT_DIR
 
 
-VSCODE_VER=1.52.1
+VSCODE_VER=1.53.2
 MEMORY_SIZE=6404
 
 # ===
@@ -24,8 +24,8 @@ chmod +x dependencies.sh
 bash ./dependencies.sh
 
 
-# Git clone vscode 1.52.1 ea3859d November 2020 Recovery
-# Xavier NX Can build 1.52.1 version of Visual Studio Code
+# Git clone vscode 1.53.2 622cb03 January 2021 Recovery 2
+# Xavier NX Can build 1.53.2 version of Visual Studio Code
 cd
 git clone https://github.com/Microsoft/vscode.git -b $VSCODE_VER --depth 1
 
@@ -83,7 +83,7 @@ yarn run gulp vscode-linux-arm64-build-deb
 sudo dpkg -i ./.build/linux/deb/arm64/deb/code-oss_$VSCODE_VER-*_arm64.deb
 
 code-oss -v
-# 1.52.1
-# ea3859d4ba2f3e577a159bc91e3074c5d85c0523
+# 1.53.2
+# 622cb03f7e070a9670c94bae1a45d78d7181fbd4
 # arm64
 

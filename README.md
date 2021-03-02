@@ -499,6 +499,19 @@ bash ./Jetson_Convenience_Script/trt_pose_hand/inst_trt_pose_hand.sh
 ```
 <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/trt_pose_hand.png" alt="trt_pose_hand" title="trt_pose_hand" width="320" height="240">  
 
+
+---
+### openpifpaf
+https://github.com/vita-epfl/openpifpaf  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_trt_pose_hand/  
+```
+# Require Pytorch 1.7.1
+# openpifpaf
+cd
+XXXXXXXXXXXXXXXXX
+```
+<img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/openpifpaf_000000081988.jpg.predictions.jpg" alt="openpifpaf" title="openpifpaf" width="320" height="240">  
+
 ---
 ### NVIDIA Caffe v0.17.4
 Support cuDNN 8.0 and OpenCV 4.x  

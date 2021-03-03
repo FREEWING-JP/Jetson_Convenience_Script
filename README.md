@@ -875,6 +875,7 @@ bash ./Jetson_Convenience_Script/Jetson_Hello_AI_World/inst_Jetson_Hello_AI_Worl
 
 ---
 ### Ubuntu Desktop GNOME Screensaver
+http://www.neko.ne.jp/~freewing/raspberry_pi/ubuntsu_desktop_gonome_disable_screen_saver/　　
 ```
 # Disable Ubuntu Desktop GNOME Screensaver
 gsettings set org.gnome.desktop.lockdown disable-lock-screen true

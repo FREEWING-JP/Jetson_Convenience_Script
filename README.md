@@ -506,7 +506,7 @@ bash ./Jetson_Convenience_Script/trt_pose_hand/inst_trt_pose_hand.sh
 ---
 ### openpifpaf
 https://github.com/vita-epfl/openpifpaf  
-http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_trt_pose_hand/  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_install_openpifpaf/  
 ```
 # Require Pytorch 1.7.1
 # openpifpaf
@@ -653,7 +653,8 @@ source .bashrc
 
 ### DeepStream Human Pose Estimation
 https://github.com/NVIDIA-AI-IOT/deepstream_pose_estimation  
-http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_trt_pose_hand/  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_install_deep_stream_sdk/  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_install_deep_stream_pose_estimation/  
 
 |Jetson Model|deepstream_pose_estimation_config.txt|Work|
 |:---:|:---:|:---:|
@@ -888,3 +889,7 @@ gsettings set org.gnome.desktop.session idle-delay $((15*60)) && \
 gsettings set org.gnome.desktop.screensaver lock-delay 5 && \
 gsettings set org.gnome.desktop.screensaver lock-enabled true
 ```
+---
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_install_gcc_8_4_0/  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_python_3_7_10/  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_pytorch_1_7_1/  

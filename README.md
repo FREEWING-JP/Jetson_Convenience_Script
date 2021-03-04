@@ -896,6 +896,9 @@ gsettings set org.gnome.desktop.screensaver lock-delay 5 && \
 gsettings set org.gnome.desktop.screensaver lock-enabled true
 ```
 ---
+### gcc 8.4.0
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_install_gcc_8_4_0/  
+### Python 3.7.10
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_python_3_7_10/  
+### PyTorch 1.7.1
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_pytorch_1_7_1/  

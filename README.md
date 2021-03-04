@@ -271,13 +271,18 @@ bash ./Jetson_Convenience_Script/OpenBLAS/inst_OpenBLAS.sh
 ```
 
 ---
-### Bazel 4.0.0/ Bazel 3.5.0
+### Bazel 4.0.0/ Bazel 3.7.2/ Bazel 3.5.0
 https://bazel.build/  
 https://github.com/bazelbuild/bazel/tree/3.5.0  
 ```
 # Bazel 4.0.0
 cd
 bash ./Jetson_Convenience_Script/Bazel/inst_Bazel_400.sh
+```
+```
+# Bazel 3.7.2
+cd
+bash ./Jetson_Convenience_Script/Bazel/inst_Bazel_372.sh
 ```
 ```
 # Bazel 3.5.0

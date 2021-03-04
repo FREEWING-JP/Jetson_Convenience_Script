@@ -17,11 +17,12 @@ fi
 sudo echo
 
 
-# Bazel Release 3.5.0 (2020-09-02)
+# Bazel Release 3.7.2 (2020-12-17)
 # https://bazel.build/
-# https://github.com/bazelbuild/bazel/tree/3.5.0
+# https://github.com/bazelbuild/bazel/tree/3.7.2
 # https://docs.bazel.build/versions/master/install-compile-source.html
-BAZEL_VERSION=3.5.0
+BAZEL_VERSION=3.7.2
+BAZEL_ZIP=bazel-$BAZEL_VERSION-dist.zip
 
 echo Bazel $BAZEL_VERSION
 
@@ -30,10 +31,9 @@ echo Bazel $BAZEL_VERSION
 # Compiling Bazel from source
 
 # Build Bazel from scratch (bootstrapping)
-# Release 3.5.0 (2020-09-02)
 # Step 1: Download Bazel's sources (distribution archive)
 cd
-wget https://github.com/bazelbuild/bazel/releases/download/3.5.0/bazel-3.5.0-dist.zip
+wget https://github.com/bazelbuild/bazel/releases/download/$BAZEL_VERSION/$BAZEL_ZIP
 
 # Step 2a: Bootstrap Bazel on Ubuntu Linux, macOS, and other Unix-like systems
 # 2.1. Install the prerequisites
@@ -49,7 +49,7 @@ sudo apt-get install -y pkg-config zip g++ zlib1g-dev build-essential
 sudo apt-get install -y openjdk-11-jdk
 
 
-unzip bazel-3.5.0-dist.zip -d bazel
+unzip $BAZEL_ZIP -d bazel
 cd bazel
 
 
@@ -59,20 +59,25 @@ time env EXTRA_BAZEL_ARGS="--host_javabase=@local_jdk//:jdk" bash ./compile.sh
 END=`date`
 echo $START - $END
 
+# Jetson Xavier NX
+# Build successful! Binary is here: /home/jetson/bazel/output/bazel
+# real    16m50.887s
+# user    70m37.692s
+# sys     3m13.492s
 
 ls -l ./output/bazel
-# -rwxr-xr-x 1 jetson jetson 26956176 Sep 28 11:10 ./output/bazel
+# -rwxr-xr-x 1 jetson jetson 27165164 Mar  4 07:32 ./output/bazel
 
 
 ./output/bazel help
 
 
 ./output/bazel version
-# Build label: 3.5.0- (@non-git)
+# Build label: 3.7.2- (@non-git)
 # Build target: bazel-out/aarch64-opt/bin/src/main/java/com/google/devtools/build/lib/bazel/BazelServer_deploy.jar
-# Build time: Mon Sep 28 14:52:50 2020 (1601304770)
-# Build timestamp: 1601304770
-# Build timestamp as int: 1601304770
+# Build time: Thu Mar 4 12:19:04 2021 (1614860344)
+# Build timestamp: 1614860344
+# Build timestamp as int: 1614860344
 
 echo $START - $END
 

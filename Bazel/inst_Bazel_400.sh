@@ -1,3 +1,5 @@
+#!/bin/sh
+
 cd `dirname $0`
 pwd
 SCRIPT_DIR=$(pwd)
@@ -12,12 +14,15 @@ if [ -d ~/bazel ]; then
 fi
 
 
+sudo echo
+
+
 # Bazel Release 4.0.0 (2021-01-21)
 # https://bazel.build/
 # https://github.com/bazelbuild/bazel/
 # https://docs.bazel.build/versions/master/install-compile-source.html
 BAZEL_VERSION=4.0.0
-BAZEL_ZIP=bazel-4.0.0-dist.zip
+BAZEL_ZIP=bazel-$BAZEL_VERSION-dist.zip
 
 echo Bazel $BAZEL_VERSION
 
@@ -49,7 +54,10 @@ cd bazel
 
 
 # 2.2. Bootstrap Bazel
-env EXTRA_BAZEL_ARGS="--host_javabase=@local_jdk//:jdk" bash ./compile.sh
+START=`date`
+time env EXTRA_BAZEL_ARGS="--host_javabase=@local_jdk//:jdk" bash ./compile.sh
+END=`date`
+echo $START - $END
 
 
 ls -l ./output/bazel
@@ -66,6 +74,7 @@ ls -l ./output/bazel
 # Build timestamp: 1611977113
 # Build timestamp as int: 1611977113
 
+echo $START - $END
 
 # ===
 # ===

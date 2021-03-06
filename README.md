@@ -133,6 +133,19 @@ sudo reboot
 # Temporarily disable X Window System X11 GUI
 sudo systemctl isolate multi-user
 ```
+```
+# Temporarily disable X Window System X11 GUI
+cd
+bash ./Jetson_Convenience_Script/JetPack/more_Memory_disable_GUI.sh
+```
+
+---
+### Jetson Nano / Jetson Xavier NX more Memory !!
+Make swap 6GB and Disable nvzramconfig zram swap  
+```
+cd
+bash ./Jetson_Convenience_Script/JetPack/make_swap_6gb.sh
+```
 
 ---
 ### Jetson Xavier NX M.2 NVMe SSD

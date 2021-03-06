@@ -652,6 +652,19 @@ cd
 bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_7_Python3.sh
 ```
 
+### Build PyTorch 1.7.1
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_pytorch_1_7_1/  
+```
+# Temporarily disable X Window System X11 GUI
+cd
+bash ./Jetson_Convenience_Script/JetPack/more_Memory_disable_GUI.sh
+
+# gcc 8.4.0
+
+# Pytorch v1.7.1 / torchvision v0.8.2 / Python 3.6
+cd
+bash ./Jetson_Convenience_Script/PyTorch/build_PyTorch_v1_7_1_Python3.sh
+
 ---
 ### NVIDIA DeepStream SDK
 https://developer.nvidia.com/deepstream-sdk  
@@ -927,5 +940,3 @@ bash ./Jetson_Convenience_Script/Python/build_Python_3710.sh
 
 ### gcc 8.4.0
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_install_gcc_8_4_0/  
-### PyTorch 1.7.1
-http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_pytorch_1_7_1/  

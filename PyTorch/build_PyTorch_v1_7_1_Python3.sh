@@ -128,6 +128,9 @@ time python3 setup.py bdist_wheel
 # sys     80m49.916s
 
 
+unset MAX_JOBS
+
+
 find ./ -name "*.whl"
 # ./dist/torch-1.7.1-cp36-cp36m-linux_aarch64.whl
 
@@ -176,36 +179,20 @@ python3 -c "import torch; print(torch.__version__); print(torch.cuda.is_availabl
 # True
 # NVIDIA Tegra X1
 
-# torchvision v0.8.2
-sudo apt-get install -y libavcodec-dev
-sudo apt-get install -y libavformat-dev
-sudo apt-get install -y libswscale-dev
 
-cd
-git clone --recursive --branch v$TORCHVISION_VERSION https://github.com/pytorch/vision --depth 1
-cd vision
-
-export BUILD_VERSION=$TORCHVISION_VERSION
-time sudo python3 setup.py install
-# Using /usr/local/lib/python3.6/dist-packages
-# Finished processing dependencies for torchvision==0.8.0a0+2f40a48
-
-# Jetson Xavier NX
-# real    4m18.352s
-# user    19m39.352s
-# sys     1m44.984s
-
-cd
-python3 -c "import torchvision; print(torchvision.__version__);"
-# 0.8.0a0+2f40a48 (torchvision v0.8.2)
-
-pip3 list --format=legacy | grep torch
-# torch (1.7.1)
-# torchvision (0.8.0a0+2f40a48)
+# ===
+echo '---'
+echo "type 'sudo reboot"
+echo "reboot after install torchvision"
+echo ''
+echo "sudo reboot"
 
 
+# ===
+# ===
 cd $SCRIPT_DIR
 if [ -e ../bell.sh ]; then
   chmod +x ../bell.sh
   bash ../bell.sh
 fi
+

@@ -625,6 +625,13 @@ bash ./Jetson_Convenience_Script/TensorFlow/inst_tf1.sh
 cd
 bash ./Jetson_Convenience_Script/TensorFlow/inst_tf2.sh
 ```
+### TensorFlow v2.4.1
+```
+# Build TensorFlow v2.4.1
+# Require Bazel 3.7.2
+cd
+bash ./Jetson_Convenience_Script/TensorFlow/build_TensorFlow_v2_4_1.sh
+```
 
 ### Pytorch
 https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-6-0-now-available/72048  

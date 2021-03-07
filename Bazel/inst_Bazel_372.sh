@@ -56,6 +56,10 @@ cd bazel
 # 2.2. Bootstrap Bazel
 START=`date`
 time env EXTRA_BAZEL_ARGS="--host_javabase=@local_jdk//:jdk" bash ./compile.sh
+if [ $? -ne 0 ]; then
+  echo "ERROR Could not build Bazel"
+  exit 0
+fi
 END=`date`
 echo $START - $END
 
@@ -80,6 +84,12 @@ ls -l ./output/bazel
 # Build timestamp as int: 1614860344
 
 echo $START - $END
+
+
+sudo cp ./output/bazel /usr/local/bin/
+cd
+bazel version
+
 
 # ===
 # ===

@@ -8,7 +8,14 @@ echo $SCRIPT_DIR
 
 # ===
 # ===
+if [ -d ~/cpython ]; then
+  echo "Already Exists Directory"
+  exit 0
+fi
 
+
+# ===
+# ===
 PYTHON_VERSION=$1
 echo $PYTHON_VERSION
 

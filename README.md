@@ -522,14 +522,19 @@ bash ./Jetson_Convenience_Script/trt_pose_hand/inst_trt_pose_hand.sh
 
 
 ---
-### openpifpaf
+### openpifpaf 0.12.2 / 0.11.9
 https://github.com/vita-epfl/openpifpaf  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_install_openpifpaf/  
 ```
+# openpifpaf 0.12.2
 # Require Pytorch 1.7.1
-# openpifpaf
 cd
-XXXXXXXXXXXXXXXXX
+bash ./Jetson_Convenience_Script/openpifpaf/inst_openpifpaf_0122.sh
+
+# openpifpaf 0.11.9
+# Require Pytorch 1.3.1
+cd
+bash ./Jetson_Convenience_Script/openpifpaf/inst_openpifpaf_0119.sh
 ```
 <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/openpifpaf_000000081988.jpg.predictions.jpg" alt="openpifpaf" title="openpifpaf" width="320" height="240">  
 

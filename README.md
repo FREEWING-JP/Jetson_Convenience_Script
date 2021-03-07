@@ -940,6 +940,7 @@ gsettings set org.gnome.desktop.session idle-delay $((15*60)) && \
 gsettings set org.gnome.desktop.screensaver lock-delay 5 && \
 gsettings set org.gnome.desktop.screensaver lock-enabled true
 ```
+
 ---
 ### Python 3.9.2/ Python 3.8.8/ Python 3.7.10
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_python_3_7_10/  
@@ -957,5 +958,18 @@ cd
 bash ./Jetson_Convenience_Script/Python/build_Python_3710.sh
 ```
 
+---
 ### gcc 8.4.0
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_install_gcc_8_4_0/  
+```
+cd
+bash ./Jetson_Convenience_Script/gcc/inst_gcc_840.sh
+```
+
+### Clang 10
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_install_gcc_8_4_0/  
+```
+cd
+bash ./Jetson_Convenience_Script/Clang/inst_Clang_10.sh
+```
+

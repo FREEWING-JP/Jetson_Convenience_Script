@@ -43,3 +43,5 @@ sudo swapon -a
 
 cat /etc/fstab
 
+free -h
+

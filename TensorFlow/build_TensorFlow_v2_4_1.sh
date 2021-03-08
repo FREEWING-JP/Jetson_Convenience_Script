@@ -5,6 +5,10 @@ pwd
 SCRIPT_DIR=$(pwd)
 echo $SCRIPT_DIR
 
+
+TF_VER=$1
+
+
 # ===
 # ===
 # TensorFlow version
@@ -29,22 +33,35 @@ fi
 # TensorFlow Build from source
 # https://www.tensorflow.org/install/source
 # Install Python and the TensorFlow package dependencies
-sudo apt install python3-dev python3-pip
+echo "# ==="
+echo "# Install Python and the TensorFlow package dependencies"
+sudo apt-get update
+sudo apt install -y python3-dev python3-pip
 
 sudo apt-get install -y build-essential  libssl-dev libbz2-dev libreadline-dev libsqlite3-dev zip unzip nkf
 
-sudo pip3 install -U numpy==1.19.5
-sudo pip3 install -U wheel==0.36.2
-# Successfully installed wheel-0.36.2
-sudo pip3 install -U six==1.15.0
+# Move to dependencies.sh
+# sudo pip3 install -U six==1.15.0
 # Successfully installed six-1.15.0
-sudo pip3 install -U keras_preprocessing --no-deps
+
+# ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+# uff 0.6.9 requires protobuf>=3.3.0, but you have protobuf 3.0.0 which is incompatible.
+# sudo pip3 install -U protobuf==3.15.5
+
+# sudo pip3 install -U numpy==1.18.5
+
+# sudo pip3 install -U wheel==0.36.2
+# Successfully installed wheel-0.36.2
+
+# sudo pip3 install -U keras_preprocessing --no-deps
 # Successfully installed keras-preprocessing-1.1.2
 
 chmod +x dependencies.sh
-bash ./dependencies.sh
+bash ./dependencies.sh $TF_VER
 
 
+echo "# ==="
+echo "# git clone"
 cd
 git clone https://github.com/tensorflow/tensorflow.git -b v2.4.1 --depth 1
 cd tensorflow
@@ -64,7 +81,7 @@ echo   # Would you like to interactively configure ./WORKSPACE for Android build
 ) | ./configure
 
 
-# if Jetson Nano Need export MAX_JOBS=3 to Reduce Memory usage
+# if Jetson Nano Need export MAX_JOBS=1 to Reduce Memory usage
 tegra_cip_id=$(cat /sys/module/tegra_fuse/parameters/tegra_chip_id)
 echo $tegra_cip_id
 # Jetson Xavier NX
@@ -79,8 +96,15 @@ if [ $tegra_cip_id = "33" ]; then
   export MAX_JOBS=1
 fi
 
+CONFIG_V1=""
+echo $CONFIG_V1
+if [ $TF_VER = "v1" ]; then
+  echo TensorFlow 1.x
+  CONFIG_V1="--config=v1"
+fi
 
-time bazel build --jobs $MAX_JOBS \
+
+time bazel build --jobs $MAX_JOBS $CONFIG_V1 \
  --config=cuda \
  --config=noaws \
  --config=nogcp \

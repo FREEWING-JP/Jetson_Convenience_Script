@@ -142,6 +142,27 @@ sudo apt-get install -y libopenblas-base libopenmpi-dev
 
 # RuntimeError: Python version >= 3.7 required
 sudo pip3 install Cython==0.29.22
+
+
+# Install numpy
+echo "# ==="
+echo "# Install numpy"
+
+# numpy/core/src/multiarray/numpyos.c:18:10: fatal error: xlocale.h: No such file or directory
+#        #include <xlocale.h>
+# ubuntu 18.04 : 'xlocale.h' file not found #503
+# https://github.com/carla-simulator/carla/issues/503
+sudo ln -s /usr/include/locale.h /usr/include/xlocale.h
+
+sudo pip3 install six==1.15.0
+# Successfully installed six-1.15.0
+
+# ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+# uff 0.6.9 requires protobuf>=3.3.0, but you have protobuf 3.0.0 which is incompatible.
+sudo pip3 install protobuf==3.15.5
+
+sudo pip3 install uff==0.6.9
+
 sudo pip3 install numpy==1.19.5
 
 
@@ -164,7 +185,7 @@ sudo pip3 install matplotlib==3.3.3
 sudo pip3 install ./dist/torch-$PYTORCH_VERSION-cp${PYTHON_VERSION}-cp${PYTHON_VERSION}m-linux_aarch64.whl
 # Successfully installed torch-1.7.1
 
-pip3 list --format=legacy | grep torch
+pip3 list --format=columns | grep torch
 # torch (1.7.1)
 
 cd

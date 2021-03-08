@@ -74,7 +74,7 @@ cd
 python3 -c "import torchvision; print(torchvision.__version__);"
 # 0.8.0a0+2f40a48 (torchvision v0.8.2)
 
-pip3 list --format=legacy | grep torch
+pip3 list --format=columns | grep torch
 # torch (1.7.1)
 # torchvision (0.8.0a0+2f40a48)
 

@@ -163,6 +163,10 @@ sudo pip3 install protobuf==3.15.5
 
 sudo pip3 install uff==0.6.9
 
+# Illegal instruction (core dumped) on import for numpy 1.19.5 on ARM64 #18131
+# https://github.com/numpy/numpy/issues/18131
+# Illegal instruction (core dumped)
+export OPENBLAS_CORETYPE=ARMV8
 sudo pip3 install numpy==1.19.5
 
 

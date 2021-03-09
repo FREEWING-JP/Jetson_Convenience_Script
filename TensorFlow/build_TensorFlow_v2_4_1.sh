@@ -104,6 +104,8 @@ if [ $TF_VER = "v1" ]; then
 fi
 
 
+echo "# ==="
+echo time bazel build --jobs $MAX_JOBS $CONFIG_V1
 time bazel build --jobs $MAX_JOBS $CONFIG_V1 \
  --config=cuda \
  --config=noaws \

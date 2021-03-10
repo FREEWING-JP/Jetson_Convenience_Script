@@ -614,18 +614,18 @@ tensorflow-2.3.1+nv20.10-cp36-cp36m-linux_aarch64.whl 264MB
 ### TensorFlow v1.x
 ```
 # TensorFlow v1.15.2
-# Auto detect JetPack 4.3 or 4.4
+# Auto detect JetPack 4.3/ 4.4/ 4.5
 cd
 bash ./Jetson_Convenience_Script/TensorFlow/inst_tf1.sh
 ```
 ### TensorFlow v2.x
 ```
 # TensorFlow v2.1.0
-# Auto detect JetPack 4.3 or 4.4
+# Auto detect JetPack 4.3/ 4.4/ 4.5
 cd
 bash ./Jetson_Convenience_Script/TensorFlow/inst_tf2.sh
 ```
-### TensorFlow v2.4.1
+### Build TensorFlow v2.4.1
 ```
 # Build TensorFlow v2.4.1
 # Require Bazel 3.7.2
@@ -937,7 +937,7 @@ bash ./Jetson_Convenience_Script/Jetson_Hello_AI_World/inst_Jetson_Hello_AI_Worl
 
 ---
 ### Ubuntu Desktop GNOME Screensaver
-http://www.neko.ne.jp/~freewing/raspberry_pi/ubuntsu_desktop_gonome_disable_screen_saver/　　
+http://www.neko.ne.jp/~freewing/raspberry_pi/ubuntsu_desktop_gonome_disable_screen_saver/  
 ```
 # Disable Ubuntu Desktop GNOME Screensaver
 gsettings set org.gnome.desktop.lockdown disable-lock-screen true
@@ -954,18 +954,18 @@ gsettings set org.gnome.desktop.screensaver lock-enabled true
 ```
 
 ---
-### Python 3.9.2/ Python 3.8.8/ Python 3.7.10
+### Build Python 3.9.2/ Python 3.8.8/ Python 3.7.10
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_python_3_7_10/  
 ```
-# Python 3.9.2
+# Build Python 3.9.2
 cd
 bash ./Jetson_Convenience_Script/Python/build_Python_392.sh
 
-# Python 3.8.8
+# Build Python 3.8.8
 cd
 bash ./Jetson_Convenience_Script/Python/build_Python_388.sh
 
-# Python 3.7.10
+# Build Python 3.7.10
 cd
 bash ./Jetson_Convenience_Script/Python/build_Python_3710.sh
 ```

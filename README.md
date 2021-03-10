@@ -636,22 +636,22 @@ bash ./Jetson_Convenience_Script/TensorFlow/build_TensorFlow_v2_4_1.sh
 ### Pytorch
 https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-6-0-now-available/72048  
 
-| JetPack | Pytorch 1.4.0 | 1.5.0 | 1.6.0 | 1.7.0 |
-|:---:|:---:|:---:|:---:|:---:|
-|4.5 or later|--|--|OK|OK|
-|4.4.1 PR|--|--|OK|OK|
-|4.4 PR|--|--|OK|OK|
-|4.4 DP|OK|OK|OK|--|
-|4.3 PR|OK|OK|OK|--|
+| JetPack | Pytorch 1.4.0 | 1.5.0 | 1.6.0 | 1.7.0 | 1.8.0 |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|4.5 or later|--|--|OK|OK|OK|
+|4.4.1 PR|--|--|OK|OK|OK|
+|4.4 PR|--|--|OK|OK|OK|
+|4.4 DP|OK|OK|OK|--|--|
+|4.3 PR|OK|OK|OK|--|--|
 ```
-# Pytorch v1.4.0 / torchvision v0.5.0 / Python 3.6
+# Pytorch v1.8.0 / torchvision v0.9.0 / Python 3.6
 cd
-bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_4_Python3.sh
+bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_8_Python3.sh
 ```
 ```
-# Pytorch v1.5.0 / torchvision v0.6.0 / Python 3.6
+# Pytorch v1.7.0 / torchvision v0.8.1 / Python 3.6
 cd
-bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_5_Python3.sh
+bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_7_Python3.sh
 ```
 ```
 # Pytorch v1.6.0 / torchvision v0.7.0 / Python 3.6
@@ -659,9 +659,14 @@ cd
 bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_6_Python3.sh
 ```
 ```
-# Pytorch v1.7.0 / torchvision v0.8.1 / Python 3.6
+# Pytorch v1.5.0 / torchvision v0.6.0 / Python 3.6
 cd
-bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_7_Python3.sh
+bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_5_Python3.sh
+```
+```
+# Pytorch v1.4.0 / torchvision v0.5.0 / Python 3.6
+cd
+bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_4_Python3.sh
 ```
 
 ### Build PyTorch 1.7.1

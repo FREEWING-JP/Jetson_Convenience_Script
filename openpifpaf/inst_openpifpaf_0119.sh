@@ -6,6 +6,8 @@ SCRIPT_DIR=$(pwd)
 echo $SCRIPT_DIR
 
 
+export OPENBLAS_CORETYPE=ARMV8
+
 # ===
 # ===
 # Pytorch version
@@ -20,6 +22,11 @@ if [ $? -ne 0 ]; then
   echo "no torchvision"
   exit 0
 fi
+
+
+#     raise Exception('please install matplotlib')
+# Exception: please install matplotlib
+sudo pip3 install matplotlib==3.3.4
 
 
 # pip3 install openpifpaf==0.11.9

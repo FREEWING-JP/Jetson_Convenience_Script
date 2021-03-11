@@ -24,7 +24,26 @@ sudo apt-get -y install python3-pip libopenblas-base libopenmpi-dev
 sudo pip3 install Cython
 # Successfully installed Cython-0.29.20
 
-sudo pip3 install numpy $WHL_NAME
+
+# Install numpy
+echo "# ==="
+echo "# Install numpy"
+sudo pip3 install six==1.15.0
+# Successfully installed six-1.15.0
+
+# ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+# uff 0.6.9 requires protobuf>=3.3.0, but you have protobuf 3.0.0 which is incompatible.
+sudo pip3 install protobuf==3.15.5
+
+export OPENBLAS_CORETYPE=ARMV8
+NUMPY_VER=1.19.5
+echo sudo pip3 install -U numpy==$NUMPY_VER
+sudo pip3 install -U numpy==$NUMPY_VER
+
+sudo pip3 install uff==0.6.9
+
+
+sudo pip3 install $WHL_NAME
 
 # Verifying The Installation
 python3 -c "import torch; print (torch.__version__)"

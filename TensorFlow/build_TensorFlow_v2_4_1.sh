@@ -104,6 +104,13 @@ if [ $TF_VER = "v1" ]; then
 fi
 
 
+# Illegal instruction (core dumped) on import for numpy 1.19.5 on ARM64 #18131
+# https://github.com/numpy/numpy/issues/18131
+# Illegal instruction (core dumped)
+# Error in fail: Problem getting numpy include path.
+export OPENBLAS_CORETYPE=ARMV8
+
+
 echo "# ==="
 echo time bazel build --jobs $MAX_JOBS $CONFIG_V1
 time bazel build --jobs $MAX_JOBS $CONFIG_V1 \
@@ -119,6 +126,11 @@ time bazel build --jobs $MAX_JOBS $CONFIG_V1 \
 
 # Building TensorFlow from source can use a lot of RAM. If your system is memory-constrained, limit Bazel's RAM usage with: --local_ram_resources=2048
 # --local_ram_resources=2048
+
+# Jetson Nano
+# real    5055m57.686s
+# user    0m36.048s
+# sys     0m31.532s
 
 
 # Install the package

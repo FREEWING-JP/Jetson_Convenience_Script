@@ -140,7 +140,7 @@ bash ./Jetson_Convenience_Script/JetPack/more_Memory_disable_GUI.sh
 ```
 
 ---
-### Jetson Nano / Jetson Xavier NX more Memory !!
+### Jetson Nano / Jetson Xavier NX Make swap 6GB and Disable nvzramconfig zram swap
 Make swap 6GB and Disable nvzramconfig zram swap  
 ```
 cd

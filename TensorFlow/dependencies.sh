@@ -58,11 +58,15 @@ sudo pip3 install -U uff==0.6.9
 export OPENBLAS_CORETYPE=ARMV8
 NUMPY_VER=1.19.5
 GAST_VER=0.3.3
-H5PY_VER=3.1.0
+H5PY_VER=2.10.0
 if [ $TF_VER = "v1" ]; then
   NUMPY_VER=1.18.5
   GAST_VER=0.2.2
   H5PY_VER=2.10.0
+else
+  # ERROR: Could not build wheels for h5py which use PEP 517 and cannot be installed directly
+  # sudo pip3 install pep517
+  :
 fi
 echo sudo pip3 install -U numpy==$NUMPY_VER
 sudo pip3 install -U numpy==$NUMPY_VER

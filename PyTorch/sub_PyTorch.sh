@@ -5,6 +5,12 @@ pwd
 SCRIPT_DIR=$(pwd)
 echo $SCRIPT_DIR
 
+
+# ===
+# Dummy sudo for Input Password
+sudo echo .
+
+
 # ===
 # ===
 PYTORCH_VERSION=$1

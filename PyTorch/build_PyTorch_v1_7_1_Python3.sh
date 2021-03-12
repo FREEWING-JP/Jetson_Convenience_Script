@@ -36,7 +36,8 @@ fi
 
 # https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-7-0-now-available/72048
 # Build wheel for Python 3.6 (to pytorch/dist)
-sudo apt-get install -y python3-pip cmake libopenblas-dev
+# sudo apt-get install -y python3-pip cmake libopenblas-dev
+sudo apt-get install -y python3-pip libopenblas-dev
 
 export USE_NCCL=0
 # skip setting this if you want to enable OpenMPI backend

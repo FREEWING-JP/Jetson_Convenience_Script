@@ -528,21 +528,40 @@ bash ./Jetson_Convenience_Script/trt_pose_hand/inst_trt_pose_hand.sh
 
 
 ---
-### openpifpaf 0.12.2 / 0.11.9
+### OpenPifPaf 0.12.5 / 0.12.2 / 0.11.9
 https://github.com/vita-epfl/openpifpaf  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_install_openpifpaf/  
 ```
-# openpifpaf 0.12.2
-# Require Pytorch 1.7.1
+# OpenPifPaf 0.12.5
+# Require Pytorch >= 1.7.1
+cd
+bash ./Jetson_Convenience_Script/openpifpaf/inst_openpifpaf_0125.sh
+
+# OpenPifPaf 0.12.2
+# Require Pytorch >= 1.7.1
 cd
 bash ./Jetson_Convenience_Script/openpifpaf/inst_openpifpaf_0122.sh
 
-# openpifpaf 0.11.9
-# Require Pytorch 1.3.1
+# OpenPifPaf 0.11.9
+# Require Pytorch >= 1.3.1
 cd
 bash ./Jetson_Convenience_Script/openpifpaf/inst_openpifpaf_0119.sh
 ```
-<img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/openpifpaf_000000081988.jpg.predictions.jpg" alt="openpifpaf" title="openpifpaf" width="320" height="240">  
+```
+# OpenPifPaf Image Human Pose Estimation
+python3 -m openpifpaf.predict ashinari_369878.jpg --long-edge 641 --image-min-dpi=200 --show-file-extension=jpg --image-output
+
+# OpenPifPaf Movie Human Pose Estimation
+VIDEO_FILE="'India - 1643.mp4'"
+python3 -m openpifpaf.video --source=$VIDEO_FILE --long-edge 641 --video-output video_$VIDEO_FILE
+```
+<img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/openpifpaf_000000081988.jpg.predictions.jpg" alt="OpenPifPaf" title="OpenPifPaf" width="320" height="240">  
+
+写真素材足成 >  人物 >  ナベ散歩  
+http://www.ashinari.com/2012/09/13-369878.php?  
+<img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/openpifpaf_ashinari_369878.jpg.predictions.jpg" alt="OpenPifPaf" title="OpenPifPaf" width="212" height="320">  
+<img src="https://img.youtube.com/vi/TTfejnA4yxA/hqdefault.jpg" alt="OpenPifPaf with NVIDIA Jetson Nano developer kit Detecting human skeleton from video" title="OpenPifPaf with NVIDIA Jetson Nano developer kit Detecting human skeleton from video" width="320" height="180"> _ 
+[YouTube https://youtu.be/TTfejnA4yxA](https://youtu.be/TTfejnA4yxA)
 
 ---
 ### NVIDIA Caffe v0.17.4

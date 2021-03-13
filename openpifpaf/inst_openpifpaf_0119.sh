@@ -6,7 +6,10 @@ SCRIPT_DIR=$(pwd)
 echo $SCRIPT_DIR
 
 
-pip3 list | grep numpy | grep 1.19.5
+OPENPIFPAF_VER=0.11.9
+echo sudo pip3 install openpifpaf==$OPENPIFPAF_VER --no-deps
+
+pip3 list --format=columns | grep numpy | grep 1.19.5
 if [ $? = 0 ]; then
   export OPENBLAS_CORETYPE=ARMV8
 fi
@@ -30,7 +33,10 @@ fi
 
 #     raise Exception('please install matplotlib')
 # Exception: please install matplotlib
-sudo pip3 install matplotlib==3.3.4
+pip3 list --format=columns | grep matplotlib | grep 3.3.4
+if [ $? != 0 ]; then
+  sudo pip3 install matplotlib==3.3.4
+fi
 
 
 # pip3 install openpifpaf==0.11.9
@@ -39,7 +45,7 @@ sudo pip3 install matplotlib==3.3.4
 
 # https://pypi.org/project/openpifpaf/0.11.9/
 # Ignore package dependencies --no-deps, --no-dependencies
-sudo pip3 install openpifpaf==0.11.9 --no-deps
+sudo pip3 install openpifpaf==$OPENPIFPAF_VER --no-deps
 # Successfully installed openpifpaf-0.11.9
 
 cd

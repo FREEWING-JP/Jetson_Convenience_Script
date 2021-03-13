@@ -14,6 +14,29 @@ if [ -d ~/bazel ]; then
 fi
 
 
+which bazel
+if [ $? = 0 ]; then
+  echo "Already Exists Bazel"
+  bazel version
+  exit 0
+fi
+
+
+# ===
+# Install Bazel
+INSTALL_DEB=0
+DEB_FILENAME=bazel_372.zip
+echo check ${DEB_FILENAME}
+if [ -e ../../00_deb/${DEB_FILENAME} ]; then
+
+  echo "Found Bazel .zip package file"
+  echo "Build Bazel need lot of time"
+
+  read -p "Install from .zip package ? or Build Bazel ? (i/b):" inst
+  case "$inst" in [iI]*) INSTALL_DEB=1 ;; [bB]*) ;; *) echo "Abort" ; exit 1 ;; esac
+fi
+
+
 sudo echo
 
 
@@ -30,11 +53,6 @@ echo Bazel $BAZEL_VERSION
 # bazelbuild / bazel
 # Compiling Bazel from source
 
-# Build Bazel from scratch (bootstrapping)
-# Step 1: Download Bazel's sources (distribution archive)
-cd
-wget https://github.com/bazelbuild/bazel/releases/download/$BAZEL_VERSION/$BAZEL_ZIP
-
 # Step 2a: Bootstrap Bazel on Ubuntu Linux, macOS, and other Unix-like systems
 # 2.1. Install the prerequisites
 # Bash
@@ -48,6 +66,21 @@ sudo apt-get install -y pkg-config zip g++ zlib1g-dev build-essential
 # Ubuntu 18.04 (LTS) uses OpenJDK 11 by default:
 sudo apt-get install -y openjdk-11-jdk
 
+
+# ===
+if [ $INSTALL_DEB -ne 0 ]; then
+  unzip ../../00_deb/${DEB_FILENAME}
+  sudo cp ./bazel /usr/local/bin/
+  cd
+  bazel version
+  exit 0
+fi
+
+
+# Build Bazel from scratch (bootstrapping)
+# Step 1: Download Bazel's sources (distribution archive)
+cd
+wget https://github.com/bazelbuild/bazel/releases/download/$BAZEL_VERSION/$BAZEL_ZIP
 
 unzip $BAZEL_ZIP -d bazel
 cd bazel

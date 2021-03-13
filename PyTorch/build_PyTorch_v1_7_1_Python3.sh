@@ -167,8 +167,14 @@ sudo pip3 install uff==0.6.9
 # Illegal instruction (core dumped) on import for numpy 1.19.5 on ARM64 #18131
 # https://github.com/numpy/numpy/issues/18131
 # Illegal instruction (core dumped)
-export OPENBLAS_CORETYPE=ARMV8
-sudo pip3 install numpy==1.19.5
+# export OPENBLAS_CORETYPE=ARMV8
+sudo pip3 install numpy==1.19.3
+
+
+pip3 list | grep numpy | grep 1.19.5
+if [ $? = 0 ]; then
+  export OPENBLAS_CORETYPE=ARMV8
+fi
 
 
 #     The headers or library files could not be found for jpeg,

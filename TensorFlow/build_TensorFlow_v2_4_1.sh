@@ -108,7 +108,10 @@ fi
 # https://github.com/numpy/numpy/issues/18131
 # Illegal instruction (core dumped)
 # Error in fail: Problem getting numpy include path.
-export OPENBLAS_CORETYPE=ARMV8
+pip3 list | grep numpy | grep 1.19.5
+if [ $? = 0 ]; then
+  export OPENBLAS_CORETYPE=ARMV8
+fi
 
 
 echo "# ==="

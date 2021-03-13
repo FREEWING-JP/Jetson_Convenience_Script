@@ -41,10 +41,17 @@ sudo pip3 install six==1.15.0
 # uff 0.6.9 requires protobuf>=3.3.0, but you have protobuf 3.0.0 which is incompatible.
 sudo pip3 install protobuf==3.15.5
 
-export OPENBLAS_CORETYPE=ARMV8
-NUMPY_VER=1.19.5
+# export OPENBLAS_CORETYPE=ARMV8
+NUMPY_VER=1.19.3
 echo sudo pip3 install -U numpy==$NUMPY_VER
 sudo pip3 install -U numpy==$NUMPY_VER
+
+
+pip3 list | grep numpy | grep 1.19.5
+if [ $? = 0 ]; then
+  export OPENBLAS_CORETYPE=ARMV8
+fi
+
 
 sudo pip3 install uff==0.6.9
 

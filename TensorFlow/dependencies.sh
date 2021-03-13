@@ -55,8 +55,10 @@ sudo pip3 install -U uff==0.6.9
 # Illegal instruction (core dumped) on import for numpy 1.19.5 on ARM64 #18131
 # https://github.com/numpy/numpy/issues/18131
 # Illegal instruction (core dumped)
-export OPENBLAS_CORETYPE=ARMV8
-NUMPY_VER=1.19.5
+# export OPENBLAS_CORETYPE=ARMV8
+# NUMPY_VER=1.19.5 NG ERROR: Failed building wheel for h5py
+# NUMPY_VER=1.19.4 NG
+NUMPY_VER=1.19.3
 GAST_VER=0.3.3
 H5PY_VER=2.10.0
 if [ $TF_VER = "v1" ]; then
@@ -70,6 +72,13 @@ else
 fi
 echo sudo pip3 install -U numpy==$NUMPY_VER
 sudo pip3 install -U numpy==$NUMPY_VER
+
+
+pip3 list | grep numpy | grep 1.19.5
+if [ $? = 0 ]; then
+  export OPENBLAS_CORETYPE=ARMV8
+fi
+
 
 echo sudo pip3 install -U gast==$GAST_VER
 echo sudo pip3 install -U h5py==$H5PY_VER
@@ -88,7 +97,7 @@ sudo pip3 install -U future==0.18.2 mock==3.0.5 h5py==$H5PY_VER keras_preprocess
 # Illegal instruction (core dumped) on import for numpy 1.19.5 on ARM64 #18131
 # https://github.com/numpy/numpy/issues/18131
 # Illegal instruction (core dumped)
-export OPENBLAS_CORETYPE=ARMV8
+# export OPENBLAS_CORETYPE=ARMV8
 python3 -c "import numpy as np; print(np.__version__); print(np.__path__); print(np.get_include()); np.show_config();"
 
 # Error in fail: Problem getting numpy include path.

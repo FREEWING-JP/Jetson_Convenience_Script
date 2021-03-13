@@ -6,7 +6,11 @@ SCRIPT_DIR=$(pwd)
 echo $SCRIPT_DIR
 
 
-export OPENBLAS_CORETYPE=ARMV8
+pip3 list | grep numpy | grep 1.19.5
+if [ $? = 0 ]; then
+  export OPENBLAS_CORETYPE=ARMV8
+fi
+
 
 # ===
 # ===

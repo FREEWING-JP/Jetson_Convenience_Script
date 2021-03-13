@@ -244,6 +244,12 @@ git clone https://github.com/FREEWING-JP/Jetson_Convenience_Script 00_deb -b 00_
 mv ./00_deb/00_deb/* ./00_deb/
 # */
 ls -l ./00_deb
+---
+OpenCV-4.4.0-aarch64-dev.deb
+OpenCV-4.5.1-aarch64-dev.deb
+bazel_372.zip
+cmake-3.17.5-Linux-aarch64.deb
+cmake-3.19.4-Linux-aarch64.deb
 ```
 ---
 ### CMake 3.19.4/ CMake 3.17.5

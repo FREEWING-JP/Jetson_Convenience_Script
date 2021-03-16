@@ -19,7 +19,7 @@ fi
 jupyter --version
 if [ $? -ne 0 ]; then
   echo "no Jupyter Notebook or JupyterLab"
-  exit 0
+  echo "but Continue"
 fi
 
 
@@ -208,6 +208,16 @@ mv ${FILE_NAME} ./tasks/human_pose/
 
 # ====
 # Jupyter Notebook
+
+
+# ===
+# ===
+# Jupyter version
+jupyter --version
+if [ $? -ne 0 ]; then
+  echo "no Jupyter Notebook or JupyterLab"
+  exit 0
+fi
 
 
 # ====

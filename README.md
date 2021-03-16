@@ -501,7 +501,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_trt_pose/
 ```
 # Require Pytorch
 cd
-bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_7_Python3.sh
+bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_8_Python3.sh
 
 # Require JupyterLab or Jupyter Notebook
 bash ./Jetson_Convenience_Script/Jupyter/inst_Jupyter_Notebook.sh
@@ -526,6 +526,20 @@ bash ./Jetson_Convenience_Script/trt_pose_hand/inst_trt_pose_hand.sh
 ```
 <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/trt_pose_hand.png" alt="trt_pose_hand" title="trt_pose_hand" width="320" height="240">  
 
+---
+### trt_pose_demo
+A Demo Application for NVIDIA TensorRT Pose Estimation  
+https://github.com/MACNICA-CLAVIS-NV/trt_pose_demo  
+```
+# Require Pytorch
+# Require trt_pose
+
+# trt_pose_demo
+cd
+bash ./Jetson_Convenience_Script/trt_pose_demo/inst_trt_pose_demo.sh
+```
+<img src="https://img.youtube.com/vi/Rr4mOH-6f9g/maxresdefault.jpg" alt="trt_pose_demo Jetson Xavier A Demo Application for NVIDIA TensorRT Pose Estimation" title="trt_pose_demo Jetson Xavier A Demo Application for NVIDIA TensorRT Pose Estimation" width="320" height="180"> _ 
+[YouTube https://youtu.be/Rr4mOH-6f9g](https://youtu.be/Rr4mOH-6f9g)
 
 ---
 ### OpenPifPaf 0.12.5 / 0.12.2 / 0.11.9
@@ -725,7 +739,7 @@ bash ./Jetson_Convenience_Script/PyTorch/inst_torchvision_v0_8_2.sh
 ---
 ### NVIDIA DeepStream SDK
 https://developer.nvidia.com/deepstream-sdk  
-http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_trt_pose_hand/  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_install_deep_stream_sdk/  
 ```
 # NVIDIA DeepStream 5.1 SDK
 cd
@@ -741,7 +755,6 @@ source .bashrc
 
 ### DeepStream Human Pose Estimation
 https://github.com/NVIDIA-AI-IOT/deepstream_pose_estimation  
-http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_install_deep_stream_sdk/  
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_install_deep_stream_pose_estimation/  
 
 |Jetson Model|deepstream_pose_estimation_config.txt|Work|

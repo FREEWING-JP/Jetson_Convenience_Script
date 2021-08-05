@@ -27,24 +27,18 @@ https://www.nvidia.com/ja-jp/autonomous-machines/embedded-systems/jetson-xavier-
 
 | JetPack | L4T Ver. |/etc/nv_tegra_release|Jetson_Convenience_Script Support|
 |:---:|:---:|:---:|:---:|
-|4.5.1 PR|L4T 32.5.1|R32 (release), REVISION: 5.1| Current OK |
-|4.5 PR|L4T 32.5|R32 (release), REVISION: 5.0| Current OK |
+|4.6 PR|L4T 32.6.1|R32 (release), REVISION: 6.1| Not Yet |
+|4.5.1 PR|L4T 32.5.1|R32 (release), REVISION: 5.1|[Archived tag:JetPack_4.5.1](https://github.com/FREEWING-JP/Jetson_Convenience_Script/tree/JetPack_4.5.1)|
+|4.5 PR|L4T 32.5|R32 (release), REVISION: 5.0|[Archived tag:JetPack_4.5.1](https://github.com/FREEWING-JP/Jetson_Convenience_Script/tree/JetPack_4.5.1)|
 |4.4.1 PR|L4T 32.4.4|R32 (release), REVISION: 4.4|[Archived tag:JetPack_4.4.1](https://github.com/FREEWING-JP/Jetson_Convenience_Script/tree/JetPack_4.4.1)|
 |4.4 PR|L4T 32.4.3|R32 (release), REVISION: 4.3|[Archived tag:JetPack_4.4.1](https://github.com/FREEWING-JP/Jetson_Convenience_Script/tree/JetPack_4.4.1)|
 |4.4 DP|L4T 32.4.2|R32 (release), REVISION: 4.2|[Archived tag:JetPack_4.4.1](https://github.com/FREEWING-JP/Jetson_Convenience_Script/tree/JetPack_4.4.1)|
 |4.3 PR|L4T 32.3.1|xxx| [Archived tag:JetPack_4.4.1](https://github.com/FREEWING-JP/Jetson_Convenience_Script/tree/JetPack_4.4.1)|
 
-- 2021/02 JetPack 4.5.1 PR Production Release  
+- 2021/08 JetPack 4.6 PR Production Release  
 https://developer.nvidia.com/embedded/jetpack  
-- 2021/01 JetPack 4.5 PR Production Release  
-- 2020/10 JetPack 4.4.1 PR Production Release  
-https://developer.nvidia.com/jetpack-sdk-441-archive  
-- JetPack 4.4 PR Production Release  
-https://developer.nvidia.com/jetpack-sdk-44-archive  
-- JetPack 4.4 DP Developer Preview  
-https://developer.nvidia.com/jetpack-sdk-44-dp-archive  
-- JetPack 4.3 PR Production Release  
-https://developer.nvidia.com/jetpack-43-archive  
+- 2021/02 JetPack 4.5.1 PR Production Release  
+https://developer.nvidia.com/jetpack-sdk-451-archive  
 - JetPack Archive  
 https://developer.nvidia.com/embedded/jetpack-archive  
   

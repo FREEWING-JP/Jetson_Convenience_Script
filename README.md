@@ -244,6 +244,7 @@ OpenCV-4.5.1-aarch64-dev.deb
 bazel_372.zip
 cmake-3.17.5-Linux-aarch64.deb
 cmake-3.19.4-Linux-aarch64.deb
+mediapipe-0.8-cp36-cp36m-linux_aarch64.whl
 ```
 ---
 ### CMake 3.19.4/ CMake 3.17.5
@@ -570,6 +571,28 @@ http://www.ashinari.com/2012/09/13-369878.php?
 <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/openpifpaf_ashinari_369878.jpg.predictions.jpg" alt="OpenPifPaf" title="OpenPifPaf" width="212" height="320">  
 <img src="https://img.youtube.com/vi/TTfejnA4yxA/hqdefault.jpg" alt="OpenPifPaf with NVIDIA Jetson Nano developer kit Detecting human skeleton from video" title="OpenPifPaf with NVIDIA Jetson Nano developer kit Detecting human skeleton from video" width="320" height="180"> _ 
 [YouTube https://youtu.be/TTfejnA4yxA](https://youtu.be/TTfejnA4yxA)
+
+---
+### MediaPipe v0.8.6 Python package
+https://github.com/google/mediapipe  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_build_mediapipe_python_package/  
+```
+# MediaPipe v0.8.6 Python package
+cd
+git clone https://github.com/FREEWING-JP/Jetson_Convenience_Script 00_deb -b 00_deb
+mv ./00_deb/00_deb/* ./00_deb/
+# */
+ls -l ./00_deb
+
+# opencv-contrib-python
+# https://pypi.org/project/opencv-contrib-python/3.4.15.55/
+opencv_version
+# 3.4.15-dev
+pip3 install opencv-contrib-python==3.4.15.55
+
+# Install MediaPipe Python package
+pip3 install ./00_deb/mediapipe-0.8-cp36-cp36m-linux_aarch64.whl
+```
 
 ---
 ### NVIDIA Caffe v0.17.4

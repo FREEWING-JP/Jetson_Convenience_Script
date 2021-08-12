@@ -593,6 +593,16 @@ pip3 install opencv-contrib-python==3.4.15.55
 # Install MediaPipe Python package
 pip3 install ./00_deb/mediapipe-0.8-cp36-cp36m-linux_aarch64.whl
 ```
+<img src="https://img.youtube.com/vi/QagT6eqdENQ/maxresdefault.jpg" alt="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Hands Sample" title="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Hands Sample" width="320" height="180"> _ 
+[YouTube https://youtu.be/QagT6eqdENQ](https://youtu.be/QagT6eqdENQ)  
+<img src="https://img.youtube.com/vi/UZcJR_URUI4/maxresdefault.jpg" alt="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Face Mesh Sample" title="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Face Mesh Sample" width="320" height="180"> _ 
+[YouTube https://youtu.be/UZcJR_URUI4](https://youtu.be/UZcJR_URUI4)  
+<img src="https://img.youtube.com/vi/VJucvNfgifg/maxresdefault.jpg" alt="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Holistic Sample" title="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Holistic Sample" width="320" height="180"> _ 
+[YouTube https://youtu.be/VJucvNfgifg](https://youtu.be/VJucvNfgifg)  
+<img src="https://img.youtube.com/vi/OyLYgCbBVLI/maxresdefault.jpg" alt="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Hair Segmentation Sample" title="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Hair Segmentation Sample" width="320" height="180"> _ 
+[YouTube https://youtu.be/OyLYgCbBVLI](https://youtu.be/OyLYgCbBVLI)  
+<img src="https://img.youtube.com/vi/NaCX8V0H_A0/maxresdefault.jpg" alt="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Objectron Sample" title="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Objectron Sample" width="320" height="180"> _ 
+[YouTube https://youtu.be/NaCX8V0H_A0](https://youtu.be/NaCX8V0H_A0)  
 
 ---
 ### NVIDIA Caffe v0.17.4

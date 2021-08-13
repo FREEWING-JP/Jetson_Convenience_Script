@@ -152,7 +152,7 @@ if [ $OPENCV_VERSION = 4 ]; then
   # OK L4T 32.4.3 = JetPack 4.4 Production Release OK
   # OK L4T 32.4.4 = JetPack 4.4.1 Production Release OK
   # OK L4T 32.5 = JetPack 4.5 Production Release OK
-  cat /etc/nv_tegra_release | grep -E "R32 (release), REVISION: (4\.[34]|5\.)"
+  cat /etc/nv_tegra_release | grep -E "R32 (release), REVISION: (4\.[34]|5\.|6\.)"
   # R32 (release), REVISION: 4.3, GCID: 21589087, BOARD: t186ref, EABI: aarch64, DATE: Fri Jun 26 04:34:27 UTC 2020
   if [ $? = 0 ]; then
     echo "JetPack 4.4/4.5 patch No cuDNN 8.0"

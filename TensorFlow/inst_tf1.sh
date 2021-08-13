@@ -28,6 +28,13 @@ fi
 # ===
 TF_URL=""
 
+# L4T 32.6 = JetPack 4.6
+cat /etc/nv_tegra_release | grep "R32 (release), REVISION: 6\."
+if [ $? = 0 ]; then
+  echo "JetPack 4.6"
+  TF_URL="https://developer.download.nvidia.com/compute/redist/jp/v46"
+fi
+
 # L4T 32.5 = JetPack 4.5
 cat /etc/nv_tegra_release | grep "R32 (release), REVISION: 5\."
 if [ $? = 0 ]; then

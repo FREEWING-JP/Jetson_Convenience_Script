@@ -27,7 +27,7 @@ https://www.nvidia.com/ja-jp/autonomous-machines/embedded-systems/jetson-xavier-
 
 | JetPack | L4T Ver. |/etc/nv_tegra_release|Jetson_Convenience_Script Support|
 |:---:|:---:|:---:|:---:|
-|4.6 PR|L4T 32.6.1|R32 (release), REVISION: 6.1| Not Yet |
+|4.6 PR|L4T 32.6.1|R32 (release), REVISION: 6.1| add Support JetPack 4.6 |
 |4.5.1 PR|L4T 32.5.1|R32 (release), REVISION: 5.1|[Archived tag:JetPack_4.5.1](https://github.com/FREEWING-JP/Jetson_Convenience_Script/tree/JetPack_4.5.1)|
 |4.5 PR|L4T 32.5|R32 (release), REVISION: 5.0|[Archived tag:JetPack_4.5.1](https://github.com/FREEWING-JP/Jetson_Convenience_Script/tree/JetPack_4.5.1)|
 |4.4.1 PR|L4T 32.4.4|R32 (release), REVISION: 4.4|[Archived tag:JetPack_4.4.1](https://github.com/FREEWING-JP/Jetson_Convenience_Script/tree/JetPack_4.4.1)|
@@ -703,13 +703,19 @@ bash ./Jetson_Convenience_Script/TensorFlow/build_TensorFlow_v2_4_1.sh
 ### Pytorch
 https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-6-0-now-available/72048  
 
-| JetPack | Pytorch 1.4.0 | 1.5.0 | 1.6.0 | 1.7.0 | 1.8.0 |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|4.5 or later|--|--|OK|OK|OK|
-|4.4.1 PR|--|--|OK|OK|OK|
-|4.4 PR|--|--|OK|OK|OK|
-|4.4 DP|OK|OK|OK|--|--|
-|4.3 PR|OK|OK|OK|--|--|
+| JetPack | Pytorch 1.4.0 | 1.5.0 | 1.6.0 | 1.7.0 | 1.8.0 | 1.9.0 |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|4.6 or later|--|--|--|--|--|OK|
+|4.5 PR|--|--|OK|OK|OK|OK|
+|4.4.1 PR|--|--|OK|OK|OK|--|
+|4.4 PR|--|--|OK|OK|OK|--|
+|4.4 DP|OK|OK|OK|--|--|--|
+|4.3 PR|OK|OK|OK|--|--|--|
+```
+# Pytorch v1.9.0 / torchvision v0.10.0 / Python 3.6
+cd
+bash ./Jetson_Convenience_Script/PyTorch/inst_PyTorch_v1_9_Python3.sh
+```
 ```
 # Pytorch v1.8.0 / torchvision v0.9.0 / Python 3.6
 cd

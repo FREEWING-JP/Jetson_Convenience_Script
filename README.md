@@ -685,24 +685,24 @@ https://forums.developer.nvidia.com/t/official-tensorflow-for-jetson-agx-xaviern
 http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_jetpack_tensorflow_setup/  
 
 ##### TensorFlow Current Version
-https://developer.download.nvidia.com/compute/redist/jp/v45/tensorflow/  
+https://developer.download.nvidia.com/compute/redist/jp/v46/tensorflow/  
 ```
-2021-02-26 16:10:00
-tensorflow-1.15.5+nv21.2-cp36-cp36m-linux_aarch64.whl 218MB
-tensorflow-2.4.0+nv21.2-cp36-cp36m-linux_aarch64.whl 273MB
+2021-08-06 for JetPack 4.6
+tensorflow-1.15.5+nv21.7-cp36-cp36m-linux_aarch64.whl 220MB
+tensorflow-2.5.0+nv21.7-cp36-cp36m-linux_aarch64.whl 298MB
 ```
 
 ### TensorFlow v1.x
 ```
-# TensorFlow v1.15.2
-# Auto detect JetPack 4.3/ 4.4/ 4.5
+# TensorFlow v1.15.5
+# Auto detect JetPack 4.5/ 4.6
 cd
 bash ./Jetson_Convenience_Script/TensorFlow/inst_tf1.sh
 ```
 ### TensorFlow v2.x
 ```
-# TensorFlow v2.1.0
-# Auto detect JetPack 4.3/ 4.4/ 4.5
+# TensorFlow v2.5.0
+# Auto detect JetPack 4.5/ 4.6
 cd
 bash ./Jetson_Convenience_Script/TensorFlow/inst_tf2.sh
 ```

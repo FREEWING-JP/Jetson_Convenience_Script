@@ -605,6 +605,20 @@ pip3 install ./00_deb/mediapipe-0.8-cp36-cp36m-linux_aarch64.whl
 [YouTube https://youtu.be/NaCX8V0H_A0](https://youtu.be/NaCX8V0H_A0)  
 
 ---
+### Tokyo2020-Pictogram-using-MediaPipe
+https://github.com/Kazuhito00/Tokyo2020-Pictogram-using-MediaPipe  
+NVIDIA Jetsonで Tokyo2020オリンピック風のピクトグラムを表示を動かす方法  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_tokyo2020_pictogram_using_mediapipe/  
+<img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/nvidia_jetson_tokyo2020_pictogram_using_mediapipe_xavier.png" alt="NVIDIA Jetsonで Tokyo2020オリンピック風のピクトグラムを表示を動かす方法" title="NVIDIA Jetsonで Tokyo2020オリンピック風のピクトグラムを表示を動かす方法" width="320" height="240">  
+
+---
+### Pictogram-san App
+https://github.com/tommy19970714/pictogram-san  
+NVIDIA Jetsonで 東京五輪のピクトグラムさんになれるゲーム Pictogram Challengeを動かす方法  
+http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_tokyo2020_pictogram_san_using_mediapipe/  
+<img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/nvidia_jetson_tokyo2020_pictogram_san_using_mediapipe_2.png" alt="NVIDIA Jetsonで 東京五輪のピクトグラムさんになれるゲーム Pictogram Challengeを動かす方法" title="NVIDIA Jetsonで 東京五輪のピクトグラムさんになれるゲーム Pictogram Challengeを動かす方法" width="320" height="240">  
+
+---
 ### NVIDIA Caffe v0.17.4
 Support cuDNN 8.0 and OpenCV 4.x  
 

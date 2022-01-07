@@ -687,9 +687,9 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_jetpack_tensorflow_se
 ##### TensorFlow Current Version
 https://developer.download.nvidia.com/compute/redist/jp/v46/tensorflow/  
 ```
-2021-08-06 for JetPack 4.6
-tensorflow-1.15.5+nv21.7-cp36-cp36m-linux_aarch64.whl 220MB
-tensorflow-2.5.0+nv21.7-cp36-cp36m-linux_aarch64.whl 298MB
+2021-12-07 for JetPack 4.6
+tensorflow-1.15.5+nv21.12-cp36-cp36m-linux_aarch64.whl 220MB
+tensorflow-2.6.2+nv21.12-cp36-cp36m-linux_aarch64.whl 302MB
 ```
 
 ### TensorFlow v1.x

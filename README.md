@@ -420,8 +420,7 @@ http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_xavier_nx_2020_build_
 cd
 bash ./Jetson_Convenience_Script/OpenPose/inst_OpenPose_160.sh
 ```
-<img src="https://img.youtube.com/vi/TyokrHR_S_8/maxresdefault.jpg" alt="OpenPose v1.6.0 Detecting human skeleton NVIDIA Jetson Xavier NX JetPack 4.4" title="OpenPose v1.6.0 Detecting human skeleton NVIDIA Jetson Xavier NX JetPack 4.4" width="320" height="180"> _ 
-[YouTube https://youtu.be/TyokrHR_S_8](https://youtu.be/TyokrHR_S_8)
+[<img src="https://img.youtube.com/vi/TyokrHR_S_8/maxresdefault.jpg" alt="OpenPose v1.6.0 Detecting human skeleton NVIDIA Jetson Xavier NX JetPack 4.4" title="OpenPose v1.6.0 Detecting human skeleton NVIDIA Jetson Xavier NX JetPack 4.4" width="320" height="180"> YouTube https://youtu.be/TyokrHR_S_8](https://youtu.be/TyokrHR_S_8)  
 
 ### OpenPose Benchmark Comparison Jetson Xavier NX vs Jetson Nano
 JetPack 4.4 PR + OpenPose v1.6.0 USE_CUDNN=0  
@@ -533,8 +532,7 @@ https://github.com/MACNICA-CLAVIS-NV/trt_pose_demo
 cd
 bash ./Jetson_Convenience_Script/trt_pose_demo/inst_trt_pose_demo.sh
 ```
-<img src="https://img.youtube.com/vi/Rr4mOH-6f9g/maxresdefault.jpg" alt="trt_pose_demo Jetson Xavier A Demo Application for NVIDIA TensorRT Pose Estimation" title="trt_pose_demo Jetson Xavier A Demo Application for NVIDIA TensorRT Pose Estimation" width="320" height="180"> _ 
-[YouTube https://youtu.be/Rr4mOH-6f9g](https://youtu.be/Rr4mOH-6f9g)
+[<img src="https://img.youtube.com/vi/Rr4mOH-6f9g/maxresdefault.jpg" alt="trt_pose_demo Jetson Xavier A Demo Application for NVIDIA TensorRT Pose Estimation" title="trt_pose_demo Jetson Xavier A Demo Application for NVIDIA TensorRT Pose Estimation" width="320" height="180"> YouTube https://youtu.be/Rr4mOH-6f9g](https://youtu.be/Rr4mOH-6f9g)  
 
 ---
 ### OpenPifPaf 0.12.5 / 0.12.2 / 0.11.9
@@ -569,8 +567,7 @@ python3 -m openpifpaf.video --source=$VIDEO_FILE --long-edge 641 --video-output 
 写真素材足成 >  人物 >  ナベ散歩  
 http://www.ashinari.com/2012/09/13-369878.php?  
 <img src="https://raw.githubusercontent.com/FREEWING-JP/Jetson_Convenience_Script/assets/assets/openpifpaf_ashinari_369878.jpg.predictions.jpg" alt="OpenPifPaf" title="OpenPifPaf" width="212" height="320">  
-<img src="https://img.youtube.com/vi/TTfejnA4yxA/hqdefault.jpg" alt="OpenPifPaf with NVIDIA Jetson Nano developer kit Detecting human skeleton from video" title="OpenPifPaf with NVIDIA Jetson Nano developer kit Detecting human skeleton from video" width="320" height="180"> _ 
-[YouTube https://youtu.be/TTfejnA4yxA](https://youtu.be/TTfejnA4yxA)
+[<img src="https://img.youtube.com/vi/TTfejnA4yxA/hqdefault.jpg" alt="OpenPifPaf with NVIDIA Jetson Nano developer kit Detecting human skeleton from video" title="OpenPifPaf with NVIDIA Jetson Nano developer kit Detecting human skeleton from video" width="320" height="180"> YouTube https://youtu.be/TTfejnA4yxA](https://youtu.be/TTfejnA4yxA)  
 
 ---
 ### MediaPipe v0.8.6 Python package
@@ -593,16 +590,11 @@ pip3 install opencv-contrib-python==3.4.15.55
 # Install MediaPipe Python package
 pip3 install ./00_deb/mediapipe-0.8-cp36-cp36m-linux_aarch64.whl
 ```
-<img src="https://img.youtube.com/vi/QagT6eqdENQ/maxresdefault.jpg" alt="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Hands Sample" title="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Hands Sample" width="320" height="180"> _ 
-[YouTube https://youtu.be/QagT6eqdENQ](https://youtu.be/QagT6eqdENQ)  
-<img src="https://img.youtube.com/vi/UZcJR_URUI4/maxresdefault.jpg" alt="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Face Mesh Sample" title="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Face Mesh Sample" width="320" height="180"> _ 
-[YouTube https://youtu.be/UZcJR_URUI4](https://youtu.be/UZcJR_URUI4)  
-<img src="https://img.youtube.com/vi/VJucvNfgifg/maxresdefault.jpg" alt="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Holistic Sample" title="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Holistic Sample" width="320" height="180"> _ 
-[YouTube https://youtu.be/VJucvNfgifg](https://youtu.be/VJucvNfgifg)  
-<img src="https://img.youtube.com/vi/OyLYgCbBVLI/maxresdefault.jpg" alt="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Hair Segmentation Sample" title="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Hair Segmentation Sample" width="320" height="180"> _ 
-[YouTube https://youtu.be/OyLYgCbBVLI](https://youtu.be/OyLYgCbBVLI)  
-<img src="https://img.youtube.com/vi/NaCX8V0H_A0/maxresdefault.jpg" alt="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Objectron Sample" title="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Objectron Sample" width="320" height="180"> _ 
-[YouTube https://youtu.be/NaCX8V0H_A0](https://youtu.be/NaCX8V0H_A0)  
+[<img src="https://img.youtube.com/vi/QagT6eqdENQ/maxresdefault.jpg" alt="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Hands Sample" title="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Hands Sample" width="320" height="180"> YouTube https://youtu.be/QagT6eqdENQ](https://youtu.be/QagT6eqdENQ)  
+[<img src="https://img.youtube.com/vi/UZcJR_URUI4/maxresdefault.jpg" alt="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Face Mesh Sample" title="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Face Mesh Sample" width="320" height="180"> YouTube https://youtu.be/UZcJR_URUI4](https://youtu.be/UZcJR_URUI4)  
+[<img src="https://img.youtube.com/vi/VJucvNfgifg/maxresdefault.jpg" alt="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Holistic Sample" title="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Holistic Sample" width="320" height="180"> YouTube https://youtu.be/VJucvNfgifg](https://youtu.be/VJucvNfgifg)  
+[<img src="https://img.youtube.com/vi/OyLYgCbBVLI/maxresdefault.jpg" alt="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Hair Segmentation Sample" title="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Hair Segmentation Sample" width="320" height="180"> YouTube https://youtu.be/OyLYgCbBVLI](https://youtu.be/OyLYgCbBVLI)  
+[<img src="https://img.youtube.com/vi/NaCX8V0H_A0/maxresdefault.jpg" alt="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Objectron Sample" title="NVIDIA Jetson Nano Google MediaPipe v0.8.6 Objectron Sample" width="320" height="180"> YouTube https://youtu.be/NaCX8V0H_A0](https://youtu.be/NaCX8V0H_A0)  
 
 ---
 ### Tokyo2020-Pictogram-using-MediaPipe
@@ -819,8 +811,7 @@ bash ./Jetson_Convenience_Script/DeepStream/inst_deepstream_pose_estimation.sh
 # Change workspace-size=3000 to 2000
 sed -i 's/^workspace-size=3000/workspace-size=2000/' deepstream_pose_estimation_config.txt
 ```
-<img src="https://img.youtube.com/vi/GN1HvM__4gY/maxresdefault.jpg" alt="NVIDIA Jetson Xavier NX DeepStream Human Pose Estimation Sample" title="NVIDIA Jetson Xavier NX DeepStream Human Pose Estimation Sample" width="320" height="180"> _ 
-[YouTube https://youtu.be/GN1HvM__4gY](https://youtu.be/GN1HvM__4gY)
+[<img src="https://img.youtube.com/vi/GN1HvM__4gY/maxresdefault.jpg" alt="NVIDIA Jetson Xavier NX DeepStream Human Pose Estimation Sample" title="NVIDIA Jetson Xavier NX DeepStream Human Pose Estimation Sample" width="320" height="180"> YouTube https://youtu.be/GN1HvM__4gY](https://youtu.be/GN1HvM__4gY)  
 
 ---
 ### JupyterLab or Jupyter Notebook

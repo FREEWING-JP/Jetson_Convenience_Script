@@ -25,6 +25,10 @@ https://www.nvidia.com/ja-jp/autonomous-machines/embedded-systems/jetson-xavier-
 
 ### NVIDIA JetPack
 
+2022/04  
+JetPack 5.0 PR I will be Support  
+JetPack 4.6.1 not Support (Script will not work)  
+
 | JetPack | L4T Ver. |/etc/nv_tegra_release|Jetson_Convenience_Script Support|
 |:---:|:---:|:---:|:---:|
 |4.6 PR|L4T 32.6.1|R32 (release), REVISION: 6.1| add Support JetPack 4.6 |

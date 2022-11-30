@@ -8,7 +8,11 @@ bash -c "echo \#\!/bin/sh> tmp.sh"
 bash -c "echo >> tmp.sh"
 bash -c "echo sleep 2 >> tmp.sh"
 
-tegra_cip_id=$(cat /sys/module/tegra_fuse/parameters/tegra_chip_id)
+if [ -f /sys/devices/soc0/soc_id ]; then
+  tegra_cip_id=$(cat /sys/devices/soc0/soc_id)
+else
+  tegra_cip_id=$(cat /sys/module/tegra_fuse/parameters/tegra_chip_id)
+fi
 echo $tegra_cip_id
 
 mode=0

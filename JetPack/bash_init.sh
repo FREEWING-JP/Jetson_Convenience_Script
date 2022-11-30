@@ -5,7 +5,11 @@
 # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w \$\[\033[00m\] '
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w \$\[\033[00m\] '
 
-tegra_cip_id=$(cat /sys/module/tegra_fuse/parameters/tegra_chip_id)
+if [ -f /sys/devices/soc0/soc_id ]; then
+  tegra_cip_id=$(cat /sys/devices/soc0/soc_id)
+else
+  tegra_cip_id=$(cat /sys/module/tegra_fuse/parameters/tegra_chip_id)
+fi
 echo $tegra_cip_id
 
 # Jetson Xavier NX
